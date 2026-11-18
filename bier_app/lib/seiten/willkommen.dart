@@ -206,9 +206,9 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                     0.5,
                     Text(
                       bis == null
-                          ? 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von Bierradar. '
+                          ? 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von BierRadar. '
                                 'Ab jetzt entgeht dir keine Bier-Aktion mehr.'
-                          : 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von Bierradar '
+                          : 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von BierRadar '
                                 'und testest die App $betaTage Tage lang gratis. Ab jetzt entgeht dir keine Bier-Aktion mehr.',
                       textAlign: TextAlign.center,
                       style: const TextStyle(color: Color(0xFFB8C4D9), fontSize: 15, height: 1.5),

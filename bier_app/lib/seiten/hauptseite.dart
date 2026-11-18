@@ -224,7 +224,7 @@ class _Kopf extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Bierradar',
+                  'BierRadar',
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: textHell, letterSpacing: 0.3),
                 ),
                 const SizedBox(height: 2),
@@ -692,7 +692,7 @@ void _zeigeDetails(BuildContext context, Treffer t) {
                       text:
                           '🍺 ${a.bier.name} – ${a.verpackung.bezeichnung} um ${euro(a.preis)}$karte '
                           'bei ${a.haendler}, gültig ${zeitraum(a.von, a.bis)}. '
-                          'Gefunden mit Bierradar 🏴‍☠️',
+                          'Gefunden mit BierRadar 🏴‍☠️',
                     ),
                   );
                 },

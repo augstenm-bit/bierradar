@@ -1,4 +1,4 @@
-# Bierradar
+# BierRadar
 
 Findet Bier-Aktionen aus den Flugblättern im Bezirk Amstetten und meldet,
 wenn deine Lieblingsbiere günstig zu haben sind.

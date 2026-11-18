@@ -1,4 +1,4 @@
-// Radar-Zeichnung für Logo, Startanimation und Live-Radar von Bierradar (moderner Look).
+// Radar-Zeichnung für Logo, Startanimation und Live-Radar von BierRadar (moderner Look).
 
 import 'dart:math' as math;
 

@@ -111,7 +111,7 @@ class _IntroState extends State<Intro> with SingleTickerProviderStateMixin {
                               shaderCallback: (r) =>
                                   const LinearGradient(colors: [radarMintHell, bierGoldHell]).createShader(r),
                               child: const Text(
-                                'Bierradar',
+                                'BierRadar',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 42,

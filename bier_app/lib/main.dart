@@ -117,7 +117,7 @@ class BierApp extends StatelessWidget {
     return ZustandScope(
       zustand: zustand,
       child: MaterialApp(
-        title: 'Bierradar',
+        title: 'BierRadar',
         debugShowCheckedModeBanner: false,
         theme: radarDesign(),
         home: _Start(beta: beta),
