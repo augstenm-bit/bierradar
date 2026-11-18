@@ -90,186 +90,199 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
             ),
           ),
           SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  const Spacer(),
-                  SizedBox.square(
-                    dimension: 240,
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        const LiveRadar(groesse: 240, dauer: Duration(milliseconds: 2600)),
-                        AnimatedBuilder(
-                          animation: _welle,
-                          builder: (_, _) => Container(
-                            width: 150 + 90 * _welle.value,
-                            height: 150 + 90 * _welle.value,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: bierBernstein.withValues(alpha: 0.8 * (1 - _welle.value)),
-                                width: 2,
-                              ),
+            child: LayoutBuilder(
+              builder: (context, box) => SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: box.maxHeight),
+                  child: IntrinsicHeight(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: [
+                          const Spacer(),
+                          SizedBox.square(
+                            dimension: 240,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                const LiveRadar(groesse: 240, dauer: Duration(milliseconds: 2600)),
+                                AnimatedBuilder(
+                                  animation: _welle,
+                                  builder: (_, _) => Container(
+                                    width: 150 + 90 * _welle.value,
+                                    height: 150 + 90 * _welle.value,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                        color: bierBernstein.withValues(alpha: 0.8 * (1 - _welle.value)),
+                                        width: 2,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                AnimatedBuilder(
+                                  animation: abzeichen,
+                                  builder: (_, c) => Transform.rotate(
+                                    angle: -0.7 * (1 - abzeichen.value),
+                                    child: Transform.scale(scale: abzeichen.value, child: c),
+                                  ),
+                                  child: AnimatedBuilder(
+                                    animation: _welle,
+                                    // Leichtes Schaukeln – der Pirat hat schon ein paar Bier intus
+                                    builder: (_, c) => Transform.rotate(
+                                      angle: math.sin(_welle.value * 2 * math.pi) * 0.05,
+                                      child: c,
+                                    ),
+                                    child: Container(
+                                      width: 150,
+                                      height: 150,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(color: bierGoldHell, width: 3),
+                                        boxShadow: [
+                                          BoxShadow(color: bierOrange.withValues(alpha: 0.6), blurRadius: 30),
+                                        ],
+                                      ),
+                                      child: ClipOval(
+                                        child: Image.asset('assets/bilder/pirat.png', fit: BoxFit.cover),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ),
-                        AnimatedBuilder(
-                          animation: abzeichen,
-                          builder: (_, c) => Transform.rotate(
-                            angle: -0.7 * (1 - abzeichen.value),
-                            child: Transform.scale(scale: abzeichen.value, child: c),
-                          ),
-                          child: AnimatedBuilder(
-                            animation: _welle,
-                            // Leichtes Schaukeln – der Pirat hat schon ein paar Bier intus
-                            builder: (_, c) => Transform.rotate(
-                              angle: math.sin(_welle.value * 2 * math.pi) * 0.05,
-                              child: c,
-                            ),
-                            child: Container(
-                              width: 150,
-                              height: 150,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(color: bierGoldHell, width: 3),
-                                boxShadow: [
-                                  BoxShadow(color: bierOrange.withValues(alpha: 0.6), blurRadius: 30),
-                                ],
-                              ),
-                              child: ClipOval(
-                                child: Image.asset('assets/bilder/pirat.png', fit: BoxFit.cover),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 22),
-                  _rein(
-                    0.35,
-                    const Text(
-                      'MICHAEL HAT DICH EINGELADEN',
-                      style: TextStyle(
-                        color: radarGruen,
-                        letterSpacing: 2,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  _rein(
-                    0.42,
-                    ShaderMask(
-                      shaderCallback: (r) =>
-                          const LinearGradient(colors: [radarMintHell, bierGoldHell]).createShader(r),
-                      child: const Text(
-                        'Ahoi, Pirat!',
-                        style: TextStyle(fontSize: 34, fontWeight: FontWeight.w800, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  _rein(0.48, const _Arrr()),
-                  const SizedBox(height: 6),
-                  if (bis != null)
-                    _rein(
-                      0.5,
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                        decoration: BoxDecoration(
-                          color: bierBernstein.withValues(alpha: 0.16),
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: bierBernstein.withValues(alpha: 0.4)),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(Icons.hourglass_top, size: 15, color: bierGoldHell),
-                            const SizedBox(width: 5),
-                            Text(
-                              'Noch ${bis.difference(DateTime.now()).inDays.clamp(0, betaTage)} Tage gratis testen',
-                              style: const TextStyle(
-                                color: bierGoldHell,
-                                fontSize: 13,
+                          const SizedBox(height: 22),
+                          _rein(
+                            0.35,
+                            const Text(
+                              'MICHAEL HAT DICH EINGELADEN',
+                              style: TextStyle(
+                                color: radarGruen,
+                                letterSpacing: 2,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  const SizedBox(height: 10),
-                  _rein(
-                    0.5,
-                    Text(
-                      bis == null
-                          ? 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von BierRadar. '
-                                'Ab jetzt entgeht dir keine Bier-Aktion mehr.'
-                          : 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von BierRadar '
-                                'und testest die App $betaTage Tage lang gratis. Ab jetzt entgeht dir keine Bier-Aktion mehr.',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(color: Color(0xFFB8C4D9), fontSize: 15, height: 1.5),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  _rein(
-                    0.6,
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: karteFarbe,
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
-                      ),
-                      child: Column(
-                        children: [
-                          _Regel(
-                            Icons.hourglass_bottom,
-                            bis == null
-                                ? 'Das ist eine Test-Version direkt von Michael.'
-                                : 'Die Zeit läuft: Deine Beta gilt $betaTage Tage, also bis ${_datum(bis)}. '
-                                      'Danach schickt dir Michael die neue Version.',
                           ),
-                          if (Theme.of(context).platform == TargetPlatform.android)
-                            const _Regel(
-                              Icons.notifications_active_outlined,
-                              'Gleich kommt die Frage nach Benachrichtigungen – bitte „Zulassen“! '
-                              'Wenn du ablehnst, bekommst du keine Meldungen über Bier-Aktionen, '
-                              'und genau dafür ist BierRadar da.',
+                          const SizedBox(height: 6),
+                          _rein(
+                            0.42,
+                            ShaderMask(
+                              shaderCallback: (r) =>
+                                  const LinearGradient(colors: [radarMintHell, bierGoldHell]).createShader(r),
+                              child: const Text(
+                                'Ahoi, Pirat!',
+                                style: TextStyle(
+                                  fontSize: 34,
+                                  fontWeight: FontWeight.w800,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
-                          const _Regel(
-                            Icons.lock_outline,
-                            'Piratenehrenwort: Die App bleibt in der Crew – bitte nicht weiterschicken.',
                           ),
-                          const _Regel(
-                            Icons.chat_bubble_outline,
-                            'Fehler oder Ideen? Sag’s Michael – du machst die App besser.',
-                            letzte: true,
+                          _rein(0.48, const _Arrr()),
+                          const SizedBox(height: 6),
+                          if (bis != null)
+                            _rein(
+                              0.5,
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                                decoration: BoxDecoration(
+                                  color: bierBernstein.withValues(alpha: 0.16),
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(color: bierBernstein.withValues(alpha: 0.4)),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Icon(Icons.hourglass_top, size: 15, color: bierGoldHell),
+                                    const SizedBox(width: 5),
+                                    Text(
+                                      'Noch ${bis.difference(DateTime.now()).inDays.clamp(0, betaTage)} Tage gratis testen',
+                                      style: const TextStyle(
+                                        color: bierGoldHell,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          const SizedBox(height: 10),
+                          _rein(
+                            0.5,
+                            Text(
+                              bis == null
+                                  ? 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von BierRadar. '
+                                        'Ab jetzt entgeht dir keine Bier-Aktion mehr.'
+                                  : 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von BierRadar '
+                                        'und testest die App $betaTage Tage lang gratis. Ab jetzt entgeht dir keine Bier-Aktion mehr.',
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(color: Color(0xFFB8C4D9), fontSize: 15, height: 1.5),
+                            ),
                           ),
+                          const SizedBox(height: 20),
+                          _rein(
+                            0.6,
+                            Container(
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: karteFarbe,
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
+                              ),
+                              child: Column(
+                                children: [
+                                  _Regel(
+                                    Icons.hourglass_bottom,
+                                    bis == null
+                                        ? 'Das ist eine Test-Version direkt von Michael.'
+                                        : 'Die Zeit läuft: Deine Beta gilt $betaTage Tage, also bis ${_datum(bis)}. '
+                                              'Danach schickt dir Michael die neue Version.',
+                                  ),
+                                  if (Theme.of(context).platform == TargetPlatform.android)
+                                    const _Regel(
+                                      Icons.notifications_active_outlined,
+                                      'Gleich kommt die Frage nach Benachrichtigungen – bitte „Zulassen“! '
+                                      'Wenn du ablehnst, bekommst du keine Meldungen über Bier-Aktionen, '
+                                      'und genau dafür ist BierRadar da.',
+                                    ),
+                                  const _Regel(
+                                    Icons.lock_outline,
+                                    'Piratenehrenwort: Die App bleibt in der Crew – bitte nicht weiterschicken.',
+                                  ),
+                                  const _Regel(
+                                    Icons.chat_bubble_outline,
+                                    'Fehler oder Ideen? Sag’s Michael – du machst die App besser.',
+                                    letzte: true,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const Spacer(),
+                          _rein(
+                            0.75,
+                            SizedBox(
+                              width: double.infinity,
+                              child: FilledButton.icon(
+                                onPressed: b.willkommenBestaetigen,
+                                icon: const Icon(Icons.anchor),
+                                label: const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 14),
+                                  child: Text('Anheuern und Bier finden', style: TextStyle(fontSize: 16)),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 18),
                         ],
                       ),
                     ),
                   ),
-                  const Spacer(),
-                  _rein(
-                    0.75,
-                    SizedBox(
-                      width: double.infinity,
-                      child: FilledButton.icon(
-                        onPressed: b.willkommenBestaetigen,
-                        icon: const Icon(Icons.anchor),
-                        label: const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 14),
-                          child: Text('Anheuern und Bier finden', style: TextStyle(fontSize: 16)),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 18),
-                ],
+                ),
               ),
             ),
           ),
