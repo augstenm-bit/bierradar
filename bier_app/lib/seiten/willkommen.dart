@@ -233,6 +233,13 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                                 : 'Die Zeit läuft: Deine Beta gilt $betaTage Tage, also bis ${_datum(bis)}. '
                                       'Danach schickt dir Michael die neue Version.',
                           ),
+                          if (Theme.of(context).platform == TargetPlatform.android)
+                            const _Regel(
+                              Icons.notifications_active_outlined,
+                              'Gleich kommt die Frage nach Benachrichtigungen – bitte „Zulassen“! '
+                              'Wenn du ablehnst, bekommst du keine Meldungen über Bier-Aktionen, '
+                              'und genau dafür ist BierRadar da.',
+                            ),
                           const _Regel(
                             Icons.lock_outline,
                             'Piratenehrenwort: Die App bleibt in der Crew – bitte nicht weiterschicken.',
