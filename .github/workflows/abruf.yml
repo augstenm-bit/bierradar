@@ -32,12 +32,17 @@ jobs:
       - name: Angebote abrufen
         working-directory: server
         run: python abruf.py angebote.json
+      - name: Push-Meldungen für neue Angebote
+        working-directory: server
+        env:
+          FIREBASE_SCHLUESSEL: ${{ secrets.FIREBASE_SCHLUESSEL }}
+        run: python melden.py angebote.json
       - name: Speichern, wenn sich etwas geändert hat
         run: |
           git config user.name "Bierradar-Abruf"
           git config user.email "bierradar-abruf@users.noreply.github.com"
-          git add server/angebote.json server/erstmals_gesehen.json
-          if git diff --cached --quiet -- server/angebote.json; then
+          git add server/angebote.json server/erstmals_gesehen.json server/gemeldet.json
+          if git diff --cached --quiet; then
             echo "Keine neuen Angebote."
           else
             git commit -m "Angebote aktualisiert"
