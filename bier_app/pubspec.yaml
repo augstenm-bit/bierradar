@@ -100,13 +100,13 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/logo/bierradar_icon.png"
   remove_alpha_ios: true
-  adaptive_icon_background: "#06140D"
+  adaptive_icon_background: "#0A0E17"
   adaptive_icon_foreground: "assets/logo/bierradar_vordergrund.png"
   min_sdk_android: 21
 
 flutter_native_splash:
-  color: "#06140D"
+  color: "#0A0E17"
   android_12:
-    color: "#06140D"
+    color: "#0A0E17"
     image: assets/logo/bierradar_vordergrund.png
-    icon_background_color: "#06140D"
+    icon_background_color: "#0A0E17"

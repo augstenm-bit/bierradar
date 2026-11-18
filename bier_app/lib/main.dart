@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'beta.dart';
 import 'radar.dart';
 import 'seiten/einrichtung.dart';
 import 'seiten/hauptseite.dart';
 import 'seiten/intro.dart';
+import 'seiten/willkommen.dart';
 import 'zustand.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   final zustand = AppZustand()..laden();
-  runApp(BierApp(zustand: zustand));
+  final beta = BetaPruefung()..pruefen();
+  runApp(BierApp(zustand: zustand, beta: beta));
 }
 
 /// Gibt den App-Zustand an alle Seiten weiter.
@@ -21,27 +24,26 @@ class ZustandScope extends InheritedNotifier<AppZustand> {
       context.dependOnInheritedWidgetOfExactType<ZustandScope>()!.notifier!;
 }
 
-const _karte = Color(0xFF0F2A1C);
-const _flaeche = Color(0xFF0B1F14);
+const _flaeche = Color(0xFF0E1320);
 
-/// Radar-Look: dunkler Schirm, leuchtendes Radar-Grün, Bier-Bernstein.
+/// Moderner Radar-Look: Nachtblau, Mint, Bier-Orange.
 ThemeData radarDesign() {
-  final farben = const ColorScheme.dark(
+  const farben = ColorScheme.dark(
     primary: radarGruen,
-    onPrimary: Color(0xFF00210F),
+    onPrimary: Color(0xFF00271A),
     secondary: bierBernstein,
-    onSecondary: Color(0xFF2A1A00),
+    onSecondary: Color(0xFF3A1C00),
     surface: _flaeche,
-    onSurface: Color(0xFFE8F5EC),
-    onSurfaceVariant: Color(0xFF9CC3AC),
-    surfaceContainerHighest: Color(0xFF16382A),
-    secondaryContainer: Color(0xFF173B29),
-    onSecondaryContainer: Color(0xFFE8F5EC),
-    tertiaryContainer: Color(0xFF3B2A06),
+    onSurface: textHell,
+    onSurfaceVariant: textGedaempft,
+    surfaceContainerHighest: Color(0xFF1B2438),
+    secondaryContainer: Color(0xFF16233A),
+    onSecondaryContainer: textHell,
+    tertiaryContainer: Color(0xFF3A2A12),
     onTertiaryContainer: Color(0xFFFFDFA0),
-    error: Color(0xFFFF7A7A),
-    outline: Color(0xFF4F7562),
-    outlineVariant: Color(0xFF24463A),
+    error: Color(0xFFFF7A8A),
+    outline: Color(0xFF56617A),
+    outlineVariant: Color(0xFF232C40),
   );
   return ThemeData(
     useMaterial3: true,
@@ -49,51 +51,64 @@ ThemeData radarDesign() {
     scaffoldBackgroundColor: radarHintergrund,
     appBarTheme: const AppBarTheme(
       backgroundColor: radarHintergrund,
-      foregroundColor: Color(0xFFE8F5EC),
+      foregroundColor: textHell,
       surfaceTintColor: Colors.transparent,
-      titleTextStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Color(0xFFE8F5EC)),
+      titleTextStyle: TextStyle(fontSize: 21, fontWeight: FontWeight.w600, color: textHell),
     ),
     cardTheme: CardThemeData(
-      color: _karte,
+      color: karteFarbe,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: radarGruen.withValues(alpha: 0.18)),
+        borderRadius: BorderRadius.circular(18),
+        side: BorderSide(color: Colors.white.withValues(alpha: 0.06)),
       ),
     ),
     navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: const Color(0xFF081A10),
-      indicatorColor: radarGruen.withValues(alpha: 0.22),
+      backgroundColor: _flaeche,
+      indicatorColor: radarGruen.withValues(alpha: 0.16),
       surfaceTintColor: Colors.transparent,
+      iconTheme: WidgetStateProperty.resolveWith(
+        (s) => IconThemeData(color: s.contains(WidgetState.selected) ? radarGruen : const Color(0xFF6C7790)),
+      ),
+      labelTextStyle: WidgetStateProperty.resolveWith(
+        (s) => TextStyle(
+          fontSize: 12,
+          color: s.contains(WidgetState.selected) ? radarGruen : const Color(0xFF6C7790),
+          fontWeight: s.contains(WidgetState.selected) ? FontWeight.w600 : FontWeight.w400,
+        ),
+      ),
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
         backgroundColor: radarGruen,
-        foregroundColor: const Color(0xFF00210F),
-        disabledBackgroundColor: const Color(0xFF1C3A2C),
-        textStyle: const TextStyle(fontWeight: FontWeight.bold),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        foregroundColor: const Color(0xFF00271A),
+        disabledBackgroundColor: const Color(0xFF1B2438),
+        textStyle: const TextStyle(fontWeight: FontWeight.w600),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
     ),
     chipTheme: ChipThemeData(
-      backgroundColor: _karte,
-      selectedColor: radarGruen.withValues(alpha: 0.25),
-      side: BorderSide(color: radarGruen.withValues(alpha: 0.35)),
+      backgroundColor: karteFarbe,
+      selectedColor: radarGruen.withValues(alpha: 0.2),
+      side: BorderSide(color: Colors.white.withValues(alpha: 0.1)),
       checkmarkColor: radarGruen,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: _karte,
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+      fillColor: karteFarbe,
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
     ),
-    dividerTheme: const DividerThemeData(color: Color(0xFF1C3A2C)),
+    dividerTheme: const DividerThemeData(color: Color(0xFF1B2438)),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(color: radarGruen, linearTrackColor: Color(0xFF1B2438)),
   );
 }
 
 class BierApp extends StatelessWidget {
-  const BierApp({super.key, required this.zustand});
+  const BierApp({super.key, required this.zustand, required this.beta});
   final AppZustand zustand;
+  final BetaPruefung beta;
 
   @override
   Widget build(BuildContext context) {
@@ -103,14 +118,15 @@ class BierApp extends StatelessWidget {
         title: 'Bierradar',
         debugShowCheckedModeBanner: false,
         theme: radarDesign(),
-        home: const _Start(),
+        home: _Start(beta: beta),
       ),
     );
   }
 }
 
 class _Start extends StatefulWidget {
-  const _Start();
+  const _Start({required this.beta});
+  final BetaPruefung beta;
 
   @override
   State<_Start> createState() => _StartState();
@@ -122,14 +138,24 @@ class _StartState extends State<_Start> {
   @override
   Widget build(BuildContext context) {
     final z = ZustandScope.of(context);
-    final Widget inhalt;
-    if (!_introVorbei || !z.geladen) {
-      inhalt = Intro(key: const ValueKey('intro'), fertig: () => setState(() => _introVorbei = true));
-    } else {
-      inhalt = z.einrichtungFertig
-          ? const Hauptseite(key: ValueKey('haupt'))
-          : const Einrichtung(key: ValueKey('einrichtung'));
-    }
-    return AnimatedSwitcher(duration: const Duration(milliseconds: 400), child: inhalt);
+    return ListenableBuilder(
+      listenable: widget.beta,
+      builder: (context, _) {
+        final b = widget.beta;
+        final Widget inhalt;
+        if (!_introVorbei || !z.geladen || !b.geprueft) {
+          inhalt = Intro(key: const ValueKey('intro'), fertig: () => setState(() => _introVorbei = true));
+        } else if (b.gesperrt) {
+          inhalt = BetaGesperrt(key: const ValueKey('gesperrt'), beta: b);
+        } else if (!b.willkommenGesehen) {
+          inhalt = Willkommen(key: const ValueKey('willkommen'), beta: b);
+        } else {
+          inhalt = z.einrichtungFertig
+              ? const Hauptseite(key: ValueKey('haupt'))
+              : const Einrichtung(key: ValueKey('einrichtung'));
+        }
+        return AnimatedSwitcher(duration: const Duration(milliseconds: 500), child: inhalt);
+      },
+    );
   }
 }

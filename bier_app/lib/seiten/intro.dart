@@ -107,17 +107,21 @@ class _IntroState extends State<Intro> with SingleTickerProviderStateMixin {
                         offset: Offset(0, 20 * (1 - schrift)),
                         child: Column(
                           children: [
-                            const Text(
-                              'Bierradar',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1.5,
+                            ShaderMask(
+                              shaderCallback: (r) =>
+                                  const LinearGradient(colors: [radarMintHell, bierGoldHell]).createShader(r),
+                              child: const Text(
+                                'Bierradar',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 42,
+                                  fontWeight: FontWeight.w800,
+                                  letterSpacing: 1,
+                                ),
                               ),
                             ),
                             const SizedBox(height: 6),
-                            Text('Bier gefunden!', style: TextStyle(color: bierBernstein, fontSize: 18)),
+                            const Text('Bier gefunden!', style: TextStyle(color: textGedaempft, fontSize: 16)),
                           ],
                         ),
                       ),

@@ -1,0 +1,6 @@
+{
+ "hinweis": "Fernsperre für die Bierradar-Beta. gesperrt: true sperrt ALLE Beta-Versionen. mindestBuild sperrt Versionen, die vor diesem Datum gebaut wurden.",
+ "gesperrt": false,
+ "mindestBuild": "2026-11-01",
+ "nachricht": ""
+}
