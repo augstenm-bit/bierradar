@@ -5,6 +5,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../beta.dart';
+import '../push.dart';
 import '../radar.dart';
 
 String _datum(DateTime d) {
@@ -85,7 +86,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
             child: IgnorePointer(
               child: AnimatedBuilder(
                 animation: _konfetti,
-                builder: (_, _) => CustomPaint(painter: BierRegenMaler(_konfetti.value)),
+                builder: (_, _) => const SizedBox.shrink(),
               ),
             ),
           ),
@@ -268,7 +269,10 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                             SizedBox(
                               width: double.infinity,
                               child: FilledButton.icon(
-                                onPressed: b.willkommenBestaetigen,
+                                onPressed: () async {
+                          await b.willkommenBestaetigen();
+                          await benachrichtigungenErfragen();
+                        },
                                 icon: const Icon(Icons.anchor),
                                 label: const Padding(
                                   padding: EdgeInsets.symmetric(vertical: 14),

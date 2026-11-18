@@ -35,7 +35,6 @@ Future<void> pushStarten(AppZustand z) async {
     await Firebase.initializeApp();
     FirebaseMessaging.onBackgroundMessage(_imHintergrund);
     await _lokalEinrichten();
-    await FirebaseMessaging.instance.requestPermission();
     FirebaseMessaging.onMessage.listen((m) => _verarbeiten(m.data, z));
 
     // Themen jedes Mal abgleichen, wenn sich die Auswahl ändert (kurz gesammelt).
@@ -50,6 +49,14 @@ Future<void> pushStarten(AppZustand z) async {
   } catch (e) {
     debugPrint('Push konnte nicht gestartet werden: $e');
   }
+}
+
+/// Erst nach „Anheuern“ nach Benachrichtigungen fragen.
+Future<void> benachrichtigungenErfragen() async {
+  if (!pushMoeglich) return;
+  try {
+    await FirebaseMessaging.instance.requestPermission();
+  } catch (_) {}
 }
 
 Future<void> _lokalEinrichten() async {
