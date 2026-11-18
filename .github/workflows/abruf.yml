@@ -1,4 +1,4 @@
-# Bierradar: holt jede Stunde (6–23 Uhr österreichische Zeit) die aktuellen Bier-Angebote
+# BierRadar: holt jede Stunde (6–23 Uhr österreichische Zeit) die aktuellen Bier-Angebote
 # und legt sie als server/angebote.json ab. Die App lädt diese Datei.
 name: Angebote abrufen
 
@@ -39,7 +39,7 @@ jobs:
         run: python melden.py angebote.json
       - name: Speichern, wenn sich etwas geändert hat
         run: |
-          git config user.name "Bierradar-Abruf"
+          git config user.name "BierRadar-Abruf"
           git config user.email "bierradar-abruf@users.noreply.github.com"
           git add server/angebote.json server/erstmals_gesehen.json server/gemeldet.json
           if git diff --cached --quiet; then

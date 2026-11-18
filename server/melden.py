@@ -1,4 +1,4 @@
-"""Bierradar – Push-Meldungen für neue Angebote.
+"""BierRadar – Push-Meldungen für neue Angebote.
 
 Vergleicht angebote.json mit den schon gemeldeten Angeboten (gemeldet.json) und schickt für jedes
 neue Angebot EINE Nachricht an das passende Firebase-Thema, z. B. „b_goesser_kiste20x05“.

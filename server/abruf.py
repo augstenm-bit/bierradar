@@ -1,4 +1,4 @@
-"""Bierradar – Angebots-Abruf.
+"""BierRadar – Angebots-Abruf.
 
 Öffnet die öffentlichen marktguru-Suchseiten wie ein normaler Besucher (unsichtbarer Browser),
 liest die Bier-Angebote heraus und schreibt sie nach angebote.json.
