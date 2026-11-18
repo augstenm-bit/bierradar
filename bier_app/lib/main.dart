@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'beta.dart';
 import 'push.dart';
@@ -11,6 +12,8 @@ import 'zustand.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  // Nur Hochformat – quer sieht man ohnehin nichts.
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   final zustand = AppZustand()..laden();
   pushStarten(zustand);
   final beta = BetaPruefung()..pruefen();
