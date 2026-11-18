@@ -12,7 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 const _buildDatumText = String.fromEnvironment('BUILD_DATUM');
 
 /// So lange gilt eine Beta-Version ab dem Bauen.
-const betaTage = 30;
+const betaTage = 60;
 
 /// Einstellungsdatei im GitHub-Projekt: damit kann Michael alte Versionen sperren.
 const _betaUrl = 'https://raw.githubusercontent.com/augstenm-bit/bierradar/main/server/beta.json';
