@@ -5,6 +5,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../radar.dart';
+import 'willkommen.dart' show BierRegenMaler;
 
 class Intro extends StatefulWidget {
   const Intro({super.key, required this.fertig});
@@ -79,55 +80,116 @@ class _IntroState extends State<Intro> with SingleTickerProviderStateMixin {
 
             return Opacity(
               opacity: aus,
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Transform.scale(
-                      scale: 0.5 + 0.5 * auftauchen,
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: IgnorePointer(
                       child: Opacity(
-                        opacity: auftauchen.clamp(0.0, 1.0),
-                        child: SizedBox.square(
-                          dimension: math.min(MediaQuery.sizeOf(context).width * 0.8, 380),
-                          child: CustomPaint(
-                            painter: RadarMaler(
-                              zeigerGrad: zeigerGrad,
-                              bierSkala: bier,
-                              pingFortschritt: ping,
-                              blipHelligkeit: helligkeit,
+                        opacity: _abschnitt(t, 0.05, 0.2),
+                        child: CustomPaint(painter: BierRegenMaler(t * 1.6)),
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Transform.scale(
+                          scale: 0.5 + 0.5 * auftauchen,
+                          child: Opacity(
+                            opacity: auftauchen.clamp(0.0, 1.0),
+                            child: SizedBox.square(
+                              dimension: math.min(MediaQuery.sizeOf(context).width * 0.8, 380),
+                              child: LayoutBuilder(
+                                builder: (_, b) {
+                                  final d = b.maxWidth;
+                                  return Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      CustomPaint(
+                                        size: Size.square(d),
+                                        painter: RadarMaler(
+                                          zeigerGrad: zeigerGrad,
+                                          blipHelligkeit: helligkeit,
+                                        ),
+                                      ),
+                                      // Treffer-Wellen um den Piraten
+                                      if (ping > 0 && ping < 1)
+                                        for (final v in [0.0, 0.3])
+                                          Opacity(
+                                            opacity: (1 - (ping - v).clamp(0.0, 1.0)) * 0.9,
+                                            child: Container(
+                                              width: d * (0.5 + 0.45 * (ping - v).clamp(0.0, 1.0)),
+                                              height: d * (0.5 + 0.45 * (ping - v).clamp(0.0, 1.0)),
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                border: Border.all(color: bierBernstein, width: 2),
+                                              ),
+                                            ),
+                                          ),
+                                      // Der Pirat taucht auf
+                                      Transform.scale(
+                                        scale: bier,
+                                        child: Container(
+                                          width: d * 0.5,
+                                          height: d * 0.5,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(color: bierGoldHell, width: 3),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: bierOrange.withValues(alpha: 0.6),
+                                                blurRadius: 30,
+                                              ),
+                                            ],
+                                          ),
+                                          child: ClipOval(
+                                            child: Image.asset('assets/bilder/pirat.png', fit: BoxFit.cover),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                    const SizedBox(height: 32),
-                    Opacity(
-                      opacity: schrift,
-                      child: Transform.translate(
-                        offset: Offset(0, 20 * (1 - schrift)),
-                        child: Column(
-                          children: [
-                            ShaderMask(
-                              shaderCallback: (r) =>
-                                  const LinearGradient(colors: [radarMintHell, bierGoldHell]).createShader(r),
-                              child: const Text(
-                                'BierRadar',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 42,
-                                  fontWeight: FontWeight.w800,
-                                  letterSpacing: 1,
+                        const SizedBox(height: 32),
+                        Opacity(
+                          opacity: schrift,
+                          child: Transform.translate(
+                            offset: Offset(0, 20 * (1 - schrift)),
+                            child: Column(
+                              children: [
+                                ShaderMask(
+                                  shaderCallback: (r) =>
+                                      const LinearGradient(colors: [radarMintHell, bierGoldHell])
+                                          .createShader(r),
+                                  child: const Text(
+                                    'BierRadar',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 42,
+                                      fontWeight: FontWeight.w800,
+                                      letterSpacing: 1,
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                const SizedBox(height: 6),
+                                const Text(
+                                  'Arrr! Neuer Schiffsjunge an Bord, Landratte!',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(color: bierGoldHell, fontSize: 17, fontWeight: FontWeight.w600),
+                                ),
+                              ],
                             ),
-                            const SizedBox(height: 6),
-                            const Text('Bier gefunden!', style: TextStyle(color: textGedaempft, fontSize: 16)),
-                          ],
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
           },

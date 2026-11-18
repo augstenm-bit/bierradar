@@ -85,7 +85,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
             child: IgnorePointer(
               child: AnimatedBuilder(
                 animation: _konfetti,
-                builder: (_, _) => CustomPaint(painter: _KonfettiMaler(_konfetti.value)),
+                builder: (_, _) => CustomPaint(painter: BierRegenMaler(_konfetti.value)),
               ),
             ),
           ),
@@ -332,8 +332,8 @@ class _Regel extends StatelessWidget {
   );
 }
 
-class _KonfettiMaler extends CustomPainter {
-  _KonfettiMaler(this.t);
+class BierRegenMaler extends CustomPainter {
+  BierRegenMaler(this.t);
   final double t;
 
   // Fallende Teile: Bierkrüge und ein bisschen Konfetti
@@ -426,7 +426,7 @@ class _KonfettiMaler extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_KonfettiMaler alt) => alt.t != t;
+  bool shouldRepaint(BierRegenMaler alt) => alt.t != t;
 }
 
 /// Sperrbildschirm, wenn die Beta abgelaufen oder gesperrt ist.
