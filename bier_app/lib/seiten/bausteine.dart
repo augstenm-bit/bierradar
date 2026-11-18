@@ -56,6 +56,30 @@ class _BierAuswahlState extends State<BierAuswahl> {
         ...oesterreich.map(kachel),
         if (importe.isNotEmpty) const _Ueberschrift('Importe & Spezialitäten'),
         ...importe.map(kachel),
+        if (_suche.isEmpty) ...[
+          const _Ueberschrift('Radler & Alkoholfrei'),
+          for (final (name, info) in [
+            ('Radler', 'Gösser Naturradler, Stiegl Radler …'),
+            ('Alkoholfreies Bier', 'Schlossgold, Gösser Naturgold, Stiegl Freibier …'),
+          ])
+            ListTile(
+              leading: const Icon(Icons.no_drinks_outlined, color: Color(0xFF6C7790)),
+              title: Text(name, style: const TextStyle(color: Color(0xFF8C97AD))),
+              subtitle: Text(info),
+              trailing: const Icon(Icons.info_outline, color: Color(0xFF6C7790)),
+              onTap: () => showDialog<void>(
+                context: context,
+                builder: (c) => AlertDialog(
+                  icon: const Icon(Icons.sports_bar),
+                  title: const Text('Nur echtes Bier an Bord'),
+                  content: const Text('Solche Getränke werden von BierRadar nicht unterstützt.'),
+                  actions: [
+                    TextButton(onPressed: () => Navigator.pop(c), child: const Text('Arrr, verstanden')),
+                  ],
+                ),
+              ),
+            ),
+        ],
       ],
     );
   }

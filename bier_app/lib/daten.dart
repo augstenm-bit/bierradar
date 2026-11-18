@@ -95,6 +95,13 @@ const biere = <Bier>[
   Bier('zwettler', 'Zwettler Original', 'Niederösterreich', _ohneDose),
   Bier('eggenberg', 'Eggenberger Märzen', 'Oberösterreich', _ohneDose),
   Bier('villacher', 'Villacher Märzen', 'Kärnten', _alle),
+  Bier('schladminger', 'Schladminger', 'Steiermark', _ohneDose),
+  // Deutschland
+  Bier('paulaner', 'Paulaner', 'Deutschland', _ohneDose, premium: true),
+  Bier('augustiner', 'Augustiner', 'Deutschland', _ohneDose, premium: true),
+  Bier('erdinger', 'Erdinger Weißbier', 'Deutschland', _ohneDose, premium: true),
+  Bier('franziskaner', 'Franziskaner Weißbier', 'Deutschland', _ohneDose, premium: true),
+  Bier('weihenstephaner', 'Weihenstephaner', 'Deutschland', _ohneDose, premium: true),
   // Importe und Spezialitäten
   Bier('chang', 'Chang', 'Thailand', _import, spezialitaet: true),
   Bier('singha', 'Singha', 'Thailand', _import, spezialitaet: true),
@@ -104,6 +111,7 @@ const biere = <Bier>[
   Bier('sapporo', 'Sapporo', 'Japan', _import, spezialitaet: true),
   Bier('tsingtao', 'Tsingtao', 'China', _import, spezialitaet: true),
   Bier('tiger', 'Tiger', 'Singapur', _import, spezialitaet: true),
+  Bier('saigon', 'Saigon / 333', 'Vietnam', _import, spezialitaet: true),
   Bier('corona', 'Corona Extra', 'Mexiko', _import, spezialitaet: true),
   Bier('jelen', 'Jelen', 'Serbien', [Verpackung.flasche05, Verpackung.dose05], spezialitaet: true),
   Bier('heineken', 'Heineken', 'Niederlande', [..._alle, Verpackung.karton24x033], spezialitaet: true),

@@ -23,7 +23,7 @@ MAX_SEITEN_BIER = 15
 # Zusätzliche Suchwörter, damit auch Spezialitäten sicher gefunden werden.
 EXTRA_SUCHWOERTER = [
     "chang", "singha", "leo bier", "asahi", "kirin", "sapporo", "tsingtao", "tiger bier",
-    "asia bier", "thai bier", "japanisches bier", "import bier", "asia", "corona", "jelen", "heineken", "budweiser", "kozel", "villacher", "zipfer", "egger", "freistädter", "hirter", "trumer", "edelweiss",
+    "asia bier", "thai bier", "japanisches bier", "import bier", "asia", "corona", "jelen", "heineken", "budweiser", "kozel", "villacher", "schladminger", "paulaner", "augustiner", "erdinger", "franziskaner", "weihenstephaner", "saigon bier", "zipfer", "egger", "freistädter", "hirter", "trumer", "edelweiss",
     "schremser", "zwettler", "eggenberger", "murauer", "kaiser bier", "wieselburger",
 ]
 
@@ -54,6 +54,8 @@ MARKEN = {
     "leo": "leo", "asahi": "asahi", "kirin": "kirin", "sapporo": "sapporo", "tsingtao": "tsingtao",
     "tiger": "tiger", "corona": "corona", "jelen": "jelen", "villacher": "villacher",
     "heineken": "heineken", "budweiser": "budweiser", "kozel": "kozel", "gambrinus": "gambrinus",
+    "schladminger": "schladminger", "paulaner": "paulaner", "augustiner": "augustiner", "erdinger": "erdinger",
+    "franziskaner": "franziskaner", "weihenstephaner": "weihenstephaner", "saigon": "saigon", "333": "saigon",
 }
 
 GUELTIG = re.compile(r"Gültig:\s*(\d{1,2})\.(\d{1,2})\.\s*-\s*(\d{1,2})\.(\d{1,2})\.")
@@ -137,7 +139,9 @@ def angebote_aus_text(text: str, heute: dt.date) -> list[dict]:
 
         preis = preise[0]
         lp = LITERPREIS.search(beschreibung or "")
-        literpreis = zahl(lp.group(1)) if lp else None
+        if not lp:
+            continue  # kein Literpreis = kein Getränk (z. B. „Egger Zuckerln“)
+        literpreis = zahl(lp.group(1))
         liter = round(preis / literpreis, 2) if literpreis else None
         verpackung = verpackung_aus_liter(liter, voll) if liter else "sonstige"
 
