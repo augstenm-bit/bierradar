@@ -357,7 +357,7 @@ class BierRegenMaler extends CustomPainter {
   final double t;
 
   // Fallende Teile: Bierkrüge und ein bisschen Konfetti
-  static final _teile = List.generate(20, (i) {
+  static final _teile = List.generate(14, (i) {
     final z = math.Random(i * 7919);
     return (
       x: z.nextDouble(),
@@ -371,7 +371,7 @@ class BierRegenMaler extends CustomPainter {
   });
 
   // Aufsteigende Schaumbläschen
-  static final _blasen = List.generate(22, (i) {
+  static final _blasen = List.generate(12, (i) {
     final z = math.Random(i * 104729);
     return (
       x: z.nextDouble(),
@@ -431,9 +431,10 @@ class BierRegenMaler extends CustomPainter {
       if (k.art == 0) {
         canvas.rotate(math.sin((f + k.dreh) * 6) * 0.45); // Krug schaukelt beim Fallen
         final tp = _bierFuer(k.groesse);
-        canvas.saveLayer(null, Paint()..color = Colors.white.withValues(alpha: 0.75 * alpha));
-        tp.paint(canvas, Offset(-tp.width / 2, -tp.height / 2));
-        canvas.restore();
+        tp.paint(
+          canvas,
+          Offset(-tp.width / 2, -tp.height / 2),
+        ); // ohne eigene Ebene – viel leichter für die Grafik
       } else {
         canvas.rotate(k.dreh + f * 9);
         canvas.drawRRect(
