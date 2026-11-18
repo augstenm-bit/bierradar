@@ -23,7 +23,7 @@ MAX_SEITEN_BIER = 15
 # Zusätzliche Suchwörter, damit auch Spezialitäten sicher gefunden werden.
 EXTRA_SUCHWOERTER = [
     "chang", "singha", "leo bier", "asahi", "kirin", "sapporo", "tsingtao", "tiger bier",
-    "corona", "jelen", "heineken", "budweiser", "kozel", "villacher", "zipfer", "egger", "freistädter", "hirter", "trumer", "edelweiss",
+    "asia bier", "thai bier", "japanisches bier", "import bier", "asia", "corona", "jelen", "heineken", "budweiser", "kozel", "villacher", "zipfer", "egger", "freistädter", "hirter", "trumer", "edelweiss",
     "schremser", "zwettler", "eggenberger", "murauer", "kaiser bier", "wieselburger",
 ]
 
@@ -148,6 +148,10 @@ def angebote_aus_text(text: str, heute: dt.date) -> list[dict]:
 
         marke_klein = marke.lower()
         bier_id = next((v for k, v in MARKEN.items() if marke_klein == k or marke_klein.startswith(k + " ")), None)
+        if bier_id is None:
+            # Spezialitäten stehen oft unter einer Händlermarke (z. B. „Asia-Woche“) – dann im Titel suchen
+            titel_klein = f" {titel.lower()} "
+            bier_id = next((v for k, v in MARKEN.items() if len(k) > 3 and f" {k} " in titel_klein), None)
         if marke_klein == "zipfer":
             bier_id = "zipfer_urtyp" if "urtyp" in voll.lower() else "zipfer_maerzen"
 

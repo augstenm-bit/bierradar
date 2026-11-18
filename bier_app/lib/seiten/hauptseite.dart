@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../daten.dart';
@@ -675,6 +676,28 @@ void _zeigeDetails(BuildContext context, Treffer t) {
               _DetailZeile(Icons.flag_outlined, 'Dein Wunschpreis: höchstens ${euro(t.wunsch.maxPreis!)}'),
             if (t.wunsch.immerMelden) const _DetailZeile(Icons.notifications_active_outlined, 'Wird immer gemeldet'),
             if (a.hinweis != null) _DetailZeile(Icons.info_outline, a.hinweis!),
+            const SizedBox(height: 18),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton.icon(
+                icon: const Icon(Icons.share),
+                label: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 12),
+                  child: Text('Mit Freunden teilen'),
+                ),
+                onPressed: () {
+                  final karte = a.kartenPreis != null ? ' (mit ${a.karte!.titel} ${euro(a.kartenPreis!)})' : '';
+                  SharePlus.instance.share(
+                    ShareParams(
+                      text:
+                          '🍺 ${a.bier.name} – ${a.verpackung.bezeichnung} um ${euro(a.preis)}$karte '
+                          'bei ${a.haendler}, gültig ${zeitraum(a.von, a.bis)}. '
+                          'Gefunden mit Bierradar 🏴‍☠️',
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
