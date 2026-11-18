@@ -102,6 +102,9 @@ class AppZustand extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Nur die gespeicherte Auswahl laden (für Push-Meldungen im Hintergrund).
+  Future<void> auswahlLaden() => _ladenIntern();
+
   Future<void> _ladenIntern() async {
     final prefs = await SharedPreferences.getInstance();
     final text = prefs.getString(_schluessel);

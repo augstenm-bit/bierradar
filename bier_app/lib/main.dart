@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'beta.dart';
+import 'push.dart';
 import 'radar.dart';
 import 'seiten/einrichtung.dart';
 import 'seiten/hauptseite.dart';
@@ -11,6 +12,7 @@ import 'zustand.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   final zustand = AppZustand()..laden();
+  pushStarten(zustand);
   final beta = BetaPruefung()..pruefen();
   runApp(BierApp(zustand: zustand, beta: beta));
 }

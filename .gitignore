@@ -12,3 +12,5 @@ bier_app/android/local.properties
 *.md
 !README.md
 *.command
+geheim/
+bier_app/android/app/google-services.json
