@@ -1,0 +1,45 @@
+# Bierradar: holt jede Stunde (6–23 Uhr österreichische Zeit) die aktuellen Bier-Angebote
+# und legt sie als server/angebote.json ab. Die App lädt diese Datei.
+name: Angebote abrufen
+
+on:
+  schedule:
+    - cron: "7 4-22 * * *"   # UTC; deckt 6–23 Uhr in Österreich (Sommer- und Winterzeit) ab
+  workflow_dispatch: {}      # zusätzlich per Knopfdruck auf GitHub startbar
+
+permissions:
+  contents: write
+
+concurrency:
+  group: abruf
+  cancel-in-progress: false
+
+jobs:
+  abruf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: server/requirements.txt
+      - name: Werkzeuge installieren
+        run: |
+          pip install -r server/requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Angebote abrufen
+        working-directory: server
+        run: python abruf.py angebote.json
+      - name: Speichern, wenn sich etwas geändert hat
+        run: |
+          git config user.name "Bierradar-Abruf"
+          git config user.email "bierradar-abruf@users.noreply.github.com"
+          git add server/angebote.json server/erstmals_gesehen.json
+          if git diff --cached --quiet -- server/angebote.json; then
+            echo "Keine neuen Angebote."
+          else
+            git commit -m "Angebote aktualisiert"
+            git push
+          fi

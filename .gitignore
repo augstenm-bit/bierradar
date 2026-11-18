@@ -1,0 +1,14 @@
+.DS_Store
+server/.venv/
+server/__pycache__/
+*.apk
+bier_app/build/
+bier_app/.dart_tool/
+bier_app/ios/Pods/
+bier_app/.flutter-plugins*
+bier_app/android/.gradle/
+bier_app/android/local.properties
+# Persönliche Notizen und Startdateien bleiben nur am Mac
+*.md
+!README.md
+*.command
