@@ -331,4 +331,4 @@ String zeitraum(DateTime von, DateTime bis) {
 
 /// Adresse der Angebotsdatei im Internet (wird mit dem GitHub-Konto gesetzt).
 /// Leer = die App nimmt den letzten Stand bzw. die mitgelieferte Datei.
-const angeboteUrl = '';
+const angeboteUrl = 'https://raw.githubusercontent.com/augstenm-bit/bierradar/main/server/angebote.json';
