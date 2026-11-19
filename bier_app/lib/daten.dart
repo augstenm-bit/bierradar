@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 // Stammdaten: Verpackungen, Biere, Händler, Kundenkarten und Test-Angebote.
 
 enum Verpackung {
@@ -22,7 +24,8 @@ enum Verpackung {
 enum Kundenkarte {
   joe('Jö-Karte', 'Billa, Billa Plus, Spar, Eurospar, Interspar, Penny', 'https://www.joe-club.at'),
   lidlPlus('Lidl Plus', 'Lidl', 'https://www.lidl.at/c/lidl-plus/s10007617'),
-  metro('Metro-Karte', 'Metro (nur für Gewerbe)', 'https://www.metro.at');
+  metro('Metro-Karte', 'Metro (nur für Gewerbe)', 'https://www.metro.at'),
+  transgourmet('Transgourmet-Karte', 'Transgourmet (nur für Gewerbe)', 'https://www.transgourmet.at');
 
   const Kundenkarte(this.titel, this.haendler, this.link);
   final String titel;
@@ -136,7 +139,11 @@ class Angebot {
     this.beispiel = false,
     this.statt,
     this.regionen,
+    this.gebiete,
   });
+
+  /// In welchen BierRadar-Gebieten das Angebot gefunden wurde (null = überall).
+  final List<String>? gebiete;
 
   /// Bundesländer, in denen das Angebot gilt (null = ganz Österreich).
   final List<String>? regionen;
@@ -177,6 +184,11 @@ class Angebot {
       bis: DateTime.parse(j['bis'] as String),
       hinweis: j['hinweis'] as String?,
       statt: (j['statt'] as num?)?.toDouble(),
+      gebiete: switch (j['gebiete']) {
+        final List<dynamic> l => l.cast<String>(),
+        final String t when t.isNotEmpty => t.split(','),
+        _ => null,
+      },
       regionen: switch (j['regionen']) {
         final List<dynamic> l => l.cast<String>(),
         final String t when t.isNotEmpty => t.split(','),
@@ -362,10 +374,28 @@ String? pfandText(Verpackung v) => switch (v) {
 
 /// Gebiete, für die BierRadar Angebote zeigt.
 enum Gebiet {
-  amstetten('Bezirk Amstetten', 'Niederösterreich'),
-  steyr('Steyr', 'Oberösterreich');
+  amstetten('Bezirk Amstetten', 'Niederösterreich', 48.1229, 14.8720),
+  steyr('Bezirk Steyr', 'Oberösterreich', 48.0427, 14.4213);
 
-  const Gebiet(this.titel, this.bundesland);
+  const Gebiet(this.titel, this.bundesland, this.breite, this.laenge);
   final String titel;
   final String bundesland;
+  final double breite;
+  final double laenge;
+
+  String get kurz => titel.replaceFirst('Bezirk ', '');
 }
+
+/// Entfernung in Kilometern (Luftlinie).
+double entfernungKm(double b1, double l1, double b2, double l2) {
+  const r = 6371.0;
+  double rad(double g) => g * math.pi / 180;
+  final db = rad(b2 - b1), dl = rad(l2 - l1);
+  final a =
+      math.sin(db / 2) * math.sin(db / 2) +
+      math.cos(rad(b1)) * math.cos(rad(b2)) * math.sin(dl / 2) * math.sin(dl / 2);
+  return 2 * r * math.asin(math.sqrt(a));
+}
+
+/// Händler, die nur mit Gewerbekarte einkaufen lassen.
+const gewerbeHaendler = {'Metro': Kundenkarte.metro, 'Transgourmet': Kundenkarte.transgourmet};

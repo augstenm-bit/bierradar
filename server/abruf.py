@@ -42,6 +42,16 @@ HAENDLER = {
     "ADEG AKTIV": "ADEG",
     "NAH&FRISCH": "Nah & Frisch",
     "NAH & FRISCH": "Nah & Frisch",
+    "ADEG NAHVERSORGER": "ADEG",
+    "LAGERHAUS": "Lagerhaus",
+    "NORMA": "Norma",
+    "MAXIMARKT": "Maximarkt",
+    "SPAR-GOURMET": "Spar Gourmet",
+    "SPAR GOURMET": "Spar Gourmet",
+    "MPREIS": "MPreis",
+    "M-PREIS": "MPreis",
+    "METRO": "Metro",  # nur mit Gewerbekarte
+    "TRANSGOURMET": "Transgourmet",  # nur mit Gewerbekarte
 }
 
 # Marke (klein geschrieben) -> Bier-ID in der App
@@ -192,34 +202,62 @@ def angebote_aus_text(text: str, heute: dt.date) -> list[dict]:
     return ergebnis
 
 
+# Gebiete: Standort (PLZ + Ortsname, wie ihn die Angebotsseite vorschlägt) – je Gebiet wird einmal gesucht.
+GEBIETE = [
+    ("amstetten", "3300", "Amstetten"),
+    ("steyr", "4400", "Steyr"),
+]
+
+
 def abrufen() -> list[dict]:
     heute = dt.date.today()
     alle: dict[tuple, dict] = {}
     with sync_playwright() as p:
         browser = p.chromium.launch()
-        seite = browser.new_page(locale="de-AT")
+        for gebiet, plz, ort in GEBIETE:
+            seite = browser.new_page(locale="de-AT")
 
-        def lade(url: str) -> str:
-            seite.goto(url, wait_until="networkidle", timeout=60000)
-            time.sleep(PAUSE_SEKUNDEN)
+            def lade(url: str) -> str:
+                seite.goto(url, wait_until="networkidle", timeout=60000)
+                time.sleep(PAUSE_SEKUNDEN)
+                try:
+                    return seite.inner_text("main", timeout=10000)
+                except Exception:
+                    return ""
+
+            # Standort auf das Gebiet setzen (wie ein Besucher über „Standort festlegen“)
             try:
-                return seite.inner_text("main", timeout=10000)
-            except Exception:
-                return ""
+                lade(f"{BASIS}bier")
+                seite.get_by_text("Standort festlegen").first.click()
+                seite.wait_for_timeout(1000)
+                seite.get_by_placeholder("Suche Postleitzahl oder Ort").fill(plz)
+                seite.wait_for_timeout(2500)
+                seite.get_by_text(ort).first.click()
+                seite.wait_for_timeout(2500)
+            except Exception as e:
+                print(f"WARNUNG: Standort {ort} konnte nicht gesetzt werden: {e}")
 
-        urls = [f"{BASIS}bier"] + [f"{BASIS}bier?title=bier&page={n}" for n in range(1, MAX_SEITEN_BIER)]
-        for url in urls:
-            text = lade(url)
-            gefunden = angebote_aus_text(text, heute)
-            if "Händler:" not in text:
-                break
-            for a in gefunden:
-                alle[(a["marke"], a["titel"], a["haendler"], a["preis"], a["von"], a["verpackung"])] = a
-        for wort in EXTRA_SUCHWOERTER:
-            for a in angebote_aus_text(lade(BASIS + wort), heute):
-                if a["bierId"] is None:
-                    continue  # Extra-Suche nur für bekannte Biere (sonst z. B. Corona-Limo, Tiger-Balsam …)
-                alle[(a["marke"], a["titel"], a["haendler"], a["preis"], a["von"], a["verpackung"])] = a
+            def merken(a: dict) -> None:
+                k = (a["marke"], a["titel"], a["haendler"], a["preis"], a["von"], a["verpackung"])
+                if k in alle:
+                    if gebiet not in alle[k]["gebiete"]:
+                        alle[k]["gebiete"].append(gebiet)
+                else:
+                    a["gebiete"] = [gebiet]
+                    alle[k] = a
+
+            urls = [f"{BASIS}bier"] + [f"{BASIS}bier?title=bier&page={n}" for n in range(1, MAX_SEITEN_BIER)]
+            for url in urls:
+                text = lade(url)
+                if "Händler:" not in text:
+                    break
+                for a in angebote_aus_text(text, heute):
+                    merken(a)
+            for wort in EXTRA_SUCHWOERTER:
+                for a in angebote_aus_text(lade(BASIS + wort), heute):
+                    if a["bierId"] is not None:  # Extra-Suche nur für bekannte Biere
+                        merken(a)
+            seite.close()
         browser.close()
 
     # Abgelaufene Angebote weglassen

@@ -134,6 +134,7 @@ class _AngeboteSeiteState extends State<_AngeboteSeite> {
             padding: const EdgeInsets.only(bottom: 24),
             children: [
               _Kopf(z: z, treffer: fuerDichAlle.length),
+              _UmkreisLeiste(z: z),
               _ErsparnisLeiste(woche: _wochenErsparnis(fuerDichAlle), gesamt: z.gespartGesamt),
               if (z.angeboteFehler != null)
                 Padding(
@@ -236,7 +237,8 @@ class _Kopf extends StatelessWidget {
           : min < 60 * 24
           ? 'vor ${min ~/ 60} Std.'
           : 'am ${s.day}.${s.month}.';
-      text = 'Live · ${z.gebiet.titel} · $wann';
+      text =
+          'Live · ${(z.aktiveGebiete.toList()..sort((a, b) => a.index - b.index)).map((g) => g.kurz).join(' + ')} · $wann';
     }
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 12, 12, 14),
@@ -1371,4 +1373,115 @@ Future<int?> _frageAnzahl(BuildContext context, Angebot a, int start, bool schon
       ),
     ),
   );
+}
+
+/// Schieber für die Radar-Reichweite (1–100 km). Nach „Suchen“ läuft kurz die Radar-Animation.
+class _UmkreisLeiste extends StatefulWidget {
+  const _UmkreisLeiste({required this.z});
+  final AppZustand z;
+
+  @override
+  State<_UmkreisLeiste> createState() => _UmkreisLeisteState();
+}
+
+class _UmkreisLeisteState extends State<_UmkreisLeiste> {
+  late double _km = widget.z.radiusKm;
+
+  Future<void> _suchen() async {
+    final z = widget.z;
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      barrierColor: Colors.black.withValues(alpha: 0.85),
+      builder: (_) => PopScope(
+        canPop: false,
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const LiveRadar(groesse: 220, dauer: Duration(milliseconds: 1200)),
+              const SizedBox(height: 20),
+              Material(
+                color: Colors.transparent,
+                child: Text(
+                  'Radar sucht im Umkreis von ${_km.round()} km …',
+                  style: const TextStyle(color: radarMintHell, fontSize: 16, fontWeight: FontWeight.w600),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    z.radiusSetzen(_km.roundToDouble());
+    await Future.wait([z.angeboteAktualisieren(), Future<void>.delayed(const Duration(milliseconds: 1800))]);
+    if (mounted) Navigator.of(context).pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final z = widget.z;
+    final geaendert = _km.round() != z.radiusKm.round();
+    return Container(
+      margin: const EdgeInsets.fromLTRB(14, 0, 14, 10),
+      padding: const EdgeInsets.fromLTRB(14, 8, 8, 4),
+      decoration: BoxDecoration(
+        color: karteFarbe,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: radarGruen.withValues(alpha: geaendert ? 0.6 : 0.15)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.radar, color: radarGruen, size: 20),
+              const SizedBox(width: 8),
+              const Text('Radar-Reichweite', style: TextStyle(color: textGedaempft, fontSize: 13)),
+              const SizedBox(width: 6),
+              Text(
+                '${_km.round()} km',
+                style: const TextStyle(color: radarMintHell, fontWeight: FontWeight.w800, fontSize: 15),
+              ),
+              const Spacer(),
+              AnimatedOpacity(
+                opacity: geaendert ? 1 : 0,
+                duration: const Duration(milliseconds: 200),
+                child: FilledButton.icon(
+                  style: FilledButton.styleFrom(visualDensity: VisualDensity.compact),
+                  onPressed: geaendert ? _suchen : null,
+                  icon: const Icon(Icons.search, size: 18),
+                  label: const Text('Suchen'),
+                ),
+              ),
+            ],
+          ),
+          SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              activeTrackColor: radarGruen,
+              thumbColor: radarMintHell,
+              inactiveTrackColor: const Color(0xFF1B2438),
+              overlayColor: radarGruen.withValues(alpha: 0.15),
+            ),
+            child: Slider(
+              value: _km,
+              min: 1,
+              max: 100,
+              divisions: 99,
+              label: '${_km.round()} km',
+              onChanged: (v) => setState(() => _km = v),
+            ),
+          ),
+          if (z.standortBreite == null)
+            const Padding(
+              padding: EdgeInsets.only(bottom: 6),
+              child: Text(
+                'Ohne Standort gilt dein Gebiet aus den Einstellungen als Mittelpunkt.',
+                style: TextStyle(color: textGedaempft, fontSize: 11.5),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
 }

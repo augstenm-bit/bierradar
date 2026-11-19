@@ -42,9 +42,42 @@ class AppZustand extends ChangeNotifier {
   bool kartenAngeboteZeigen = true;
   Gebiet gebiet = Gebiet.amstetten;
 
+  /// Letzter bekannter Standort (null = nicht erlaubt/unbekannt) und Radar-Reichweite in km.
+  double? standortBreite;
+  double? standortLaenge;
+  double radiusKm = 25;
+
   void gebietSetzen(Gebiet g) {
     gebiet = g;
     aenderung();
+  }
+
+  void standortSetzen(double breite, double laenge) {
+    standortBreite = breite;
+    standortLaenge = laenge;
+    gebiet = Gebiet.values.reduce(
+      (a, b) =>
+          entfernungKm(breite, laenge, a.breite, a.laenge) <= entfernungKm(breite, laenge, b.breite, b.laenge)
+          ? a
+          : b,
+    );
+    aenderung();
+  }
+
+  void radiusSetzen(double km) {
+    radiusKm = km;
+    aenderung();
+  }
+
+  /// Gebiete im Radar: immer das nächste Gebiet, dazu alle, deren Mitte im Umkreis liegt.
+  Set<Gebiet> get aktiveGebiete {
+    final b = standortBreite ?? gebiet.breite;
+    final l = standortLaenge ?? gebiet.laenge;
+    return {
+      gebiet,
+      for (final g in Gebiet.values)
+        if (entfernungKm(b, l, g.breite, g.laenge) <= radiusKm) g,
+    };
   }
 
   DateTime? kartenHinweisVersteckt;
@@ -207,6 +240,9 @@ class AppZustand extends ChangeNotifier {
       einrichtungFertig = j['fertig'] == true;
       kartenAngeboteZeigen = j['kartenZeigen'] != false;
       gebiet = Gebiet.values.where((g) => g.name == j['gebiet']).firstOrNull ?? Gebiet.amstetten;
+      standortBreite = (j['breite'] as num?)?.toDouble();
+      standortLaenge = (j['laenge'] as num?)?.toDouble();
+      radiusKm = (j['radius'] as num?)?.toDouble() ?? 25;
       final versteckt = j['hinweisVersteckt'] as String?;
       kartenHinweisVersteckt = versteckt == null ? null : DateTime.tryParse(versteckt);
       gemerkt.addAll(((j['gemerkt'] as List?) ?? []).cast<String>());
@@ -243,6 +279,9 @@ class AppZustand extends ChangeNotifier {
         'fertig': einrichtungFertig,
         'kartenZeigen': kartenAngeboteZeigen,
         'gebiet': gebiet.name,
+        'breite': standortBreite,
+        'laenge': standortLaenge,
+        'radius': radiusKm,
         'hinweisVersteckt': kartenHinweisVersteckt?.toIso8601String(),
         'gemerkt': gemerkt.toList(),
         'gekauft': gekauft.map((k, v) => MapEntry(k, v.toJson())),
@@ -354,7 +393,11 @@ class AppZustand extends ChangeNotifier {
     for (final a in angebote) {
       final wunsch = auswahl[a.bierId]?[a.verpackung];
       if (wunsch == null) continue;
-      if (a.regionen != null && !a.regionen!.contains(gebiet.bundesland)) continue;
+      final aktiv = aktiveGebiete;
+      if (a.gebiete != null && !aktiv.any((g) => a.gebiete!.contains(g.name))) continue;
+      if (a.regionen != null && !aktiv.any((g) => a.regionen!.contains(g.bundesland))) continue;
+      final gewerbe = gewerbeHaendler[a.haendler];
+      if (gewerbe != null && !karten.contains(gewerbe)) continue; // nur mit Gewerbekarte
 
       final hatKarte = a.karte != null && karten.contains(a.karte);
       final preis = (hatKarte && a.kartenPreis != null) ? a.kartenPreis! : a.preis;

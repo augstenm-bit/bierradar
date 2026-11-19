@@ -1,788 +1,48 @@
 {
- "stand": "2026-11-18T19:58:07+00:00",
+ "stand": "2026-11-19T14:22:13+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
- "anzahl": 101,
+ "anzahl": 93,
  "angebote": [
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Eurospar",
-   "preis": 29.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "20 x 0,5 Liter"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Bock",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Eurospar",
-   "preis": 1.55,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Eurospar",
-   "preis": 1.29,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "0,33 Liter"
-  },
-  {
-   "bierId": "schwechater",
-   "marke": "Schwechater",
-   "titel": "Bier",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Eurospar",
-   "preis": 0.69,
-   "statt": 1.38,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Spezial",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Interspar",
-   "preis": 1.43,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "NEU und nur für kurze Zeit! 0,33-Liter-EINWEG-Flasche"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Interspar",
-   "preis": 1.22,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "Naturradler oder Biostoff Lager 0,33-Liter-MEHRWEG-Flasche"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Interspar",
-   "preis": 29.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "20 x 0,5-Liter-MEHRWEG-Flasche"
-  },
-  {
-   "bierId": null,
-   "marke": "Kalea",
-   "titel": "Bier-Adventkalender",
-   "verpackung": "karton24x033",
-   "liter": 7.92,
-   "haendler": "Interspar",
-   "preis": 49.9,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "24 x 0,33-Liter-EINWEG-Flasche + Verkostglas Gratis"
-  },
-  {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Das Bierige Bier",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Interspar",
-   "preis": 0.71,
-   "statt": 1.42,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "0,33-Liter-EINWEG-Flasche"
-  },
-  {
-   "bierId": "schwechater",
-   "marke": "Schwechater",
-   "titel": "Bier",
-   "verpackung": "dose05",
-   "liter": 0.5,
-   "haendler": "Interspar",
-   "preis": 0.69,
-   "statt": 1.38,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "0,5-Liter-Dose Keine weiteren Rabatte und Joker einlösbar!"
-  },
-  {
-   "bierId": "schwechater",
-   "marke": "Schwechater",
-   "titel": "Bier",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Interspar",
-   "preis": 15.8,
-   "statt": 19.4,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "20 x 0,5-Liter-Mehrweg-Flasche Keine weiteren Rabatte und Joker einlösbar!"
-  },
-  {
-   "bierId": "schwechater",
-   "marke": "Schwechater",
-   "titel": "Wiener Lager",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Interspar",
-   "preis": 1.19,
-   "statt": 1.5,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "oder Schwechater Zwickl 0,5-Liter-Mehrweg-Flasche In Vorarlberg nicht erhältlich."
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Spar",
-   "preis": 1.29,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "Naturradler Zitrone, Naturradler Zitrone alkoholfrei oder Naturgold alkoholfrei 0,33 Liter"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Spar",
-   "preis": 29.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter 20er"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Spar",
-   "preis": 1.49,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter"
-  },
-  {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Das Bierige Bier",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Spar",
-   "preis": 0.71,
-   "statt": 1.42,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "0,33 Liter"
-  },
-  {
-   "bierId": "schwechater",
-   "marke": "Schwechater",
-   "titel": "Bier",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Spar",
-   "preis": 0.69,
-   "statt": 1.38,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter"
-  },
-  {
-   "bierId": "stiegl",
-   "marke": "Stiegl",
-   "titel": "Goldbräu",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Spar",
-   "preis": 0.99,
-   "statt": 1.59,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-05",
-   "bis": "2026-11-18",
-   "hinweis": "oder 0,0% alkoholfrei 0,5 Liter"
-  },
   {
    "bierId": "corona",
    "marke": "Corona Extra",
    "titel": "Bier",
    "verpackung": "flasche033",
-   "liter": 0.35,
-   "haendler": "ADEG",
-   "preis": 1.49,
-   "statt": 2.25,
+   "liter": 0.36,
+   "haendler": "Metro",
+   "preis": 1.09,
+   "statt": 1.49,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "div. Sorten 0,355 Liter Angebot in deinem Adeg Aktiv-Markt erhältlich."
+   "bis": "2026-11-25",
+   "hinweis": "od. 0,0% 24-Fl-Kiste od. 6-Fl-Träger 0,355-l-MW-Fl. Bei den abgebildeten Preisen handelt es sich um ...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "ADEG",
-   "preis": 14.8,
-   "statt": 29.8,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "20 x 0,5 Liter Angebot in deinem Adeg Aktiv-Markt erhältlich."
-  },
-  {
-   "bierId": "corona",
-   "marke": "Corona",
-   "titel": "Bier Extra",
-   "verpackung": "flasche033",
-   "liter": 0.35,
-   "haendler": "Billa",
-   "preis": 1.11,
-   "statt": 2.22,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "div. Sorten 0,355 Liter"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa",
-   "preis": 14.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Billa",
-   "preis": 0.64,
-   "statt": 1.29,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "Naturgold od. Natur Radler Zitrone 0,33 Liter Einweg"
-  },
-  {
-   "bierId": "murauer",
-   "marke": "Murauer",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa",
-   "preis": 16.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in der Steiermark, in Kärnten, Osttirol..."
-  },
-  {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa",
-   "preis": 13.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in Niederösterreich, Kärnten, Osttirol,..."
-  },
-  {
-   "bierId": "schwechater",
-   "marke": "Schwechater",
-   "titel": "Bier",
+   "bierId": "erdinger",
+   "marke": "Erdinger",
+   "titel": "Weißbier",
    "verpackung": "flasche05",
    "liter": 0.5,
-   "haendler": "Billa",
-   "preis": 0.49,
-   "statt": 1.38,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter"
-  },
-  {
-   "bierId": "egger",
-   "marke": "Egger",
-   "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa Plus",
-   "preis": 0.59,
-   "statt": 1.19,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa Plus",
-   "preis": 14.8,
+   "haendler": "Metro",
+   "preis": 1.14,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = Flaschen"
-  },
-  {
-   "bierId": "ottakringer",
-   "marke": "Ottakringer",
-   "titel": "Bio Zwickl Hell",
-   "verpackung": "dose05",
-   "liter": 0.5,
-   "haendler": "Billa Plus",
-   "preis": 1.49,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "div. Sorten 0,5 Liter Dose. Warengruppenrabatt zusätzlich gültig."
-  },
-  {
-   "bierId": "ottakringer",
-   "marke": "Ottakringer",
-   "titel": "Helles",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Billa Plus",
-   "preis": 1.28,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,33 Liter Flasche. Warengruppenrabatt zusätzlich gültig."
-  },
-  {
-   "bierId": "ottakringer",
-   "marke": "Ottakringer",
-   "titel": "Helles",
-   "verpackung": "dose05",
-   "liter": 0.5,
-   "haendler": "Billa Plus",
-   "preis": 1.39,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter Dose. Warengruppenrabatt zusätzlich gültig."
-  },
-  {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa Plus",
-   "preis": 13.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in der Steiermark, in Kärnten, Osttirol..."
-  },
-  {
-   "bierId": "schwechater",
-   "marke": "Schwechater",
-   "titel": "Bier",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa Plus",
-   "preis": 0.49,
-   "statt": 1.38,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter."
-  },
-  {
-   "bierId": "stiegl",
-   "marke": "Stiegl",
-   "titel": "Goldbräu",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Billa Plus",
-   "preis": 1.34,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,33 Liter Flasche. Warengruppenrabatt zusätzlich gültig."
-  },
-  {
-   "bierId": "stiegl",
-   "marke": "Stiegl",
-   "titel": "Paracelsus Bio-Zwickl",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa Plus",
-   "preis": 1.56,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "div. Sorten 0,5 Liter Flasche. Warengruppenrabatt zusätzlich gültig."
-  },
-  {
-   "bierId": "stiegl",
-   "marke": "Stiegl",
-   "titel": "Goldbräu",
-   "verpackung": "dose05",
-   "liter": 0.5,
-   "haendler": "Billa Plus",
-   "preis": 1.59,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "od. Hell 0,5 Liter Dose. Warengruppenrabatt zusätzlich gültig."
-  },
-  {
-   "bierId": "stiegl",
-   "marke": "Stiegl",
-   "titel": "Goldbräu",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa Plus",
-   "preis": 29.6,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "od. Hell 20 x 0,5 Liter, auch im 6er-Träger, Warengruppenrabatt zusätzlich gültig"
-  },
-  {
-   "bierId": "wieselburger",
-   "marke": "Wieselburger",
-   "titel": "Gold",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa Plus",
-   "preis": 13.2,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Wien, Niederösterreich und dem Burge..."
-  },
-  {
-   "bierId": "zwettler",
-   "marke": "Zwettler",
-   "titel": "Export Lager",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa Plus",
-   "preis": 14.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in Wien, Niederösterreich und dem nördl..."
-  },
-  {
-   "bierId": "villacher",
-   "marke": "Villacher",
-   "titel": "Märzen",
-   "verpackung": "tragerl6x05",
-   "liter": 3.0,
-   "haendler": "Interspar",
-   "preis": 3.33,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "6 x 0,5-Liter-Dose"
-  },
-  {
-   "bierId": "villacher",
-   "marke": "Villacher",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Interspar",
-   "preis": 15.0,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "20 x 0,5-Liter-Mehrweg-Flasche"
-  },
-  {
-   "bierId": "villacher",
-   "marke": "Villacher",
-   "titel": "Freilich 0,0% Alkoholfrei",
-   "verpackung": "tragerl6x05",
-   "liter": 3.0,
-   "haendler": "Interspar",
-   "preis": 4.5,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "6 x 0,5-Liter-Mehrweg-Flasche"
-  },
-  {
-   "bierId": "jelen",
-   "marke": "Jelen",
-   "titel": "Helles Bier",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Lidl",
-   "preis": 1.39,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "je 0,5 l."
-  },
-  {
-   "bierId": "gambrinus",
-   "marke": "Gambrinus",
-   "titel": "Bier",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Penny",
-   "preis": 0.44,
-   "statt": 0.55,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "div. Sorten 0,5 l"
-  },
-  {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Bier",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Penny",
-   "preis": 0.59,
-   "statt": 1.55,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 l"
-  },
-  {
-   "bierId": "stiegl",
-   "marke": "Stiegl",
-   "titel": "Goldbräu",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Penny",
-   "preis": 0.69,
-   "statt": 1.29,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,33 l"
-  },
-  {
-   "bierId": "ottakringer",
-   "marke": "Ottakringer",
-   "titel": "Helles",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Spar",
-   "preis": 0.69,
-   "statt": 1.39,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "Lager oder Frucade Radler 0,5 Liter"
-  },
-  {
-   "bierId": "stiegl",
-   "marke": "Stiegl",
-   "titel": "Goldbräu",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Spar",
-   "preis": 15.8,
-   "statt": 29.6,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "oder Hell 0,5 Liter 20er-Kiste"
-  },
-  {
-   "bierId": "villacher",
-   "marke": "Villacher",
-   "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Spar",
-   "preis": 0.75,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter."
-  },
-  {
-   "bierId": "villacher",
-   "marke": "Villacher",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Spar",
-   "preis": 15.0,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter 20er-Kiste"
-  },
-  {
-   "bierId": "villacher",
-   "marke": "Villacher",
-   "titel": "Märzen",
-   "verpackung": "tragerl6x05",
-   "liter": 3.0,
-   "haendler": "Spar",
-   "preis": 3.33,
-   "statt": 6.66,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter Im Einzelverkauf: 1,11 6er-Tray"
-  },
-  {
-   "bierId": "villacher",
-   "marke": "Villacher",
-   "titel": "Märzen",
-   "verpackung": "tragerl6x05",
-   "liter": 3.0,
-   "haendler": "Spar",
-   "preis": 4.5,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-12",
-   "bis": "2026-11-18",
-   "hinweis": "0,5 Liter Im Einzelverkauf: 1,50 6er-Träger"
+   "bis": "2026-11-25",
+   "hinweis": "od. König Ludwig div. Sorten 0,5-l-MW-Fl 20-Fl-Kiste. Bei den abgebildeten Preisen handelt es sich u...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "stiegl",
@@ -797,7 +57,224 @@
    "karte": null,
    "von": "2026-11-16",
    "bis": "2026-11-19",
-   "hinweis": "5,0% Vol. 0,5 l zzgl. Pfand € 0,25"
+   "hinweis": "5,0% Vol. 0,5 l zzgl. Pfand € 0,25",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Lagerhaus",
+   "preis": 16.8,
+   "statt": 21.5,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-29",
+   "hinweis": "Flasche Mehrweg Kiste = 20x0,5 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich emp...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "kaiser",
+   "marke": "Kaiser",
+   "titel": "Piccolo",
+   "verpackung": "karton24x033",
+   "liter": 7.92,
+   "haendler": "Lagerhaus",
+   "preis": 16.8,
+   "statt": 22.4,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-29",
+   "hinweis": "Flasche Mehrweg Kiste = 24x0,33 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich em...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "kaiser",
+   "marke": "Kaiser",
+   "titel": "Fasstyp",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Lagerhaus",
+   "preis": 15.8,
+   "statt": 19.4,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-29",
+   "hinweis": "Flasche Mehrweg Kiste = 20x0,5 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich emp...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Lagerhaus",
+   "preis": 15.8,
+   "statt": 19.9,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-29",
+   "hinweis": "Flasche Mehrweg Kiste = 20x0,5 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich emp...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "karton24x033",
+   "liter": 7.92,
+   "haendler": "Lagerhaus",
+   "preis": 16.8,
+   "statt": 28.56,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-29",
+   "hinweis": "Flasche Mehrweg Kiste = 24x0,33 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich em...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Norma",
+   "preis": 14.8,
+   "statt": 26.2,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-21",
+   "hinweis": "je 20x0,5 l, exkl. Pfand",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "edelweiss",
+   "marke": "Edelweiss",
+   "titel": "Weißbier Alkoholfrei",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Transgourmet",
+   "preis": 0.92,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-21",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER aus Österreich 1 Kiste = 20 Fl., 0,5 l MW",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Bier & Radler",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Transgourmet",
+   "preis": 0.89,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-21",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Krt. = 12 Fl., 0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": null,
+   "marke": "Kalea",
+   "titel": "Männerhandtasche",
+   "verpackung": "sonstige",
+   "liter": 3.96,
+   "haendler": "Transgourmet",
+   "preis": 19.99,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-21",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER XXL 1 Pkg., 12 x 0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "kaiser",
+   "marke": "Kaiser",
+   "titel": "Fasstyp",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "ADEG",
+   "preis": 14.8,
+   "statt": 26.2,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "20 x 0,5 Liter. Angebot in deinem Adeg Nahversorger-Markt erhältlich.",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "ADEG",
+   "preis": 14.8,
+   "statt": 26.8,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "20 x 0,5 Liter. Angebot in deinem Adeg Nahversorger-Markt erhältlich.",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -812,22 +289,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Bio Stoff",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Billa",
-   "preis": 0.89,
-   "statt": 1.34,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,33 Liter Einweg"
+   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -842,22 +309,32 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "od. Naturgold 0,5 Liter"
+   "hinweis": "od. Naturgold 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
-   "bierId": "heineken",
-   "marke": "Heineken",
-   "titel": "Lager",
-   "verpackung": "flasche033",
-   "liter": 0.33,
+   "bierId": "kaiser",
+   "marke": "Kaiser",
+   "titel": "Fasstyp",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
    "haendler": "Billa",
-   "preis": 0.86,
-   "statt": 1.72,
+   "preis": 13.8,
+   "statt": null,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "oder 0,0 % 0,33 Liter Einweg"
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in Oberösterreich, Salzburg, Tirol und ...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "ottakringer",
@@ -872,7 +349,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "puntigamer",
@@ -887,7 +369,11 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter, im 6er-Träger 1 Kiste = 20 Flaschen. Gültig in Niederösterreich, im Burgenland, in der St..."
+   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger, Gültig in Niederösterreich, im Burgenland, in der Steiermark, in...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
   },
   {
    "bierId": "schwechater",
@@ -902,7 +388,32 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "stiegl",
+   "marke": "Stiegl",
+   "titel": "Goldbräu",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Billa",
+   "preis": 0.69,
+   "statt": 1.34,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,33 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "stiegl",
@@ -917,7 +428,35 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,33 Liter Einweg"
+   "hinweis": "0,33 Liter Einweg",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Billa",
+   "preis": 14.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger, Gültig in Wien, Niederösterreich und im nördlichen Burgenland",
+   "regionen": [
+    "Wien",
+    "Niederösterreich",
+    "Burgenland"
+   ],
+   "gebiete": [
+    "amstetten"
+   ]
   },
   {
    "bierId": "wieselburger",
@@ -932,7 +471,55 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Billa",
+   "preis": 14.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Salzburg, Oberösterreich und Tirol.",
+   "regionen": [
+    "Oberösterreich",
+    "Salzburg",
+    "Tirol"
+   ],
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_urtyp",
+   "marke": "Zipfer",
+   "titel": "Urtyp",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Billa",
+   "preis": 14.4,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "budweiser",
@@ -947,22 +534,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "div. Sorten 0,5 Liter"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa Plus",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "od. Naturradler 0,5 Liter"
+   "hinweis": "div. Sorten 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -977,7 +554,32 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger. Warengruppenrabatt zusätzlich gültig"
+   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger. Warengruppenrabatt zusätzlich gültig",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Billa Plus",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "od. Naturradler 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "heineken",
@@ -992,7 +594,31 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "od. 0,0 % 0,33 Liter Einweg"
+   "hinweis": "od. 0,0 % 0,33 Liter Einweg",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "kaiser",
+   "marke": "Kaiser",
+   "titel": "Fasstyp",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Billa Plus",
+   "preis": 13.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Wien, Niederösterreich und im nördli...",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
   },
   {
    "bierId": "ottakringer",
@@ -1007,22 +633,31 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
-   "bierId": "ottakringer",
-   "marke": "Ottakringer",
-   "titel": "Helles",
-   "verpackung": "flasche033",
-   "liter": 0.33,
+   "bierId": null,
+   "marke": "Pilsner Urquell",
+   "titel": "Bier",
+   "verpackung": "tragerl6x05",
+   "liter": 3.0,
    "haendler": "Billa Plus",
-   "preis": 0.64,
-   "statt": 1.28,
+   "preis": 5.94,
+   "statt": 8.94,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,33 Liter Einweg"
+   "hinweis": "6 x 0,5 Liter Flasche",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
   },
   {
    "bierId": "puntigamer",
@@ -1037,7 +672,70 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Niederösterreich, im Burgenland, in ..."
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Niederösterreich, im Burgenland, in ...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "stiegl",
+   "marke": "Stiegl",
+   "titel": "Goldbräu",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Billa Plus",
+   "preis": 0.69,
+   "statt": 1.34,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,33 Liter",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "stiegl",
+   "marke": "Stiegl",
+   "titel": "Goldbräu",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Billa Plus",
+   "preis": 0.86,
+   "statt": 1.29,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,33 Liter Einweg",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Billa Plus",
+   "preis": 14.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Wien, Niederösterreich und im nördli...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "wieselburger",
@@ -1052,7 +750,35 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Billa Plus",
+   "preis": 14.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Salzburg, Oberösterreich und Tirol",
+   "regionen": [
+    "Oberösterreich",
+    "Salzburg",
+    "Tirol"
+   ],
+   "gebiete": [
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -1067,7 +793,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-12-02",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -1082,22 +813,51 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-12-02",
-   "hinweis": "20 x 0,5 Liter"
+   "hinweis": "20 x 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Das Bierige Bier",
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Eurospar",
-   "preis": 29.8,
+   "preis": 26.8,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-12-02",
-   "hinweis": "0.5l 20er"
+   "hinweis": "0,5 Liter 20er-Kiste",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Eurospar",
+   "preis": 28.0,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "0,5 Liter 20er-Kiste",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "kozel",
@@ -1112,52 +872,135 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-12-02",
-   "hinweis": "0,5-Liter-Dose In Vorarlberg nicht erhältlich!"
+   "hinweis": "0,5-Liter-Dose In Vorarlberg nicht erhältlich!",
+   "regionen": [
+    "Wien",
+    "Niederösterreich",
+    "Burgenland",
+    "Oberösterreich",
+    "Salzburg",
+    "Steiermark",
+    "Kärnten",
+    "Tirol"
+   ],
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Das Bierige Bier",
-   "verpackung": "sonstige",
-   "liter": 12.0,
-   "haendler": "Interspar",
-   "preis": 36.96,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "24 x 0,5-Liter-Dose"
-  },
-  {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Das Bierige Bier",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Interspar",
-   "preis": 29.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "20 x 0,5-Liter-MEHRWEG-Flasche"
-  },
-  {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Pr0,0%st",
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Alkoholfrei Bier 0,0%",
    "verpackung": "tragerl6x05",
    "liter": 3.0,
    "haendler": "Interspar",
-   "preis": 8.94,
+   "preis": 8.04,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-12-02",
-   "hinweis": "Alkoholfrei 6 x 0,5-Liter-MEHRWEG-Flasche"
+   "hinweis": "6 x 0,5-Liter-MEHRWEG-Flasche",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "sonstige",
+   "liter": 12.0,
+   "haendler": "Interspar",
+   "preis": 34.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "24 x 0,5-Liter-Dose",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Interspar",
+   "preis": 26.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5-Liter-MEHRWEG-Flasche",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "zipfer_urtyp",
+   "marke": "Zipfer",
+   "titel": "Urtyp",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Interspar",
+   "preis": 28.6,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5-Liter-MEHRWEG-Flasche",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Interspar",
+   "preis": 28.0,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5-Liter-MEHRWEG-Flasche",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "0,0% Alkoholfrei",
+   "verpackung": "tragerl6x05",
+   "liter": 3.0,
+   "haendler": "Interspar",
+   "preis": 8.7,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "6 x 0,5-Liter-MEHRWEG-Flasche",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -1172,7 +1015,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-21",
-   "hinweis": "Je 0,33 l. Max. Abgabemenge: 90 Fl."
+   "hinweis": "Je 0,33 l. Max. Abgabemenge: 90 Fl.",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "jelen",
@@ -1187,7 +1035,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "je 0,5 l."
+   "hinweis": "je 0,5 l.",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "kaiser",
@@ -1202,22 +1055,12 @@
    "karte": "lidlPlus",
    "von": "2026-11-19",
    "bis": "2026-11-21",
-   "hinweis": "HINWEIS: MIT LIDL PLUS APP 12.80 € Je 20x 0,5 l."
-  },
-  {
-   "bierId": "murauer",
-   "marke": "Murauer",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Lidl",
-   "preis": 14.8,
-   "statt": 24.4,
-   "kartenPreis": 14.4,
-   "karte": "lidlPlus",
-   "von": "2026-11-19",
-   "bis": "2026-11-21",
-   "hinweis": "HINWEIS: MIT LIDL PLUS APP 14.40 € Je 20x 0,5 l. Einzeln = 1.34."
+   "hinweis": "HINWEIS: MIT LIDL PLUS APP 12.80 € Je 20x 0,5 l.",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "stiegl",
@@ -1232,22 +1075,164 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-21",
-   "hinweis": "oder Hell je 0,5 l. Max. Abgabemenge: 120 Dosen"
+   "hinweis": "oder Hell je 0,5 l. Max. Abgabemenge: 120 Dosen",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
-   "bierId": "egger",
-   "marke": "Egger Zuckerln",
-   "titel": "Sportgummi",
-   "verpackung": "sonstige",
-   "liter": null,
-   "haendler": "Penny",
-   "preis": 3.0,
-   "statt": null,
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.74,
+   "statt": 1.49,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "€ 6,00 / kg - 500 g"
+   "hinweis": "0,5 Liter, max. 4 Trays",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Maximarkt",
+   "preis": 14.9,
+   "statt": 29.8,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": null,
+   "marke": "Raschhofer",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Maximarkt",
+   "preis": 13.8,
+   "statt": 18.8,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Märzen",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Maximarkt",
+   "preis": 0.62,
+   "statt": 1.25,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,33 Liter, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Kellerbier",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.7,
+   "statt": 1.4,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Drei",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Maximarkt",
+   "preis": 14.0,
+   "statt": 28.0,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_urtyp",
+   "marke": "Zipfer",
+   "titel": "Urtyp",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Maximarkt",
+   "preis": 14.3,
+   "statt": 28.6,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
   },
   {
    "bierId": "ottakringer",
@@ -1262,7 +1247,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,33 l"
+   "hinweis": "0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "puntigamer",
@@ -1277,7 +1267,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,33 l"
+   "hinweis": "0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "schwechater",
@@ -1292,7 +1287,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,5 l"
+   "hinweis": "0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "stiegl",
@@ -1307,7 +1307,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-21",
-   "hinweis": "pro Kiste 20 x 0,5 l Preis exkl. Pfand"
+   "hinweis": "pro Kiste 20 x 0,5 l Preis exkl. Pfand",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -1322,7 +1327,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-12-02",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -1337,22 +1347,12 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-12-02",
-   "hinweis": "20 x 0,5 Liter"
-  },
-  {
-   "bierId": "hirter",
-   "marke": "Hirter",
-   "titel": "Rubin Bock",
-   "verpackung": "sonstige",
-   "liter": 1.98,
-   "haendler": "Spar",
-   "preis": 7.48,
-   "statt": 9.48,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "6er-Tray, 0,33-Liter-Einweg"
+   "hinweis": "20 x 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "hirter",
@@ -1367,67 +1367,21 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-12-02",
-   "hinweis": "0,5 Liter (im Vorarlberg nicht erhältlich)"
-  },
-  {
-   "bierId": "murauer",
-   "marke": "Murauer",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Spar",
-   "preis": 19.8,
-   "statt": 27.8,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "20er-Kiste, 0,5-Liter-Flasche"
-  },
-  {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Das Bierige Bier",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Spar",
-   "preis": 1.54,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "0,5 Liter"
-  },
-  {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "Das Bierige Bier",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Spar",
-   "preis": 1.42,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "0,33 Liter"
-  },
-  {
-   "bierId": "puntigamer",
-   "marke": "Puntigamer",
-   "titel": "0.0% Alkoholfrei",
-   "verpackung": "tragerl6x05",
-   "liter": 3.0,
-   "haendler": "Spar",
-   "preis": 8.94,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "6 x 0,5 Liter"
+   "hinweis": "0,5 Liter (im Vorarlberg nicht erhältlich)",
+   "regionen": [
+    "Wien",
+    "Niederösterreich",
+    "Burgenland",
+    "Oberösterreich",
+    "Salzburg",
+    "Steiermark",
+    "Kärnten",
+    "Tirol"
+   ],
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "schwechater",
@@ -1442,7 +1396,226 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-12-02",
-   "hinweis": "20 x 0,5 Liter. In Vorarlberg nicht erhältlich."
+   "hinweis": "20 x 0,5 Liter. In Vorarlberg nicht erhältlich.",
+   "regionen": [
+    "Wien",
+    "Niederösterreich",
+    "Burgenland",
+    "Oberösterreich",
+    "Salzburg",
+    "Steiermark",
+    "Kärnten",
+    "Tirol"
+   ],
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Alkoholfrei Bier 0,0%",
+   "verpackung": "tragerl6x05",
+   "liter": 3.0,
+   "haendler": "Spar",
+   "preis": 8.04,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "6 x 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Spar",
+   "preis": 1.29,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "0,33 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Spar",
+   "preis": 1.45,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Spar",
+   "preis": 26.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5 Liter. (Nur gültig in Wien, Niederösterreich und Nord-Burgenland)",
+   "regionen": [
+    "Wien",
+    "Niederösterreich",
+    "Burgenland"
+   ],
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_urtyp",
+   "marke": "Zipfer",
+   "titel": "Urtyp",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Spar",
+   "preis": 28.6,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Drei",
+   "verpackung": "tragerl6x05",
+   "liter": 3.0,
+   "haendler": "Spar",
+   "preis": 8.58,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "6 x 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Spar",
+   "preis": 28.0,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5 Liter. (Nur gültig in Nordtirol, Salzburg und Oberösterreich)",
+   "regionen": [
+    "Oberösterreich",
+    "Salzburg"
+   ],
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "0,0% Alkoholfrei",
+   "verpackung": "tragerl6x05",
+   "liter": 3.0,
+   "haendler": "Spar",
+   "preis": 8.7,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "6 x 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "dose05",
+   "liter": 0.5,
+   "haendler": "Spar Gourmet",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "0,5-lt.-Dose",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "tragerl6x05",
+   "liter": 3.0,
+   "haendler": "Spar Gourmet",
+   "preis": 8.04,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "6 x 0,5-lt.-Flasche",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
   },
   {
    "bierId": "egger",
@@ -1457,7 +1630,12 @@
    "karte": null,
    "von": "2026-11-20",
    "bis": "2026-11-26",
-   "hinweis": "5,0 % Vol. 0,5 l"
+   "hinweis": "5,0 % Vol. 0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -1472,7 +1650,12 @@
    "karte": null,
    "von": "2026-11-20",
    "bis": "2026-11-21",
-   "hinweis": "zzgl. Pfand € 0,20 5,2% Vol. 20 x 0,5 l"
+   "hinweis": "zzgl. Pfand € 0,20 5,2% Vol. 20 x 0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -1487,7 +1670,12 @@
    "karte": null,
    "von": "2026-11-20",
    "bis": "2026-11-21",
-   "hinweis": "zzgl. Pfand € 0,25 5,2% Vol. 0,5 l"
+   "hinweis": "zzgl. Pfand € 0,25 5,2% Vol. 0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -1502,7 +1690,12 @@
    "karte": null,
    "von": "2026-11-20",
    "bis": "2026-11-21",
-   "hinweis": "zzgl. Pfand € 0,20 0,5 l"
+   "hinweis": "zzgl. Pfand € 0,20 0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
   },
   {
    "bierId": "goesser",
@@ -1517,7 +1710,166 @@
    "karte": null,
    "von": "2026-11-23",
    "bis": "2026-11-26",
-   "hinweis": "5,2 % Vol./2,0 % Vol. 0,33 l"
+   "hinweis": "5,2 % Vol./2,0 % Vol. 0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": null,
+   "marke": "Baumgartner",
+   "titel": "Zwickl",
+   "verpackung": "tragerl6x05",
+   "liter": 2.99,
+   "haendler": "Norma",
+   "preis": 4.79,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-23",
+   "bis": "2026-11-28",
+   "hinweis": "hell je 6x0,5 l, exkl. Pfand",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": null,
+   "marke": "Kapsreiter",
+   "titel": "Landbier hell",
+   "verpackung": "sonstige",
+   "liter": 3.96,
+   "haendler": "Norma",
+   "preis": 8.79,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-23",
+   "bis": "2026-11-28",
+   "hinweis": "je 12x0,33 l, exkl. Pfand",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": null,
+   "marke": "Clausthaler",
+   "titel": "Classic Bier",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Transgourmet",
+   "preis": 0.89,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-23",
+   "bis": "2026-11-28",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER alkoholfreies Bier 1 Kiste = 20 Fl., 0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "egger",
+   "marke": "Egger",
+   "titel": "Märzen",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Transgourmet",
+   "preis": 0.79,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-23",
+   "bis": "2026-11-28",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER 1 Krt. = 12 Fl., 0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Biostoff Lager Bier",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Transgourmet",
+   "preis": 0.79,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-23",
+   "bis": "2026-11-28",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER 1 Kiste = 12 Fl., 0,33 l MW",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "stiegl",
+   "marke": "Stiegl",
+   "titel": "Bier",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Transgourmet",
+   "preis": 0.74,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-23",
+   "bis": "2026-11-28",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Kiste = 24 Fl., 0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "stiegl",
+   "marke": "Stiegl",
+   "titel": "Bier",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Transgourmet",
+   "preis": 0.84,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-23",
+   "bis": "2026-11-28",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Krt. = 12 Fl., 0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "trumer",
+   "marke": "Trumer Brauerei",
+   "titel": "Obertrumer Original Bio Zwickl",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Transgourmet",
+   "preis": 1.09,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-23",
+   "bis": "2026-11-28",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER aus Österreich 1 Kiste = 24 Fl., 0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
   }
  ]
 }

@@ -110,6 +110,7 @@ Future<void> _verarbeiten(Map<String, dynamic> d, AppZustand z) async {
     'bis': d['bis'],
     'statt': double.tryParse('${d['statt'] ?? ''}'),
     'regionen': d['regionen'],
+    'gebiete': d['gebiete'],
   });
   if (angebot == null) return;
   final treffer = z.treffer([angebot]);

@@ -5,7 +5,9 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../beta.dart';
+import '../main.dart';
 import '../push.dart';
+import '../standort.dart';
 import '../radar.dart';
 
 String _datum(DateTime d) {
@@ -273,8 +275,10 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                               width: double.infinity,
                               child: FilledButton.icon(
                                 onPressed: () async {
+                                  final z = ZustandScope.of(context);
                                   await b.willkommenBestaetigen();
                                   await benachrichtigungenErfragen();
+                                  await standortErmitteln(z);
                                 },
                                 icon: const Icon(Icons.anchor),
                                 label: const Padding(

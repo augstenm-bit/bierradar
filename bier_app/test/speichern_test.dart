@@ -73,4 +73,17 @@ void main() {
     expect(rangFuer(55).name, 'Bootsmann');
     expect(naechsterRang(55)!.name, 'Kapitän');
   });
+
+  test('Standort und Umkreis', () {
+    final z = AppZustand();
+    z.standortSetzen(48.1229, 14.8720); // Amstetten
+    expect(z.gebiet, Gebiet.amstetten);
+    z.radiusKm = 20;
+    expect(z.aktiveGebiete, {Gebiet.amstetten});
+    z.radiusKm = 40; // Steyr ist ca. 35 km entfernt
+    expect(z.aktiveGebiete, {Gebiet.amstetten, Gebiet.steyr});
+    z.standortSetzen(48.0427, 14.4213); // Steyr
+    z.radiusKm = 5;
+    expect(z.aktiveGebiete, {Gebiet.steyr});
+  });
 }

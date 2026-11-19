@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'beta.dart';
 import 'push.dart';
+import 'standort.dart';
 import 'radar.dart';
 import 'seiten/einrichtung.dart';
 import 'seiten/hauptseite.dart';
@@ -16,6 +17,8 @@ void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   final zustand = AppZustand()..laden();
   pushStarten(zustand);
+  // Standort still aktualisieren, wenn er schon erlaubt wurde
+  Future.delayed(const Duration(seconds: 3), () => standortErmitteln(zustand, fragen: false));
   final beta = BetaPruefung()..pruefen();
   runApp(BierApp(zustand: zustand, beta: beta));
 }
