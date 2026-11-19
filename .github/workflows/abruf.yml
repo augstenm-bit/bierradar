@@ -46,5 +46,9 @@ jobs:
             echo "Keine neuen Angebote."
           else
             git commit -m "Angebote aktualisiert"
-            git push
+            # Falls inzwischen etwas anderes hochgeladen wurde: zuerst nachziehen, dann speichern (3 Versuche)
+            for versuch in 1 2 3; do
+              git pull --rebase -X theirs origin main && git push && break
+              sleep 5
+            done
           fi
