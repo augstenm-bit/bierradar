@@ -42,11 +42,11 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
   late final AnimationController _konfetti = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 5),
-  )..repeat();
+  )..forward();
   late final AnimationController _welle = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 2400),
-  )..repeat();
+  );
 
   @override
   void dispose() {
@@ -106,7 +106,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                             child: Stack(
                               alignment: Alignment.center,
                               children: [
-                                const LiveRadar(groesse: 240, dauer: Duration(milliseconds: 2600)),
+                                const RadarLogo(groesse: 240),
                                 AnimatedBuilder(
                                   animation: _welle,
                                   builder: (_, _) => Container(
