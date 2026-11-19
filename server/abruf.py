@@ -215,7 +215,7 @@ def abrufen() -> list[dict]:
     with sync_playwright() as p:
         browser = p.chromium.launch()
         for gebiet, plz, ort in GEBIETE:
-            seite = browser.new_page(locale="de-AT")
+            seite = browser.new_page(locale="de-AT", timezone_id="Europe/Vienna")
 
             def lade(url: str) -> str:
                 seite.goto(url, wait_until="networkidle", timeout=60000)
