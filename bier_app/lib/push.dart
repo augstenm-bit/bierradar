@@ -53,6 +53,13 @@ Future<void> pushStarten(AppZustand z) async {
 
 /// Erst nach „Anheuern“ nach Benachrichtigungen fragen.
 Future<void> benachrichtigungenErfragen() async {
+  if (!kIsWeb && defaultTargetPlatform == TargetPlatform.iOS) {
+    // iPhone: für Meldungen aus dem Hintergrund-Abruf und Erinnerungen
+    await _benachrichtigungen
+        .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(alert: true, sound: true, badge: false);
+    return;
+  }
   if (!pushMoeglich) return;
   try {
     await FirebaseMessaging.instance.requestPermission();

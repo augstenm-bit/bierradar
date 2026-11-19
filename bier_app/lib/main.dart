@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'beta.dart';
+import 'hintergrund.dart';
 import 'push.dart';
 import 'standort.dart';
 import 'radar.dart';
@@ -17,6 +18,11 @@ void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   final zustand = AppZustand()..laden();
   pushStarten(zustand);
+  hintergrundEinrichten();
+  // Was man in der App schon gesehen hat, soll der Hintergrund-Abruf nicht nochmal melden.
+  zustand.addListener(() {
+    if (zustand.geladen && !zustand.angeboteLaden) trefferAlsGesehenMerken(zustand);
+  });
   // Standort still aktualisieren, wenn er schon erlaubt wurde
   Future.delayed(const Duration(seconds: 3), () => standortErmitteln(zustand, fragen: false));
   final beta = BetaPruefung()..pruefen();
