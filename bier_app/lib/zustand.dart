@@ -45,8 +45,8 @@ class AppZustand extends ChangeNotifier {
   /// Gemerkte Angebote (Schlüssel siehe [angebotSchluessel]) → für die „endet morgen“-Erinnerung.
   final Set<String> gemerkt = {};
 
-  /// Als gekauft markierte Angebote und die gesamte Ersparnis seit Installation.
-  final Set<String> gekauft = {};
+  /// Gekaufte Angebote mit Anzahl (z. B. 5 Kisten) und die gesamte Ersparnis seit Installation.
+  final Map<String, int> gekauft = {};
   double gespartGesamt = 0;
 
   static String angebotSchluessel(Angebot a) =>
@@ -62,15 +62,17 @@ class AppZustand extends ChangeNotifier {
   static double ersparnis(Angebot a, double preisFuerMich) =>
       a.statt != null && a.statt! > preisFuerMich ? a.statt! - preisFuerMich : 0;
 
-  void gekauftUmschalten(Angebot a, double preisFuerMich) {
+  /// Setzt die gekaufte Anzahl (0 = nicht gekauft) und passt die Gesamt-Ersparnis an.
+  void gekauftSetzen(Angebot a, double preisFuerMich, int anzahl) {
     final k = angebotSchluessel(a);
     final e = ersparnis(a, preisFuerMich);
-    if (gekauft.remove(k)) {
-      gespartGesamt = (gespartGesamt - e).clamp(0, double.infinity);
+    final vorher = gekauft[k] ?? 0;
+    if (anzahl <= 0) {
+      gekauft.remove(k);
     } else {
-      gekauft.add(k);
-      gespartGesamt += e;
+      gekauft[k] = anzahl;
     }
+    gespartGesamt = (gespartGesamt + e * (anzahl.clamp(0, 999) - vorher)).clamp(0, double.infinity);
     aenderung();
   }
 
@@ -147,7 +149,14 @@ class AppZustand extends ChangeNotifier {
       final versteckt = j['hinweisVersteckt'] as String?;
       kartenHinweisVersteckt = versteckt == null ? null : DateTime.tryParse(versteckt);
       gemerkt.addAll(((j['gemerkt'] as List?) ?? []).cast<String>());
-      gekauft.addAll(((j['gekauft'] as List?) ?? []).cast<String>());
+      final g = j['gekauft'];
+      if (g is Map) {
+        g.forEach((k, v) => gekauft[k as String] = (v as num).toInt());
+      } else if (g is List) {
+        for (final k in g) {
+          gekauft[k as String] = 1; // ältere Version: ohne Anzahl
+        }
+      }
       gespartGesamt = (j['gespart'] as num?)?.toDouble() ?? 0;
       for (final k in (j['karten'] as List? ?? [])) {
         final karte = Kundenkarte.values.where((x) => x.name == k).firstOrNull;
@@ -175,7 +184,7 @@ class AppZustand extends ChangeNotifier {
         'kartenZeigen': kartenAngeboteZeigen,
         'hinweisVersteckt': kartenHinweisVersteckt?.toIso8601String(),
         'gemerkt': gemerkt.toList(),
-        'gekauft': gekauft.toList(),
+        'gekauft': gekauft,
         'gespart': gespartGesamt,
         'karten': karten.map((k) => k.name).toList(),
         'auswahl': auswahl.map(

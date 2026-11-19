@@ -742,7 +742,8 @@ class _DetailsState extends State<_Details> {
     final a = t.angebot;
     final schluessel = AppZustand.angebotSchluessel(a);
     final istGemerkt = z.gemerkt.contains(schluessel);
-    final istGekauft = z.gekauft.contains(schluessel);
+    final anzahlGekauft = z.gekauft[schluessel] ?? 0;
+    final istGekauft = anzahlGekauft > 0;
     final ersparnis = AppZustand.ersparnis(a, t.preisFuerMich);
 
     return SafeArea(
@@ -841,14 +842,22 @@ class _DetailsState extends State<_Details> {
                           )
                         : null,
                     icon: Icon(istGekauft ? Icons.check_circle : Icons.shopping_cart_outlined),
-                    label: Text(istGekauft ? 'Gekauft ✓' : 'Gekauft! 🍺'),
-                    onPressed: () {
-                      z.gekauftUmschalten(a, t.preisFuerMich);
-                      if (!istGekauft && ersparnis > 0) {
-                        ScaffoldMessenger.of(context).showSnackBar(
+                    label: Text(istGekauft ? 'Gekauft: $anzahlGekauft ✓' : 'Gekauft! 🍺'),
+                    onPressed: () async {
+                      final messenger = ScaffoldMessenger.of(context);
+                      final anzahl = await _frageAnzahl(
+                        context,
+                        a,
+                        istGekauft ? anzahlGekauft : 1,
+                        istGekauft,
+                      );
+                      if (anzahl == null) return;
+                      z.gekauftSetzen(a, t.preisFuerMich, anzahl);
+                      if (anzahl > 0 && ersparnis > 0) {
+                        messenger.showSnackBar(
                           SnackBar(
                             content: Text(
-                              'Prost! ${euro(ersparnis)} gespart – insgesamt ${euro(z.gespartGesamt)}.',
+                              'Prost! ${euro(ersparnis * anzahl)} gespart – insgesamt ${euro(z.gespartGesamt)}.',
                             ),
                           ),
                         );
@@ -1145,7 +1154,7 @@ class _UeberDieApp extends StatelessWidget {
           ),
           const SizedBox(height: 14),
           const Text(
-            'Angebote aus öffentlichen Flugblatt-Daten (marktguru.at).\nAlle Preise ohne Gewähr.',
+            'Angebote aus öffentlichen Flugblatt-Daten.\nAlle Preise ohne Gewähr.',
             textAlign: TextAlign.center,
             style: TextStyle(color: textGedaempft, fontSize: 12, height: 1.4),
           ),
@@ -1157,7 +1166,8 @@ class _UeberDieApp extends StatelessWidget {
               applicationVersion: appVersion,
               applicationLegalese: '© ${DateTime.now().year} Michael Augsten',
             ),
-            child: const Text('Open-Source-Lizenzen'),
+            style: TextButton.styleFrom(foregroundColor: const Color(0xFF56617A)),
+            child: const Text('Rechtliches & Lizenzen', style: TextStyle(fontSize: 12)),
           ),
           Text(
             '© ${DateTime.now().year} Michael Augsten · Prost! 🍻',
@@ -1255,4 +1265,61 @@ class _ErsparnisLeiste extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Fragt, wie viele (Kisten/Flaschen …) gekauft wurden. null = abgebrochen, 0 = entfernen.
+Future<int?> _frageAnzahl(BuildContext context, Angebot a, int start, bool schonGekauft) {
+  var anzahl = start.clamp(1, 99);
+  final einheit = a.verpackung.titel;
+  return showDialog<int>(
+    context: context,
+    builder: (c) => StatefulBuilder(
+      builder: (c, setze) => AlertDialog(
+        backgroundColor: const Color(0xFF141B2B),
+        title: const Text('Wie viele hast du gekauft?'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('${a.bier.name} · $einheit', style: const TextStyle(color: textGedaempft)),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton.filledTonal(
+                  onPressed: anzahl > 1 ? () => setze(() => anzahl--) : null,
+                  icon: const Icon(Icons.remove),
+                ),
+                SizedBox(
+                  width: 70,
+                  child: Text(
+                    '$anzahl',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w800, color: bierGoldHell),
+                  ),
+                ),
+                IconButton.filledTonal(
+                  onPressed: anzahl < 99 ? () => setze(() => anzahl++) : null,
+                  icon: const Icon(Icons.add),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(
+              anzahl == 1 ? '1 × $einheit' : '$anzahl × $einheit',
+              style: const TextStyle(color: textGedaempft, fontSize: 13),
+            ),
+          ],
+        ),
+        actions: [
+          if (schonGekauft)
+            TextButton(
+              onPressed: () => Navigator.pop(c, 0),
+              child: const Text('Entfernen', style: TextStyle(color: textGedaempft)),
+            ),
+          TextButton(onPressed: () => Navigator.pop(c), child: const Text('Abbrechen')),
+          FilledButton(onPressed: () => Navigator.pop(c, anzahl), child: const Text('Speichern')),
+        ],
+      ),
+    ),
+  );
 }

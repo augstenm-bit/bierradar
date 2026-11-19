@@ -32,4 +32,25 @@ void main() {
     expect(z.auswahl['chang']!.keys, containsAll([Verpackung.karton24x033, Verpackung.flasche033]));
     expect(z.auswahl['chang']![Verpackung.karton24x033]!.immerMelden, isTrue);
   });
+
+  test('Gekauft mit Anzahl: Ersparnis wird multipliziert und angepasst', () async {
+    SharedPreferences.setMockInitialValues({});
+    final z = AppZustand();
+    final a = Angebot(
+      bierId: 'kaiser',
+      verpackung: Verpackung.kiste20x05,
+      haendler: 'Lidl',
+      preis: 14.80,
+      statt: 24.40,
+      von: DateTime(2026, 11, 19),
+      bis: DateTime(2026, 11, 21),
+    );
+    z.gekauftSetzen(a, 14.80, 5);
+    expect(z.gespartGesamt, closeTo(48.0, 0.001));
+    z.gekauftSetzen(a, 14.80, 2);
+    expect(z.gespartGesamt, closeTo(19.2, 0.001));
+    z.gekauftSetzen(a, 14.80, 0);
+    expect(z.gespartGesamt, closeTo(0, 0.001));
+    expect(z.gekauft, isEmpty);
+  });
 }
