@@ -42,11 +42,11 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
   late final AnimationController _konfetti = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 5),
-  )..forward();
+  )..repeat();
   late final AnimationController _welle = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 2400),
-  );
+  )..repeat();
 
   @override
   void dispose() {
@@ -76,6 +76,9 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final b = widget.beta;
+    final hoehe = MediaQuery.sizeOf(context).height;
+    final r = (hoehe * 0.21).clamp(140.0, 220.0);
+    final k = hoehe < 760; // kompakt auf kleineren Handys
     final bis = b.gueltigBis;
     final abzeichen = _ab(0.1, 0.55, Curves.elasticOut);
 
@@ -86,7 +89,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
             child: IgnorePointer(
               child: AnimatedBuilder(
                 animation: _konfetti,
-                builder: (_, _) => const SizedBox.shrink(),
+                builder: (_, _) => CustomPaint(painter: BierRegenMaler(_konfetti.value)),
               ),
             ),
           ),
@@ -102,16 +105,16 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                         children: [
                           const Spacer(),
                           SizedBox.square(
-                            dimension: 240,
+                            dimension: r,
                             child: Stack(
                               alignment: Alignment.center,
                               children: [
-                                const RadarLogo(groesse: 240),
+                                LiveRadar(groesse: r, dauer: const Duration(milliseconds: 2600)),
                                 AnimatedBuilder(
                                   animation: _welle,
                                   builder: (_, _) => Container(
-                                    width: 150 + 90 * _welle.value,
-                                    height: 150 + 90 * _welle.value,
+                                    width: r * 0.62 + r * 0.38 * _welle.value,
+                                    height: r * 0.62 + r * 0.38 * _welle.value,
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       border: Border.all(
@@ -135,8 +138,8 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                                       child: c,
                                     ),
                                     child: Container(
-                                      width: 150,
-                                      height: 150,
+                                      width: r * 0.62,
+                                      height: r * 0.62,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         border: Border.all(color: bierGoldHell, width: 3),
@@ -153,7 +156,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 22),
+                          SizedBox(height: k ? 8 : 14),
                           _rein(
                             0.35,
                             const Text(
@@ -175,7 +178,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                               child: const Text(
                                 'Ahoi, Pirat!',
                                 style: TextStyle(
-                                  fontSize: 34,
+                                  fontSize: 30,
                                   fontWeight: FontWeight.w800,
                                   color: Colors.white,
                                 ),
@@ -200,7 +203,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                                     const Icon(Icons.hourglass_top, size: 15, color: bierGoldHell),
                                     const SizedBox(width: 5),
                                     Text(
-                                      'Noch ${bis.difference(DateTime.now()).inDays.clamp(0, betaTage)} Tage gratis testen',
+                                      'Noch ${(bis.difference(DateTime.now()).inHours / 24).ceil().clamp(0, betaTage)} Tage gratis testen',
                                       style: const TextStyle(
                                         color: bierGoldHell,
                                         fontSize: 13,
@@ -211,7 +214,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                                 ),
                               ),
                             ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 6),
                           _rein(
                             0.5,
                             Text(
@@ -221,14 +224,14 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                                   : 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von BierRadar '
                                         'und testest die App $betaTage Tage lang gratis. Ab jetzt entgeht dir keine Bier-Aktion mehr.',
                               textAlign: TextAlign.center,
-                              style: const TextStyle(color: Color(0xFFB8C4D9), fontSize: 15, height: 1.5),
+                              style: const TextStyle(color: Color(0xFFB8C4D9), fontSize: 14, height: 1.4),
                             ),
                           ),
-                          const SizedBox(height: 20),
+                          SizedBox(height: k ? 8 : 12),
                           _rein(
                             0.6,
                             Container(
-                              padding: const EdgeInsets.all(16),
+                              padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
                                 color: karteFarbe,
                                 borderRadius: BorderRadius.circular(20),
@@ -270,9 +273,9 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                               width: double.infinity,
                               child: FilledButton.icon(
                                 onPressed: () async {
-                          await b.willkommenBestaetigen();
-                          await benachrichtigungenErfragen();
-                        },
+                                  await b.willkommenBestaetigen();
+                                  await benachrichtigungenErfragen();
+                                },
                                 icon: const Icon(Icons.anchor),
                                 label: const Padding(
                                   padding: EdgeInsets.symmetric(vertical: 14),
@@ -281,7 +284,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                               ),
                             ),
                           ),
-                          const SizedBox(height: 18),
+                          const SizedBox(height: 10),
                         ],
                       ),
                     ),
@@ -342,14 +345,14 @@ class _Regel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: EdgeInsets.only(bottom: letzte ? 0 : 12),
+    padding: EdgeInsets.only(bottom: letzte ? 0 : 8),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(icon, color: bierBernstein, size: 20),
         const SizedBox(width: 12),
         Expanded(
-          child: Text(text, style: const TextStyle(color: Color(0xFFB8C4D9), height: 1.4, fontSize: 14)),
+          child: Text(text, style: const TextStyle(color: Color(0xFFB8C4D9), height: 1.3, fontSize: 13)),
         ),
       ],
     ),
