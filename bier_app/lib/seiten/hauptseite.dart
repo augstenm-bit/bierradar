@@ -75,7 +75,8 @@ class _AngeboteSeiteState extends State<_AngeboteSeite> {
 
   bool _passt(Treffer t) => switch (_filter) {
     _Filter.alle => true,
-    _Filter.kisten => t.angebot.verpackung == Verpackung.kiste20x05 || t.angebot.verpackung == Verpackung.karton24x033,
+    _Filter.kisten =>
+      t.angebot.verpackung == Verpackung.kiste20x05 || t.angebot.verpackung == Verpackung.karton24x033,
     _Filter.einzeln => t.angebot.verpackung.liter < 1,
     _Filter.spezial => t.angebot.bier.spezialitaet,
   };
@@ -87,7 +88,9 @@ class _AngeboteSeiteState extends State<_AngeboteSeite> {
     final fuerDichAlle = alle.where((t) => t.bewertung != Bewertung.zuTeuer).toList();
     final fuerDich = fuerDichAlle.where(_passt).toList();
     final zuTeuer = alle.where((t) => t.bewertung == Bewertung.zuTeuer).where(_passt).toList();
-    final bester = fuerDichAlle.where((t) => t.bewertung != Bewertung.spezialitaet).firstOrNull ?? fuerDichAlle.firstOrNull;
+    final bester =
+        fuerDichAlle.where((t) => t.bewertung != Bewertung.spezialitaet).firstOrNull ??
+        fuerDichAlle.firstOrNull;
     final rest = fuerDich.where((t) => t != bester || _filter != _Filter.alle).toList();
 
     final tippKarten = <Kundenkarte, double>{};
@@ -121,11 +124,15 @@ class _AngeboteSeiteState extends State<_AngeboteSeite> {
               if (z.angeboteFehler != null)
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-                  child: Text(z.angeboteFehler!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
+                  child: Text(
+                    z.angeboteFehler!,
+                    style: TextStyle(color: Theme.of(context).colorScheme.error),
+                  ),
                 ),
               if (z.kartenHinweisAktiv)
                 for (final e in tippKarten.entries) _KartenTipp(karte: e.key, ersparnis: e.value),
-              if (bester != null && _filter == _Filter.alle) _Einblenden(index: 0, child: _BesterDeal(treffer: bester)),
+              if (bester != null && _filter == _Filter.alle)
+                _Einblenden(index: 0, child: _BesterDeal(treffer: bester)),
               if (fuerDichAlle.isNotEmpty)
                 SizedBox(
                   height: 44,
@@ -167,7 +174,11 @@ class _AngeboteSeiteState extends State<_AngeboteSeite> {
                     ],
                   ),
                 ),
-              for (final (i, t) in rest.indexed) _Einblenden(index: i + 1, child: _AngebotZeile(treffer: t)),
+              for (final (i, t) in rest.indexed)
+                _Einblenden(
+                  index: i + 1,
+                  child: _AngebotZeile(treffer: t),
+                ),
               if (zuTeuer.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 6),
@@ -225,7 +236,12 @@ class _Kopf extends StatelessWidget {
               children: [
                 const Text(
                   'BierRadar',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: textHell, letterSpacing: 0.3),
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                    color: textHell,
+                    letterSpacing: 0.3,
+                  ),
                 ),
                 const SizedBox(height: 2),
                 Row(
@@ -372,7 +388,9 @@ class _BesterDeal extends StatelessWidget {
             colors: [Color(0xFF1F6B5A), Color(0xFF14324A), Color(0xFF3A2A12)],
             stops: [0, 0.55, 1],
           ),
-          boxShadow: [BoxShadow(color: radarGruen.withValues(alpha: 0.12), blurRadius: 24, offset: const Offset(0, 8))],
+          boxShadow: [
+            BoxShadow(color: radarGruen.withValues(alpha: 0.12), blurRadius: 24, offset: const Offset(0, 8)),
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -421,7 +439,19 @@ class _BesterDeal extends StatelessWidget {
                     ),
                   ),
                 const Spacer(),
-                Text('${euro(treffer.literPreis)}/l', style: const TextStyle(color: radarMintHell, fontSize: 13)),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      '${euro(treffer.literPreis)}/l',
+                      style: const TextStyle(color: radarMintHell, fontSize: 13),
+                    ),
+                    if (a.kartenPreis != null && treffer.preisFuerMich != a.kartenPreis) ...[
+                      const SizedBox(height: 6),
+                      _KartenPreisSchraeg(angebot: a),
+                    ],
+                  ],
+                ),
               ],
             ),
             if (a.karte != null && treffer.preisFuerMich == a.kartenPreis) ...[
@@ -455,7 +485,10 @@ class _Plakette extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         if (icon != null) ...[Icon(icon, size: 14, color: farbe), const SizedBox(width: 4)],
-        Text(text, style: TextStyle(color: farbe, fontSize: 12, fontWeight: FontWeight.w600)),
+        Text(
+          text,
+          style: TextStyle(color: farbe, fontSize: 12, fontWeight: FontWeight.w600),
+        ),
       ],
     ),
   );
@@ -536,7 +569,7 @@ class _AngebotZeile extends StatelessWidget {
     final farbe = !aktiv ? textGedaempft : (spezial ? spezialLila : radarGruen);
     final rabatt = _rabatt(a, treffer.preisFuerMich);
     final mitKarte = a.karte != null && treffer.preisFuerMich == a.kartenPreis;
-    final kartenTipp = treffer.bewertung == Bewertung.nurMitKarte;
+    final kartenHinweis = a.kartenPreis != null && !mitKarte;
 
     return GestureDetector(
       onTap: () => _zeigeDetails(context, treffer),
@@ -547,7 +580,9 @@ class _AngebotZeile extends StatelessWidget {
           color: karteFarbe,
           borderRadius: BorderRadius.circular(18),
           border: Border.all(
-            color: spezial && aktiv ? spezialLila.withValues(alpha: 0.4) : Colors.white.withValues(alpha: 0.06),
+            color: spezial && aktiv
+                ? spezialLila.withValues(alpha: 0.4)
+                : Colors.white.withValues(alpha: 0.06),
           ),
         ),
         child: Row(
@@ -555,7 +590,10 @@ class _AngebotZeile extends StatelessWidget {
             Container(
               width: 44,
               height: 44,
-              decoration: BoxDecoration(color: farbe.withValues(alpha: 0.13), borderRadius: BorderRadius.circular(13)),
+              decoration: BoxDecoration(
+                color: farbe.withValues(alpha: 0.13),
+                borderRadius: BorderRadius.circular(13),
+              ),
               child: Icon(spezial ? Icons.public : Icons.sports_bar, color: farbe, size: 24),
             ),
             const SizedBox(width: 12),
@@ -591,13 +629,11 @@ class _AngebotZeile extends StatelessWidget {
                     '${a.verpackung.titel} · ${a.haendler} · ${_wann(a)}',
                     style: const TextStyle(fontSize: 12.5, color: textGedaempft),
                   ),
-                  if (mitKarte || kartenTipp) ...[
+                  if (mitKarte) ...[
                     const SizedBox(height: 5),
                     _Plakette(
                       icon: Icons.credit_card,
-                      text: mitKarte
-                          ? 'mit ${a.karte!.titel}'
-                          : 'mit ${a.karte!.titel} nur ${euro(a.kartenPreis!)}',
+                      text: 'mit ${a.karte!.titel}',
                       farbe: bierGoldHell,
                       hintergrund: bierBernstein.withValues(alpha: 0.14),
                     ),
@@ -612,7 +648,11 @@ class _AngebotZeile extends StatelessWidget {
                 if (rabatt != null && aktiv)
                   Padding(
                     padding: const EdgeInsets.only(bottom: 3),
-                    child: _Plakette(text: '−$rabatt %', farbe: const Color(0xFF3A1C00), hintergrund: bierBernstein),
+                    child: _Plakette(
+                      text: '−$rabatt %',
+                      farbe: const Color(0xFF3A1C00),
+                      hintergrund: bierBernstein,
+                    ),
                   ),
                 Text(
                   euro(treffer.preisFuerMich),
@@ -622,7 +662,11 @@ class _AngebotZeile extends StatelessWidget {
                     color: aktiv ? bierGoldHell : textGedaempft,
                   ),
                 ),
-                Text('${euro(treffer.literPreis)}/l', style: const TextStyle(fontSize: 12, color: textGedaempft)),
+                Text(
+                  '${euro(treffer.literPreis)}/l',
+                  style: const TextStyle(fontSize: 12, color: textGedaempft),
+                ),
+                if (kartenHinweis) ...[const SizedBox(height: 6), _KartenPreisSchraeg(angebot: a)],
               ],
             ),
           ],
@@ -646,7 +690,10 @@ void _zeigeDetails(BuildContext context, Treffer t) {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(a.bier.name, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: textHell)),
+            Text(
+              a.bier.name,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: textHell),
+            ),
             Text(
               '${a.verpackung.bezeichnung} · ${a.haendler}',
               style: const TextStyle(color: textGedaempft, fontSize: 15),
@@ -674,7 +721,8 @@ void _zeigeDetails(BuildContext context, Treffer t) {
               ),
             if (!t.wunsch.immerMelden && t.wunsch.maxPreis != null)
               _DetailZeile(Icons.flag_outlined, 'Dein Wunschpreis: höchstens ${euro(t.wunsch.maxPreis!)}'),
-            if (t.wunsch.immerMelden) const _DetailZeile(Icons.notifications_active_outlined, 'Wird immer gemeldet'),
+            if (t.wunsch.immerMelden)
+              const _DetailZeile(Icons.notifications_active_outlined, 'Wird immer gemeldet'),
             if (a.hinweis != null) _DetailZeile(Icons.info_outline, a.hinweis!),
             const SizedBox(height: 18),
             SizedBox(
@@ -686,7 +734,9 @@ void _zeigeDetails(BuildContext context, Treffer t) {
                   child: Text('Mit Freunden teilen'),
                 ),
                 onPressed: () {
-                  final karte = a.kartenPreis != null ? ' (mit ${a.karte!.titel} ${euro(a.kartenPreis!)})' : '';
+                  final karte = a.kartenPreis != null
+                      ? ' (mit ${a.karte!.titel} ${euro(a.kartenPreis!)})'
+                      : '';
                   SharePlus.instance.share(
                     ShareParams(
                       text:
@@ -718,7 +768,9 @@ class _DetailZeile extends StatelessWidget {
       children: [
         Icon(icon, size: 18, color: textGedaempft),
         const SizedBox(width: 10),
-        Expanded(child: Text(text, style: const TextStyle(color: Color(0xFFB8C4D9), height: 1.35))),
+        Expanded(
+          child: Text(text, style: const TextStyle(color: Color(0xFFB8C4D9), height: 1.35)),
+        ),
       ],
     ),
   );
@@ -772,12 +824,14 @@ class _EinstellungenSeite extends StatelessWidget {
             subtitle: Text('Bezirk Amstetten\nBald: Steyr, später ganz Österreich'),
             isThreeLine: true,
           ),
-          const ListTile(
+          ListTile(
             leading: Icon(Icons.notifications_active),
             title: Text('Benachrichtigungen'),
             subtitle: Text(
-              'Kommen spätestens 1 Stunde nach einem neuen Flugblatt. '
-              'Funktioniert, sobald der Server läuft (nächster Schritt).',
+              Theme.of(context).platform == TargetPlatform.android
+                  ? 'Aktiv: Du bekommst eine Meldung spätestens ca. 1 Stunde nach einem neuen Flugblatt, '
+                        'wenn dein Bier unter deinem Wunschpreis ist.'
+                  : 'In der iPhone-Beta gibt es noch keine Push-Meldungen. Öffne die App, um die neuesten Angebote zu sehen.',
             ),
             isThreeLine: true,
           ),
@@ -816,8 +870,84 @@ class _EinstellungenSeite extends StatelessWidget {
               if (ja == true) z.allesZuruecksetzen();
             },
           ),
+          const Divider(height: 32),
+          const _UeberDieApp(),
         ],
       ),
     );
   }
+}
+
+const appVersion = '1.0.0 · Beta';
+
+/// „Über die App“ – ganz unten in den Einstellungen, wie bei anderen Apps üblich.
+class _UeberDieApp extends StatelessWidget {
+  const _UeberDieApp();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
+      child: Column(
+        children: [
+          const RadarLogo(groesse: 64),
+          const SizedBox(height: 10),
+          const Text(
+            'BierRadar',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: textHell),
+          ),
+          const Text('Version $appVersion', style: TextStyle(color: textGedaempft, fontSize: 13)),
+          const SizedBox(height: 14),
+          const Text('Entwickelt von', style: TextStyle(color: textGedaempft, fontSize: 12)),
+          const Text(
+            'Michael Augsten',
+            style: TextStyle(color: bierGoldHell, fontSize: 16, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 14),
+          const Text(
+            'Angebote aus öffentlichen Flugblatt-Daten (marktguru.at).\nAlle Preise ohne Gewähr.',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: textGedaempft, fontSize: 12, height: 1.4),
+          ),
+          const SizedBox(height: 8),
+          TextButton(
+            onPressed: () => showLicensePage(
+              context: context,
+              applicationName: 'BierRadar',
+              applicationVersion: appVersion,
+              applicationLegalese: '© ${DateTime.now().year} Michael Augsten',
+            ),
+            child: const Text('Open-Source-Lizenzen'),
+          ),
+          Text(
+            '© ${DateTime.now().year} Michael Augsten · Prost! 🍻',
+            style: const TextStyle(color: Color(0xFF56617A), fontSize: 12),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Schräges Etikett „Lidl Plus nur 12,80 €“, wenn man die Karte (noch) nicht hat.
+class _KartenPreisSchraeg extends StatelessWidget {
+  const _KartenPreisSchraeg({required this.angebot});
+  final Angebot angebot;
+
+  @override
+  Widget build(BuildContext context) => Transform.rotate(
+    angle: -0.1,
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(colors: [bierGoldHell, bierOrange]),
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [BoxShadow(color: bierOrange.withValues(alpha: 0.4), blurRadius: 8)],
+      ),
+      child: Text(
+        '${angebot.karte!.titel} nur ${euro(angebot.kartenPreis!)}',
+        style: const TextStyle(color: Color(0xFF3A1C00), fontSize: 11.5, fontWeight: FontWeight.w800),
+      ),
+    ),
+  );
 }
