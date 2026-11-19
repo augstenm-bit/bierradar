@@ -14,10 +14,10 @@ class Einrichtung extends StatefulWidget {
 class _EinrichtungState extends State<Einrichtung> {
   int _schritt = 0;
 
-  static const _titel = ['1/3 · Deine Biere', '2/3 · Verpackung & Preis', '3/3 · Kundenkarten'];
+  static const _titel = ['1/3 · Deine Biere', '2/3 · Deine Auswahl', '3/3 · Kundenkarten'];
   static const _erklaerung = [
-    'Welche Biere sollen wir für dich in den Flugblättern suchen?',
-    'In welcher Verpackung kaufst du sie, und ab welchem Preis willst du eine Nachricht?',
+    'Tippe deine Biere an – Verpackung und Wunschpreis stellst du gleich dort ein.',
+    'Passt alles? Tippe ein Bier an, um Verpackung oder Preis zu ändern.',
     'Damit wir dir die richtigen Preise zeigen.',
   ];
 

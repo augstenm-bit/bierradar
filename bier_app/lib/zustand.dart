@@ -158,9 +158,33 @@ class AppZustand extends ChangeNotifier {
   void bierUmschalten(Bier bier) {
     if (auswahl.containsKey(bier.id)) {
       auswahl.remove(bier.id);
+      aenderung();
     } else {
-      auswahl[bier.id] = {};
+      bierHinzufuegen(bier);
     }
+  }
+
+  /// Fügt ein Bier mit sinnvoller Vorauswahl hinzu:
+  /// österreichische/deutsche Biere → Kiste, Importe → Karton + Einzelflasche.
+  void bierHinzufuegen(Bier bier) {
+    if (auswahl.containsKey(bier.id)) return;
+    final packs = <Verpackung, Wunsch>{};
+    final vorschlag = bier.spezialitaet
+        ? [Verpackung.karton24x033, Verpackung.flasche033, Verpackung.flasche05]
+        : [Verpackung.kiste20x05];
+    for (final v in vorschlag.where(bier.verpackungen.contains)) {
+      packs[v] = Wunsch(maxPreis: bier.spezialitaet ? null : bier.vorschlagPreis(v), immerMelden: bier.spezialitaet);
+    }
+    if (packs.isEmpty && bier.verpackungen.isNotEmpty) {
+      final v = bier.verpackungen.first;
+      packs[v] = Wunsch(maxPreis: bier.spezialitaet ? null : bier.vorschlagPreis(v), immerMelden: bier.spezialitaet);
+    }
+    auswahl[bier.id] = packs;
+    aenderung();
+  }
+
+  void bierEntfernen(String bierId) {
+    auswahl.remove(bierId);
     aenderung();
   }
 

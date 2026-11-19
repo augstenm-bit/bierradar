@@ -10,7 +10,6 @@ void main() {
     final a = AppZustand();
     await a.laden();
     a.bierUmschalten(bierMitId('goesser'));
-    a.verpackungUmschalten(bierMitId('goesser'), Verpackung.kiste20x05);
     a.karteUmschalten(Kundenkarte.joe);
     a.einrichtungAbschliessen();
     await Future<void>.delayed(const Duration(milliseconds: 50));
@@ -22,5 +21,15 @@ void main() {
     expect(b.einrichtungFertig, isTrue);
     expect(b.auswahl['goesser']?.keys, contains(Verpackung.kiste20x05));
     expect(b.karten, contains(Kundenkarte.joe));
+  });
+
+  test('Vorauswahl: Kiste bei Gösser, Karton + Einzelflasche bei Chang', () async {
+    SharedPreferences.setMockInitialValues({});
+    final z = AppZustand();
+    z.bierHinzufuegen(bierMitId('goesser'));
+    z.bierHinzufuegen(bierMitId('chang'));
+    expect(z.auswahl['goesser']!.keys, [Verpackung.kiste20x05]);
+    expect(z.auswahl['chang']!.keys, containsAll([Verpackung.karton24x033, Verpackung.flasche033]));
+    expect(z.auswahl['chang']![Verpackung.karton24x033]!.immerMelden, isTrue);
   });
 }
