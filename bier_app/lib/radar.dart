@@ -79,9 +79,8 @@ class RadarMaler extends CustomPainter {
       mitte,
       r,
       Paint()
-        ..shader = const RadialGradient(
-          colors: [Color(0xFF14273F), radarHintergrund],
-        ).createShader(Rect.fromCircle(center: mitte, radius: r)),
+        ..shader = const RadialGradient(colors: [Color(0xFF14273F), radarHintergrund])
+            .createShader(Rect.fromCircle(center: mitte, radius: r)),
     );
 
     // Feine Ringe
@@ -115,7 +114,11 @@ class RadarMaler extends CustomPainter {
           ..shader = SweepGradient(
             startAngle: 0,
             endAngle: spur,
-            colors: [akzent.withValues(alpha: 0), akzent.withValues(alpha: 0.12), akzent.withValues(alpha: 0.5)],
+            colors: [
+              akzent.withValues(alpha: 0),
+              akzent.withValues(alpha: 0.12),
+              akzent.withValues(alpha: 0.5),
+            ],
             stops: const [0, 0.6, 1],
             transform: GradientRotation(zeiger - spur),
           ).createShader(kreis),
@@ -275,14 +278,23 @@ class RadarLogo extends StatelessWidget {
   Widget build(BuildContext context) => SizedBox.square(
     dimension: groesse,
     child: CustomPaint(
-      painter: RadarMaler(zeigerGrad: bierWinkelGrad + 6, bierSkala: 1, blipHelligkeit: const [0.5, 0.3, 0.6, 0.25, 0.4]),
+      painter: RadarMaler(
+        zeigerGrad: bierWinkelGrad + 6,
+        bierSkala: 1,
+        blipHelligkeit: const [0.5, 0.3, 0.6, 0.25, 0.4],
+      ),
     ),
   );
 }
 
 /// Kleines Radar, das sich ständig dreht (für Kopfzeile und Willkommen).
 class LiveRadar extends StatefulWidget {
-  const LiveRadar({super.key, this.groesse = 40, this.dauer = const Duration(milliseconds: 2400), this.mitBier = false});
+  const LiveRadar({
+    super.key,
+    this.groesse = 40,
+    this.dauer = const Duration(milliseconds: 2400),
+    this.mitBier = false,
+  });
   final double groesse;
   final Duration dauer;
   final bool mitBier;

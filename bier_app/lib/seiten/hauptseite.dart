@@ -11,6 +11,7 @@ import '../main.dart';
 import '../radar.dart';
 import '../zustand.dart';
 import 'bausteine.dart';
+import 'logbuch.dart';
 
 class Hauptseite extends StatefulWidget {
   const Hauptseite({super.key});
@@ -24,7 +25,13 @@ class _HauptseiteState extends State<Hauptseite> {
 
   @override
   Widget build(BuildContext context) {
-    final seiten = [const _AngeboteSeite(), const _MeineBiereSeite(), const _EinstellungenSeite()];
+    final seiten = [
+      const _AngeboteSeite(),
+      const EinkaufszettelSeite(),
+      const LogbuchSeite(),
+      const _MeineBiereSeite(),
+      const _EinstellungenSeite(),
+    ];
     return Scaffold(
       body: seiten[_tab],
       bottomNavigationBar: NavigationBar(
@@ -32,15 +39,17 @@ class _HauptseiteState extends State<Hauptseite> {
         onDestinationSelected: (i) => setState(() => _tab = i),
         destinations: const [
           NavigationDestination(icon: Icon(Icons.radar), label: 'Radar'),
+          NavigationDestination(icon: Icon(Icons.checklist), label: 'Zettel'),
+          NavigationDestination(icon: Icon(Icons.emoji_events_outlined), label: 'Logbuch'),
           NavigationDestination(
             icon: Icon(Icons.sports_bar_outlined),
             selectedIcon: Icon(Icons.sports_bar),
-            label: 'Meine Biere',
+            label: 'Biere',
           ),
           NavigationDestination(
             icon: Icon(Icons.settings_outlined),
             selectedIcon: Icon(Icons.settings),
-            label: 'Einstellungen',
+            label: 'Mehr',
           ),
         ],
       ),
@@ -227,7 +236,7 @@ class _Kopf extends StatelessWidget {
           : min < 60 * 24
           ? 'vor ${min ~/ 60} Std.'
           : 'am ${s.day}.${s.month}.';
-      text = 'Live · Bezirk Amstetten · $wann';
+      text = 'Live · ${z.gebiet.titel} · $wann';
     }
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 12, 12, 14),
@@ -575,6 +584,7 @@ class _AngebotZeile extends StatelessWidget {
     final rabatt = _rabatt(a, treffer.preisFuerMich);
     final mitKarte = a.karte != null && treffer.preisFuerMich == a.kartenPreis;
     final kartenHinweis = a.kartenPreis != null && !mitKarte;
+    final tiefst = aktiv ? ZustandScope.of(context).tiefstpreisWochen(a, treffer.literPreis) : null;
     final gemerkt = ZustandScope.of(context).gemerkt.contains(AppZustand.angebotSchluessel(a));
 
     return GestureDetector(
@@ -639,6 +649,15 @@ class _AngebotZeile extends StatelessWidget {
                     '${a.verpackung.titel} · ${a.haendler} · ${_wann(a)}',
                     style: const TextStyle(fontSize: 12.5, color: textGedaempft),
                   ),
+                  if (tiefst != null) ...[
+                    const SizedBox(height: 5),
+                    _Plakette(
+                      icon: Icons.trending_down,
+                      text: 'Tiefstpreis seit $tiefst Wochen',
+                      farbe: radarMintHell,
+                      hintergrund: radarGruen.withValues(alpha: 0.14),
+                    ),
+                  ],
                   if (mitKarte) ...[
                     const SizedBox(height: 5),
                     _Plakette(
@@ -742,7 +761,7 @@ class _DetailsState extends State<_Details> {
     final a = t.angebot;
     final schluessel = AppZustand.angebotSchluessel(a);
     final istGemerkt = z.gemerkt.contains(schluessel);
-    final anzahlGekauft = z.gekauft[schluessel] ?? 0;
+    final anzahlGekauft = z.gekauft[schluessel]?.anzahl ?? 0;
     final istGekauft = anzahlGekauft > 0;
     final ersparnis = AppZustand.ersparnis(a, t.preisFuerMich);
 
@@ -804,6 +823,7 @@ class _DetailsState extends State<_Details> {
             ),
             const SizedBox(height: 8),
             _DetailZeile(Icons.event, 'Gültig ${zeitraum(a.von, a.bis)} (${_wann(a)})'),
+            if (pfandText(a.verpackung) != null) _DetailZeile(Icons.recycling, pfandText(a.verpackung)!),
             if (a.statt != null)
               _DetailZeile(
                 Icons.sell_outlined,
@@ -852,7 +872,7 @@ class _DetailsState extends State<_Details> {
                         istGekauft,
                       );
                       if (anzahl == null) return;
-                      z.gekauftSetzen(a, t.preisFuerMich, anzahl);
+                      final neuerRang = z.gekauftSetzen(a, t.preisFuerMich, anzahl);
                       if (anzahl > 0 && ersparnis > 0) {
                         messenger.showSnackBar(
                           SnackBar(
@@ -862,6 +882,7 @@ class _DetailsState extends State<_Details> {
                           ),
                         );
                       }
+                      if (neuerRang != null && context.mounted) await zeigeRangAufstieg(context, neuerRang);
                     },
                   ),
                 ),
@@ -1067,11 +1088,39 @@ class _EinstellungenSeite extends StatelessWidget {
       appBar: AppBar(title: const Text('Einstellungen')),
       body: ListView(
         children: [
-          const ListTile(
-            leading: Icon(Icons.location_on),
-            title: Text('Gebiet'),
-            subtitle: Text('Bezirk Amstetten\nBald: Steyr, später ganz Österreich'),
-            isThreeLine: true,
+          ListTile(
+            leading: const Icon(Icons.location_on, color: radarGruen),
+            title: const Text('Gebiet'),
+            subtitle: Text('${z.gebiet.titel} (${z.gebiet.bundesland})'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => showDialog<void>(
+              context: context,
+              builder: (c) => SimpleDialog(
+                title: const Text('Wo kaufst du ein?'),
+                children: [
+                  for (final g in Gebiet.values)
+                    ListTile(
+                      leading: Icon(
+                        g == z.gebiet ? Icons.radio_button_checked : Icons.radio_button_off,
+                        color: radarGruen,
+                      ),
+                      title: Text(g.titel),
+                      subtitle: Text(g.bundesland),
+                      onTap: () {
+                        z.gebietSetzen(g);
+                        Navigator.pop(c);
+                      },
+                    ),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(24, 8, 24, 0),
+                    child: Text(
+                      'Später kommt ganz Österreich dazu.',
+                      style: TextStyle(color: textGedaempft, fontSize: 12),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
           ListTile(
             leading: Icon(Icons.notifications_active),

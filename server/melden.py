@@ -52,6 +52,8 @@ def nachricht(a: dict) -> dict:
         daten["karte"] = a.get("karte") or ""
     if a.get("statt"):
         daten["statt"] = str(a["statt"])
+    if a.get("regionen"):
+        daten["regionen"] = ",".join(a["regionen"])
     return {
         "message": {
             "topic": thema(a),

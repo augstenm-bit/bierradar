@@ -93,11 +93,25 @@ def verpackung_aus_liter(liter: float, text: str) -> str:
     return "sonstige"
 
 
-def gilt_in_noe(text: str) -> bool:
-    t = text.lower()
-    if "nur gültig in" in t or "gültig in" in t:
-        return "niederösterreich" in t or "ganz österreich" in t or "…" in text or "..." in text
-    return True
+BUNDESLAENDER = ["Wien", "Niederösterreich", "Burgenland", "Oberösterreich", "Salzburg",
+                 "Steiermark", "Kärnten", "Tirol", "Vorarlberg"]
+
+
+def regionen(text: str) -> list[str] | None:
+    """Bundesländer, in denen das Angebot gilt (None = ganz Österreich bzw. unbekannt)."""
+    t = text or ""
+    if "…" in t or "..." in t:
+        return None  # abgeschnittener Text – lieber nicht ausfiltern
+    genannt = [b for b in BUNDESLAENDER if b in t]
+    if "Süd-Burgenland" in t and "Burgenland" not in genannt:
+        genannt.append("Burgenland")
+    if not genannt:
+        return None
+    if "nicht erhältlich" in t or "ausgenommen" in t:
+        return [b for b in BUNDESLAENDER if b not in genannt]
+    if "gültig in" in t.lower() or "nur in" in t.lower():
+        return genannt
+    return None
 
 
 def angebote_aus_text(text: str, heute: dt.date) -> list[dict]:
@@ -134,8 +148,6 @@ def angebote_aus_text(text: str, heute: dt.date) -> list[dict]:
         if haendler_app is None:
             continue  # nicht im Bezirk Amstetten
         voll = f"{titel} {beschreibung}"
-        if not gilt_in_noe(beschreibung):
-            continue
 
         preis = preise[0]
         lp = LITERPREIS.search(beschreibung or "")
@@ -175,6 +187,7 @@ def angebote_aus_text(text: str, heute: dt.date) -> list[dict]:
             "von": von,
             "bis": bis,
             "hinweis": hinweis or None,
+            "regionen": regionen(beschreibung),
         })
     return ergebnis
 
@@ -220,6 +233,15 @@ def main() -> None:
     ziel = Path(sys.argv[1] if len(sys.argv) > 1 else "angebote.json")
     start = time.time()
     angebote = abrufen()
+
+    # Absicherung: Liefert die Quelle (fast) nichts, behalten wir die bisherigen, noch gültigen Angebote.
+    if len(angebote) < 20 and ziel.exists():
+        alt = json.loads(ziel.read_text(encoding="utf-8")).get("angebote", [])
+        heute_text = dt.date.today().isoformat()
+        alt_gueltig = [a for a in alt if a.get("bis", "") >= heute_text]
+        if len(alt_gueltig) > len(angebote):
+            print(f"WARNUNG: Nur {len(angebote)} Angebote gefunden – behalte {len(alt_gueltig)} bisherige.")
+            angebote = alt_gueltig
     daten = {
         "stand": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "gebiet": "Bezirk Amstetten",
@@ -236,6 +258,19 @@ def main() -> None:
     for a in angebote:
         log.setdefault(f'{a["haendler"]} ab {a["von"]}', jetzt)
     log_datei.write_text(json.dumps(log, ensure_ascii=False, indent=1, sort_keys=True), encoding="utf-8")
+
+    # Preis-Gedächtnis: je Bier + Verpackung der niedrigste Literpreis pro Aktions-Start (1 Jahr)
+    verlauf_datei = ziel.with_name("preisverlauf.json")
+    verlauf = json.loads(verlauf_datei.read_text(encoding="utf-8")) if verlauf_datei.exists() else {}
+    for a in angebote:
+        if not a.get("bierId") or not a.get("liter"):
+            continue
+        lp = round(min(a["preis"], a.get("kartenPreis") or a["preis"]) / a["liter"], 3)
+        eintrag = verlauf.setdefault(f'{a["bierId"]}|{a["verpackung"]}', {})
+        eintrag[a["von"]] = min(lp, eintrag.get(a["von"], lp))
+    grenze = (dt.date.today() - dt.timedelta(days=365)).isoformat()
+    verlauf = {k: {d: p for d, p in v.items() if d >= grenze} for k, v in verlauf.items()}
+    verlauf_datei.write_text(json.dumps(verlauf, ensure_ascii=False, sort_keys=True), encoding="utf-8")
 
     print(f"{len(angebote)} Angebote in {time.time() - start:.0f} s -> {ziel}")
 

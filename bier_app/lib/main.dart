@@ -106,7 +106,10 @@ ThemeData radarDesign() {
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
     ),
     dividerTheme: const DividerThemeData(color: Color(0xFF1B2438)),
-    progressIndicatorTheme: const ProgressIndicatorThemeData(color: radarGruen, linearTrackColor: Color(0xFF1B2438)),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: radarGruen,
+      linearTrackColor: Color(0xFF1B2438),
+    ),
   );
 }
 

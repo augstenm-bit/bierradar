@@ -180,7 +180,11 @@ class _IntroState extends State<Intro> with SingleTickerProviderStateMixin {
                                 const Text(
                                   'Arrr! Neuer Schiffsjunge an Bord, Landratte!',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(color: bierGoldHell, fontSize: 17, fontWeight: FontWeight.w600),
+                                  style: TextStyle(
+                                    color: bierGoldHell,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ],
                             ),

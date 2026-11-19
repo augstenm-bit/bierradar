@@ -109,6 +109,7 @@ Future<void> _verarbeiten(Map<String, dynamic> d, AppZustand z) async {
     'von': d['von'],
     'bis': d['bis'],
     'statt': double.tryParse('${d['statt'] ?? ''}'),
+    'regionen': d['regionen'],
   });
   if (angebot == null) return;
   final treffer = z.treffer([angebot]);
@@ -117,7 +118,8 @@ Future<void> _verarbeiten(Map<String, dynamic> d, AppZustand z) async {
 
   final titel = switch (t.bewertung) {
     Bewertung.spezialitaet => '🌏 ${angebot.bier.name} ist da!',
-    Bewertung.nurMitKarte => '💳 ${angebot.bier.name}: ${euro(angebot.kartenPreis!)} mit ${angebot.karte!.titel}',
+    Bewertung.nurMitKarte =>
+      '💳 ${angebot.bier.name}: ${euro(angebot.kartenPreis!)} mit ${angebot.karte!.titel}',
     _ => '🍺 ${angebot.bier.name} um ${euro(t.preisFuerMich)}',
   };
   final rabatt = angebot.statt != null && angebot.statt! > t.preisFuerMich

@@ -40,21 +40,41 @@ class AppZustand extends ChangeNotifier {
   final Map<String, Map<Verpackung, Wunsch>> auswahl = {};
   final Set<Kundenkarte> karten = {};
   bool kartenAngeboteZeigen = true;
+  Gebiet gebiet = Gebiet.amstetten;
+
+  void gebietSetzen(Gebiet g) {
+    gebiet = g;
+    aenderung();
+  }
+
   DateTime? kartenHinweisVersteckt;
 
   /// Gemerkte Angebote (Schlüssel siehe [angebotSchluessel]) → für die „endet morgen“-Erinnerung.
   final Set<String> gemerkt = {};
 
-  /// Gekaufte Angebote mit Anzahl (z. B. 5 Kisten) und die gesamte Ersparnis seit Installation.
-  final Map<String, int> gekauft = {};
-  double gespartGesamt = 0;
+  /// Gekaufte Angebote (mit Anzahl, Datum, Ersparnis je Stück) – Grundlage für Ersparnis, Ränge, Bierjahr.
+  final Map<String, Kauf> gekauft = {};
+
+  /// Ersparnis aus einer älteren App-Version (vor den Kauf-Details).
+  double gespartAlt = 0;
+
+  /// Abgehakte Einträge auf dem Einkaufszettel.
+  final Set<String> abgehakt = {};
+
+  double get gespartGesamt => gespartAlt + gekauft.values.fold(0.0, (s, k) => s + k.ersparnisJe * k.anzahl);
 
   static String angebotSchluessel(Angebot a) =>
       '${a.bierId}|${a.verpackung.name}|${a.haendler}|${a.preis}|${a.von.toIso8601String().substring(0, 10)}';
 
   void merkenUmschalten(Angebot a) {
     final k = angebotSchluessel(a);
-    gemerkt.contains(k) ? gemerkt.remove(k) : gemerkt.add(k);
+    if (!gemerkt.remove(k)) gemerkt.add(k);
+    abgehakt.remove(k);
+    aenderung();
+  }
+
+  void abhakenUmschalten(String k) {
+    if (!abgehakt.remove(k)) abgehakt.add(k);
     aenderung();
   }
 
@@ -62,18 +82,26 @@ class AppZustand extends ChangeNotifier {
   static double ersparnis(Angebot a, double preisFuerMich) =>
       a.statt != null && a.statt! > preisFuerMich ? a.statt! - preisFuerMich : 0;
 
-  /// Setzt die gekaufte Anzahl (0 = nicht gekauft) und passt die Gesamt-Ersparnis an.
-  void gekauftSetzen(Angebot a, double preisFuerMich, int anzahl) {
+  /// Setzt die gekaufte Anzahl (0 = nicht gekauft). Gibt den neuen Rang zurück, wenn man aufgestiegen ist.
+  Rang? gekauftSetzen(Angebot a, double preisFuerMich, int anzahl) {
+    final rangVorher = rangFuer(gespartGesamt);
     final k = angebotSchluessel(a);
-    final e = ersparnis(a, preisFuerMich);
-    final vorher = gekauft[k] ?? 0;
     if (anzahl <= 0) {
       gekauft.remove(k);
     } else {
-      gekauft[k] = anzahl;
+      gekauft[k] = Kauf(
+        bierId: a.bierId,
+        verpackung: a.verpackung.name,
+        haendler: a.haendler,
+        preis: preisFuerMich,
+        ersparnisJe: ersparnis(a, preisFuerMich),
+        anzahl: anzahl,
+        datum: gekauft[k]?.datum ?? DateTime.now(),
+      );
     }
-    gespartGesamt = (gespartGesamt + e * (anzahl.clamp(0, 999) - vorher)).clamp(0, double.infinity);
     aenderung();
+    final rangJetzt = rangFuer(gespartGesamt);
+    return raenge.indexOf(rangJetzt) > raenge.indexOf(rangVorher) ? rangJetzt : null;
   }
 
   static const _schluessel = 'bier_app_zustand_v1';
@@ -81,6 +109,24 @@ class AppZustand extends ChangeNotifier {
 
   // ---- Angebote (vom Abruf-Server) ----
   List<Angebot> angebote = [];
+
+  /// Preis-Gedächtnis: „bierId|verpackung“ → {Aktions-Start → niedrigster Literpreis}.
+  Map<String, Map<String, double>> preisverlauf = {};
+
+  /// Wenn das Angebot so günstig ist wie seit mindestens 2 Wochen nicht: Anzahl Wochen, sonst null.
+  int? tiefstpreisWochen(Angebot a, double literPreis) {
+    final v = preisverlauf['${a.bierId}|${a.verpackung.name}'];
+    if (v == null) return null;
+    final vonText = a.von.toIso8601String().substring(0, 10);
+    final frueher = v.entries.where((e) => e.key.compareTo(vonText) < 0).toList();
+    if (frueher.isEmpty) return null;
+    final minFrueher = frueher.map((e) => e.value).reduce((x, y) => x < y ? x : y);
+    if (literPreis > minFrueher + 0.001) return null;
+    final aeltestes = DateTime.parse(frueher.map((e) => e.key).reduce((x, y) => x.compareTo(y) < 0 ? x : y));
+    final wochen = a.von.difference(aeltestes).inDays ~/ 7;
+    return wochen >= 2 ? wochen : null;
+  }
+
   DateTime? angeboteStand;
   bool angeboteLaden = false;
   String? angeboteFehler;
@@ -117,6 +163,20 @@ class AppZustand extends ChangeNotifier {
         angeboteFehler = 'Keine Internetverbindung – zeige letzten Stand.';
       }
     }
+    if (angeboteUrl.isNotEmpty) {
+      try {
+        final r = await http
+            .get(Uri.parse(angeboteUrl.replaceFirst('angebote.json', 'preisverlauf.json')))
+            .timeout(const Duration(seconds: 15));
+        if (r.statusCode == 200) {
+          final j = jsonDecode(utf8.decode(r.bodyBytes)) as Map<String, dynamic>;
+          preisverlauf = j.map(
+            (k, v) =>
+                MapEntry(k, (v as Map<String, dynamic>).map((d, p) => MapEntry(d, (p as num).toDouble()))),
+          );
+        }
+      } catch (_) {}
+    }
     text ??= prefs.getString(_angeboteSchluessel);
     text ??= await rootBundle.loadString('assets/angebote.json');
     try {
@@ -146,18 +206,18 @@ class AppZustand extends ChangeNotifier {
       final j = jsonDecode(text) as Map<String, dynamic>;
       einrichtungFertig = j['fertig'] == true;
       kartenAngeboteZeigen = j['kartenZeigen'] != false;
+      gebiet = Gebiet.values.where((g) => g.name == j['gebiet']).firstOrNull ?? Gebiet.amstetten;
       final versteckt = j['hinweisVersteckt'] as String?;
       kartenHinweisVersteckt = versteckt == null ? null : DateTime.tryParse(versteckt);
       gemerkt.addAll(((j['gemerkt'] as List?) ?? []).cast<String>());
       final g = j['gekauft'];
-      if (g is Map) {
-        g.forEach((k, v) => gekauft[k as String] = (v as num).toInt());
-      } else if (g is List) {
-        for (final k in g) {
-          gekauft[k as String] = 1; // ältere Version: ohne Anzahl
-        }
+      if (g is Map && g.values.every((v) => v is Map)) {
+        g.forEach((k, v) => gekauft[k as String] = Kauf.fromJson(v as Map<String, dynamic>));
+        gespartAlt = (j['gespartAlt'] as num?)?.toDouble() ?? 0;
+      } else {
+        gespartAlt = (j['gespart'] as num?)?.toDouble() ?? 0; // ältere Version
       }
-      gespartGesamt = (j['gespart'] as num?)?.toDouble() ?? 0;
+      abgehakt.addAll(((j['abgehakt'] as List?) ?? []).cast<String>());
       for (final k in (j['karten'] as List? ?? [])) {
         final karte = Kundenkarte.values.where((x) => x.name == k).firstOrNull;
         if (karte != null) karten.add(karte);
@@ -182,10 +242,12 @@ class AppZustand extends ChangeNotifier {
       jsonEncode({
         'fertig': einrichtungFertig,
         'kartenZeigen': kartenAngeboteZeigen,
+        'gebiet': gebiet.name,
         'hinweisVersteckt': kartenHinweisVersteckt?.toIso8601String(),
         'gemerkt': gemerkt.toList(),
-        'gekauft': gekauft,
-        'gespart': gespartGesamt,
+        'gekauft': gekauft.map((k, v) => MapEntry(k, v.toJson())),
+        'gespartAlt': gespartAlt,
+        'abgehakt': abgehakt.toList(),
         'karten': karten.map((k) => k.name).toList(),
         'auswahl': auswahl.map(
           (bierId, packs) => MapEntry(bierId, packs.map((v, w) => MapEntry(v.name, w.toJson()))),
@@ -220,11 +282,17 @@ class AppZustand extends ChangeNotifier {
         ? [Verpackung.karton24x033, Verpackung.flasche033, Verpackung.flasche05]
         : [Verpackung.kiste20x05];
     for (final v in vorschlag.where(bier.verpackungen.contains)) {
-      packs[v] = Wunsch(maxPreis: bier.spezialitaet ? null : bier.vorschlagPreis(v), immerMelden: bier.spezialitaet);
+      packs[v] = Wunsch(
+        maxPreis: bier.spezialitaet ? null : bier.vorschlagPreis(v),
+        immerMelden: bier.spezialitaet,
+      );
     }
     if (packs.isEmpty && bier.verpackungen.isNotEmpty) {
       final v = bier.verpackungen.first;
-      packs[v] = Wunsch(maxPreis: bier.spezialitaet ? null : bier.vorschlagPreis(v), immerMelden: bier.spezialitaet);
+      packs[v] = Wunsch(
+        maxPreis: bier.spezialitaet ? null : bier.vorschlagPreis(v),
+        immerMelden: bier.spezialitaet,
+      );
     }
     auswahl[bier.id] = packs;
     aenderung();
@@ -286,6 +354,7 @@ class AppZustand extends ChangeNotifier {
     for (final a in angebote) {
       final wunsch = auswahl[a.bierId]?[a.verpackung];
       if (wunsch == null) continue;
+      if (a.regionen != null && !a.regionen!.contains(gebiet.bundesland)) continue;
 
       final hatKarte = a.karte != null && karten.contains(a.karte);
       final preis = (hatKarte && a.kartenPreis != null) ? a.kartenPreis! : a.preis;
@@ -313,3 +382,63 @@ class AppZustand extends ChangeNotifier {
     return liste;
   }
 }
+
+class Kauf {
+  Kauf({
+    required this.bierId,
+    required this.verpackung,
+    required this.haendler,
+    required this.preis,
+    required this.ersparnisJe,
+    required this.anzahl,
+    required this.datum,
+  });
+
+  final String bierId;
+  final String verpackung;
+  final String haendler;
+  final double preis;
+  final double ersparnisJe;
+  final int anzahl;
+  final DateTime datum;
+
+  Map<String, dynamic> toJson() => {
+    'b': bierId,
+    'v': verpackung,
+    'h': haendler,
+    'p': preis,
+    'e': ersparnisJe,
+    'n': anzahl,
+    'd': datum.toIso8601String(),
+  };
+
+  factory Kauf.fromJson(Map<String, dynamic> j) => Kauf(
+    bierId: j['b'] as String,
+    verpackung: j['v'] as String,
+    haendler: j['h'] as String,
+    preis: (j['p'] as num).toDouble(),
+    ersparnisJe: (j['e'] as num).toDouble(),
+    anzahl: (j['n'] as num).toInt(),
+    datum: DateTime.parse(j['d'] as String),
+  );
+}
+
+/// Piraten-Ränge nach Gesamt-Ersparnis.
+class Rang {
+  const Rang(this.emoji, this.name, this.ab);
+  final String emoji;
+  final String name;
+  final double ab;
+}
+
+const raenge = [
+  Rang('🪣', 'Schiffsjunge', 0),
+  Rang('⚓', 'Matrose', 20),
+  Rang('🗡️', 'Bootsmann', 50),
+  Rang('🏴‍☠️', 'Kapitän', 100),
+  Rang('👑', 'Bierkönig der sieben Meere', 250),
+];
+
+Rang rangFuer(double gespart) => raenge.lastWhere((r) => gespart >= r.ab);
+
+Rang? naechsterRang(double gespart) => raenge.where((r) => r.ab > gespart).firstOrNull;

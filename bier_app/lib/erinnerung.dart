@@ -37,7 +37,12 @@ Future<String> erinnerungPlanen(Angebot a, String schluessel) async {
     await _plugin
         .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
         ?.requestPermissions(alert: true, sound: true);
-    final vortag = tz.TZDateTime(tz.local, a.bis.year, a.bis.month, a.bis.day).subtract(const Duration(hours: 6));
+    final vortag = tz.TZDateTime(
+      tz.local,
+      a.bis.year,
+      a.bis.month,
+      a.bis.day,
+    ).subtract(const Duration(hours: 6));
     final jetzt = tz.TZDateTime.now(tz.local);
     if (a.bis.isBefore(DateTime(jetzt.year, jetzt.month, jetzt.day))) return 'Diese Aktion ist schon vorbei.';
     final wann = vortag.isAfter(jetzt) ? vortag : jetzt.add(const Duration(minutes: 1));
@@ -45,7 +50,8 @@ Future<String> erinnerungPlanen(Angebot a, String schluessel) async {
       id: _id(schluessel),
       scheduledDate: wann,
       title: '⏰ Aktion endet bald: ${a.bier.name}',
-      body: '${a.verpackung.bezeichnung} um ${euro(a.preis)} bei ${a.haendler} – nur noch bis ${a.bis.day}.${a.bis.month}.!',
+      body:
+          '${a.verpackung.bezeichnung} um ${euro(a.preis)} bei ${a.haendler} – nur noch bis ${a.bis.day}.${a.bis.month}.!',
       notificationDetails: const NotificationDetails(
         android: AndroidNotificationDetails(
           'erinnerung',

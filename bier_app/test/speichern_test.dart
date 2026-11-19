@@ -53,4 +53,24 @@ void main() {
     expect(z.gespartGesamt, closeTo(0, 0.001));
     expect(z.gekauft, isEmpty);
   });
+
+  test('Preis-Gedächtnis und Ränge', () {
+    final z = AppZustand();
+    z.preisverlauf = {
+      'goesser|kiste20x05': {'2026-10-01': 1.49, '2026-10-15': 1.45, '2026-11-01': 1.40},
+    };
+    final a = Angebot(
+      bierId: 'goesser',
+      verpackung: Verpackung.kiste20x05,
+      haendler: 'Hofer',
+      preis: 13.80,
+      von: DateTime(2026, 11, 20),
+      bis: DateTime(2026, 11, 21),
+    );
+    expect(z.tiefstpreisWochen(a, 1.38), 7);
+    expect(z.tiefstpreisWochen(a, 1.45), isNull);
+    expect(rangFuer(0).name, 'Schiffsjunge');
+    expect(rangFuer(55).name, 'Bootsmann');
+    expect(naechsterRang(55)!.name, 'Kapitän');
+  });
 }

@@ -135,7 +135,11 @@ class Angebot {
     this.hinweis,
     this.beispiel = false,
     this.statt,
+    this.regionen,
   });
+
+  /// Bundesländer, in denen das Angebot gilt (null = ganz Österreich).
+  final List<String>? regionen;
 
   final String bierId;
   final Verpackung verpackung;
@@ -173,6 +177,11 @@ class Angebot {
       bis: DateTime.parse(j['bis'] as String),
       hinweis: j['hinweis'] as String?,
       statt: (j['statt'] as num?)?.toDouble(),
+      regionen: switch (j['regionen']) {
+        final List<dynamic> l => l.cast<String>(),
+        final String t when t.isNotEmpty => t.split(','),
+        _ => null,
+      },
     );
   }
 }
@@ -340,3 +349,23 @@ String zeitraum(DateTime von, DateTime bis) {
 /// Adresse der Angebotsdatei im Internet (wird mit dem GitHub-Konto gesetzt).
 /// Leer = die App nimmt den letzten Stand bzw. die mitgelieferte Datei.
 const angeboteUrl = 'https://raw.githubusercontent.com/augstenm-bit/bierradar/main/server/angebote.json';
+
+/// Pfand in Österreich (Stand 2025/26): Mehrweg-Glasflasche 0,5 l = 0,20 €, Dose/PET = 0,25 €,
+/// Bierkiste 20 × 0,5 l insgesamt ca. 7 € (Flaschen + Kiste). Einweg-Glas hat kein Pfand.
+String? pfandText(Verpackung v) => switch (v) {
+  Verpackung.kiste20x05 => '+ ca. 7 € Pfand',
+  Verpackung.tragerl6x05 => '+ 1,20 € Pfand',
+  Verpackung.flasche05 => '+ 0,20 € Pfand',
+  Verpackung.dose05 => '+ 0,25 € Pfand',
+  _ => null,
+};
+
+/// Gebiete, für die BierRadar Angebote zeigt.
+enum Gebiet {
+  amstetten('Bezirk Amstetten', 'Niederösterreich'),
+  steyr('Steyr', 'Oberösterreich');
+
+  const Gebiet(this.titel, this.bundesland);
+  final String titel;
+  final String bundesland;
+}
