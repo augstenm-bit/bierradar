@@ -1,8 +1,12 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../daten.dart';
+import '../erinnerung.dart';
 import '../main.dart';
 import '../radar.dart';
 import '../zustand.dart';
@@ -121,6 +125,7 @@ class _AngeboteSeiteState extends State<_AngeboteSeite> {
             padding: const EdgeInsets.only(bottom: 24),
             children: [
               _Kopf(z: z, treffer: fuerDichAlle.length),
+              _ErsparnisLeiste(woche: _wochenErsparnis(fuerDichAlle), gesamt: z.gespartGesamt),
               if (z.angeboteFehler != null)
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
@@ -570,6 +575,7 @@ class _AngebotZeile extends StatelessWidget {
     final rabatt = _rabatt(a, treffer.preisFuerMich);
     final mitKarte = a.karte != null && treffer.preisFuerMich == a.kartenPreis;
     final kartenHinweis = a.kartenPreis != null && !mitKarte;
+    final gemerkt = ZustandScope.of(context).gemerkt.contains(AppZustand.angebotSchluessel(a));
 
     return GestureDetector(
       onTap: () => _zeigeDetails(context, treffer),
@@ -614,6 +620,10 @@ class _AngebotZeile extends StatelessWidget {
                           ),
                         ),
                       ),
+                      if (gemerkt) ...[
+                        const SizedBox(width: 6),
+                        const Icon(Icons.star, color: bierGoldHell, size: 16),
+                      ],
                       if (spezial && aktiv) ...[
                         const SizedBox(width: 6),
                         _Plakette(
@@ -677,28 +687,108 @@ class _AngebotZeile extends StatelessWidget {
 }
 
 void _zeigeDetails(BuildContext context, Treffer t) {
-  final a = t.angebot;
+  final z = ZustandScope.of(context);
   showModalBottomSheet<void>(
     context: context,
+    isScrollControlled: true,
     backgroundColor: const Color(0xFF111827),
     showDragHandle: true,
     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
-    builder: (c) => SafeArea(
-      child: Padding(
+    builder: (_) => ZustandScope(
+      zustand: z,
+      child: _Details(treffer: t),
+    ),
+  );
+}
+
+class _Details extends StatefulWidget {
+  const _Details({required this.treffer});
+  final Treffer treffer;
+
+  @override
+  State<_Details> createState() => _DetailsState();
+}
+
+class _DetailsState extends State<_Details> {
+  final _kartenSchluessel = GlobalKey();
+  bool _teilt = false;
+
+  Future<void> _alsBildTeilen() async {
+    setState(() => _teilt = true);
+    try {
+      final grenze = _kartenSchluessel.currentContext!.findRenderObject()! as RenderRepaintBoundary;
+      final bild = await grenze.toImage(pixelRatio: 3);
+      final daten = await bild.toByteData(format: ui.ImageByteFormat.png);
+      final a = widget.treffer.angebot;
+      await SharePlus.instance.share(
+        ShareParams(
+          files: [
+            XFile.fromData(daten!.buffer.asUint8List(), mimeType: 'image/png', name: 'BierRadar-Angebot.png'),
+          ],
+          text:
+              '🍺 ${a.bier.name} um ${euro(widget.treffer.preisFuerMich)} bei ${a.haendler} – gefunden mit BierRadar 🏴‍☠️',
+        ),
+      );
+    } catch (e) {
+      debugPrint('Teilen fehlgeschlagen: $e');
+    }
+    if (mounted) setState(() => _teilt = false);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final z = ZustandScope.of(context);
+    final t = widget.treffer;
+    final a = t.angebot;
+    final schluessel = AppZustand.angebotSchluessel(a);
+    final istGemerkt = z.gemerkt.contains(schluessel);
+    final istGekauft = z.gekauft.contains(schluessel);
+    final ersparnis = AppZustand.ersparnis(a, t.preisFuerMich);
+
+    return SafeArea(
+      child: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(22, 0, 22, 22),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              a.bier.name,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: textHell),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        a.bier.name,
+                        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: textHell),
+                      ),
+                      Text(
+                        '${a.verpackung.bezeichnung} · ${a.haendler}',
+                        style: const TextStyle(color: textGedaempft, fontSize: 15),
+                      ),
+                    ],
+                  ),
+                ),
+                IconButton(
+                  tooltip: istGemerkt ? 'Nicht mehr merken' : 'Merken und erinnern',
+                  iconSize: 30,
+                  icon: Icon(istGemerkt ? Icons.star : Icons.star_border, color: bierGoldHell),
+                  onPressed: () async {
+                    final messenger = ScaffoldMessenger.of(context);
+                    z.merkenUmschalten(a);
+                    if (!istGemerkt) {
+                      final text = await erinnerungPlanen(a, schluessel);
+                      messenger.showSnackBar(SnackBar(content: Text(text)));
+                    } else {
+                      await erinnerungLoeschen(schluessel);
+                      messenger.showSnackBar(const SnackBar(content: Text('Nicht mehr gemerkt.')));
+                    }
+                  },
+                ),
+              ],
             ),
-            Text(
-              '${a.verpackung.bezeichnung} · ${a.haendler}',
-              style: const TextStyle(color: textGedaempft, fontSize: 15),
-            ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 10),
             Row(
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
@@ -711,9 +801,13 @@ void _zeigeDetails(BuildContext context, Treffer t) {
                 Text('${euro(t.literPreis)} pro Liter', style: const TextStyle(color: radarMintHell)),
               ],
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 8),
             _DetailZeile(Icons.event, 'Gültig ${zeitraum(a.von, a.bis)} (${_wann(a)})'),
-            if (a.statt != null) _DetailZeile(Icons.sell_outlined, 'Normalpreis ${euro(a.statt!)}'),
+            if (a.statt != null)
+              _DetailZeile(
+                Icons.sell_outlined,
+                'Normalpreis ${euro(a.statt!)} – du sparst ${euro(ersparnis)}',
+              ),
             if (a.kartenPreis != null)
               _DetailZeile(
                 Icons.credit_card,
@@ -721,38 +815,184 @@ void _zeigeDetails(BuildContext context, Treffer t) {
               ),
             if (!t.wunsch.immerMelden && t.wunsch.maxPreis != null)
               _DetailZeile(Icons.flag_outlined, 'Dein Wunschpreis: höchstens ${euro(t.wunsch.maxPreis!)}'),
-            if (t.wunsch.immerMelden)
-              const _DetailZeile(Icons.notifications_active_outlined, 'Wird immer gemeldet'),
             if (a.hinweis != null) _DetailZeile(Icons.info_outline, a.hinweis!),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    icon: const Icon(Icons.place_outlined),
+                    label: const Text('Filiale in der Nähe'),
+                    onPressed: () => launchUrl(
+                      Uri.parse(
+                        'https://www.google.com/maps/search/?api=1&query=${Uri.encodeComponent('${a.haendler} Amstetten')}',
+                      ),
+                      mode: LaunchMode.externalApplication,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: OutlinedButton.icon(
+                    style: istGekauft
+                        ? OutlinedButton.styleFrom(
+                            backgroundColor: radarGruen.withValues(alpha: 0.15),
+                            side: const BorderSide(color: radarGruen),
+                          )
+                        : null,
+                    icon: Icon(istGekauft ? Icons.check_circle : Icons.shopping_cart_outlined),
+                    label: Text(istGekauft ? 'Gekauft ✓' : 'Gekauft! 🍺'),
+                    onPressed: () {
+                      z.gekauftUmschalten(a, t.preisFuerMich);
+                      if (!istGekauft && ersparnis > 0) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Prost! ${euro(ersparnis)} gespart – insgesamt ${euro(z.gespartGesamt)}.',
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 18),
+            const Text('So sehen es deine Freunde:', style: TextStyle(color: textGedaempft, fontSize: 13)),
+            const SizedBox(height: 8),
+            RepaintBoundary(
+              key: _kartenSchluessel,
+              child: _TeilKarte(treffer: t),
+            ),
+            const SizedBox(height: 14),
             SizedBox(
               width: double.infinity,
               child: FilledButton.icon(
-                icon: const Icon(Icons.share),
+                icon: _teilt
+                    ? const SizedBox.square(dimension: 18, child: CircularProgressIndicator(strokeWidth: 2))
+                    : const Icon(Icons.share),
                 label: const Padding(
                   padding: EdgeInsets.symmetric(vertical: 12),
                   child: Text('Mit Freunden teilen'),
                 ),
-                onPressed: () {
-                  final karte = a.kartenPreis != null
-                      ? ' (mit ${a.karte!.titel} ${euro(a.kartenPreis!)})'
-                      : '';
-                  SharePlus.instance.share(
-                    ShareParams(
-                      text:
-                          '🍺 ${a.bier.name} – ${a.verpackung.bezeichnung} um ${euro(a.preis)}$karte '
-                          'bei ${a.haendler}, gültig ${zeitraum(a.von, a.bis)}. '
-                          'Gefunden mit BierRadar 🏴‍☠️',
-                    ),
-                  );
-                },
+                onPressed: _teilt ? null : _alsBildTeilen,
               ),
             ),
           ],
         ),
       ),
-    ),
-  );
+    );
+  }
+}
+
+/// Schöne Angebotskarte im BierRadar-Design – wird als Bild geteilt.
+class _TeilKarte extends StatelessWidget {
+  const _TeilKarte({required this.treffer});
+  final Treffer treffer;
+
+  @override
+  Widget build(BuildContext context) {
+    final a = treffer.angebot;
+    final rabatt = _rabatt(a, treffer.preisFuerMich);
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFF16203A), Color(0xFF0A0E17), Color(0xFF2A1E0E)],
+        ),
+        border: Border.all(color: radarGruen.withValues(alpha: 0.4)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const RadarLogo(groesse: 34),
+              const SizedBox(width: 8),
+              ShaderMask(
+                shaderCallback: (r) =>
+                    const LinearGradient(colors: [radarMintHell, bierGoldHell]).createShader(r),
+                child: const Text(
+                  'BierRadar',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Colors.white),
+                ),
+              ),
+              const Spacer(),
+              if (rabatt != null)
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+                  decoration: BoxDecoration(color: bierBernstein, borderRadius: BorderRadius.circular(20)),
+                  child: Text(
+                    '−$rabatt %',
+                    style: const TextStyle(color: Color(0xFF3A1C00), fontWeight: FontWeight.w800),
+                  ),
+                ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      a.bier.name,
+                      style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: textHell),
+                    ),
+                    Text(
+                      '${a.verpackung.bezeichnung}\nbei ${a.haendler}',
+                      style: const TextStyle(color: Color(0xFFB8C4D9), fontSize: 13, height: 1.35),
+                    ),
+                  ],
+                ),
+              ),
+              ClipOval(
+                child: Image.asset('assets/bilder/pirat.png', width: 64, height: 64, fit: BoxFit.cover),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            textBaseline: TextBaseline.alphabetic,
+            children: [
+              Text(
+                euro(treffer.preisFuerMich),
+                style: const TextStyle(fontSize: 34, fontWeight: FontWeight.w800, color: bierGoldHell),
+              ),
+              const SizedBox(width: 8),
+              if (a.statt != null && a.statt! > treffer.preisFuerMich)
+                Text(
+                  euro(a.statt!),
+                  style: const TextStyle(
+                    color: textGedaempft,
+                    decoration: TextDecoration.lineThrough,
+                    decorationColor: textGedaempft,
+                  ),
+                ),
+              const Spacer(),
+              if (a.kartenPreis != null && treffer.preisFuerMich != a.kartenPreis)
+                _KartenPreisSchraeg(angebot: a),
+            ],
+          ),
+          Text(
+            'gültig ${zeitraum(a.von, a.bis)} · ${euro(treffer.literPreis)}/l',
+            style: const TextStyle(color: radarMintHell, fontSize: 12.5),
+          ),
+          const SizedBox(height: 12),
+          const Text(
+            '🏴‍☠️ Gefunden mit BierRadar – nie wieder eine Bier-Aktion verpassen!',
+            style: TextStyle(color: textGedaempft, fontSize: 11.5),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _DetailZeile extends StatelessWidget {
@@ -950,4 +1190,69 @@ class _KartenPreisSchraeg extends StatelessWidget {
       ),
     ),
   );
+}
+
+/// Größte mögliche Ersparnis je Bier und Verpackung (damit gleiche Aktionen nicht doppelt zählen).
+double _wochenErsparnis(List<Treffer> treffer) {
+  final besteJe = <String, double>{};
+  for (final t in treffer) {
+    final e = AppZustand.ersparnis(t.angebot, t.preisFuerMich);
+    final k = '${t.angebot.bierId}|${t.angebot.verpackung.name}';
+    if (e > (besteJe[k] ?? 0)) besteJe[k] = e;
+  }
+  return besteJe.values.fold(0.0, (a, b) => a + b);
+}
+
+class _ErsparnisLeiste extends StatelessWidget {
+  const _ErsparnisLeiste({required this.woche, required this.gesamt});
+  final double woche;
+  final double gesamt;
+
+  @override
+  Widget build(BuildContext context) {
+    Widget feld(IconData icon, String titel, double wert, Color farbe) => Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        decoration: BoxDecoration(
+          color: farbe.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: farbe.withValues(alpha: 0.3)),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, color: farbe, size: 22),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(titel, style: const TextStyle(color: textGedaempft, fontSize: 11.5)),
+                  TweenAnimationBuilder<double>(
+                    tween: Tween(begin: 0, end: wert),
+                    duration: const Duration(milliseconds: 900),
+                    curve: Curves.easeOutCubic,
+                    builder: (_, v, _) => Text(
+                      euro(v),
+                      style: TextStyle(color: farbe, fontSize: 18, fontWeight: FontWeight.w800),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(14, 0, 14, 12),
+      child: Row(
+        children: [
+          feld(Icons.savings_outlined, 'Diese Woche drin', woche, radarGruen),
+          const SizedBox(width: 10),
+          feld(Icons.emoji_events_outlined, 'Gespart seit Start', gesamt, bierGoldHell),
+        ],
+      ),
+    );
+  }
 }

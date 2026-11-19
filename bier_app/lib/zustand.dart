@@ -42,6 +42,38 @@ class AppZustand extends ChangeNotifier {
   bool kartenAngeboteZeigen = true;
   DateTime? kartenHinweisVersteckt;
 
+  /// Gemerkte Angebote (Schlüssel siehe [angebotSchluessel]) → für die „endet morgen“-Erinnerung.
+  final Set<String> gemerkt = {};
+
+  /// Als gekauft markierte Angebote und die gesamte Ersparnis seit Installation.
+  final Set<String> gekauft = {};
+  double gespartGesamt = 0;
+
+  static String angebotSchluessel(Angebot a) =>
+      '${a.bierId}|${a.verpackung.name}|${a.haendler}|${a.preis}|${a.von.toIso8601String().substring(0, 10)}';
+
+  void merkenUmschalten(Angebot a) {
+    final k = angebotSchluessel(a);
+    gemerkt.contains(k) ? gemerkt.remove(k) : gemerkt.add(k);
+    aenderung();
+  }
+
+  /// Ersparnis eines Angebots gegenüber dem Normalpreis (0, wenn unbekannt).
+  static double ersparnis(Angebot a, double preisFuerMich) =>
+      a.statt != null && a.statt! > preisFuerMich ? a.statt! - preisFuerMich : 0;
+
+  void gekauftUmschalten(Angebot a, double preisFuerMich) {
+    final k = angebotSchluessel(a);
+    final e = ersparnis(a, preisFuerMich);
+    if (gekauft.remove(k)) {
+      gespartGesamt = (gespartGesamt - e).clamp(0, double.infinity);
+    } else {
+      gekauft.add(k);
+      gespartGesamt += e;
+    }
+    aenderung();
+  }
+
   static const _schluessel = 'bier_app_zustand_v1';
   static const _angeboteSchluessel = 'bier_app_angebote_v1';
 
@@ -114,6 +146,9 @@ class AppZustand extends ChangeNotifier {
       kartenAngeboteZeigen = j['kartenZeigen'] != false;
       final versteckt = j['hinweisVersteckt'] as String?;
       kartenHinweisVersteckt = versteckt == null ? null : DateTime.tryParse(versteckt);
+      gemerkt.addAll(((j['gemerkt'] as List?) ?? []).cast<String>());
+      gekauft.addAll(((j['gekauft'] as List?) ?? []).cast<String>());
+      gespartGesamt = (j['gespart'] as num?)?.toDouble() ?? 0;
       for (final k in (j['karten'] as List? ?? [])) {
         final karte = Kundenkarte.values.where((x) => x.name == k).firstOrNull;
         if (karte != null) karten.add(karte);
@@ -139,6 +174,9 @@ class AppZustand extends ChangeNotifier {
         'fertig': einrichtungFertig,
         'kartenZeigen': kartenAngeboteZeigen,
         'hinweisVersteckt': kartenHinweisVersteckt?.toIso8601String(),
+        'gemerkt': gemerkt.toList(),
+        'gekauft': gekauft.toList(),
+        'gespart': gespartGesamt,
         'karten': karten.map((k) => k.name).toList(),
         'auswahl': auswahl.map(
           (bierId, packs) => MapEntry(bierId, packs.map((v, w) => MapEntry(v.name, w.toJson()))),
@@ -228,6 +266,7 @@ class AppZustand extends ChangeNotifier {
     karten.clear();
     kartenAngeboteZeigen = true;
     kartenHinweisVersteckt = null;
+    gemerkt.clear();
     einrichtungFertig = false;
     aenderung();
   }
