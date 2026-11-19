@@ -1,8 +1,8 @@
 {
- "stand": "2026-11-19T13:18:46+00:00",
+ "stand": "2026-11-19T14:10:32+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
- "anzahl": 49,
+ "anzahl": 50,
  "angebote": [
   {
    "bierId": "stiegl",
@@ -17,7 +17,8 @@
    "karte": null,
    "von": "2026-11-15",
    "bis": "2026-11-19",
-   "hinweis": "5,0% Vol. 0,5 l zzgl. Pfand € 0,25"
+   "hinweis": "5,0% Vol. 0,5 l zzgl. Pfand € 0,25",
+   "regionen": null
   },
   {
    "bierId": "villacher",
@@ -32,7 +33,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter. Angebot in deinem Adeg Aktiv-Markt erhältlich."
+   "hinweis": "20 x 0,5 Liter. Angebot in deinem Adeg Aktiv-Markt erhältlich.",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -47,7 +49,24 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger"
+   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger",
+   "regionen": null
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Billa",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-18",
+   "bis": "2026-11-25",
+   "hinweis": "od. Naturgold 0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -62,22 +81,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,33 Liter Einweg"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-18",
-   "bis": "2026-11-25",
-   "hinweis": "od. Naturgold 0,5 Liter"
+   "hinweis": "0,33 Liter Einweg",
+   "regionen": null
   },
   {
    "bierId": "heineken",
@@ -92,7 +97,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "oder 0,0 % 0,33 Liter Einweg"
+   "hinweis": "oder 0,0 % 0,33 Liter Einweg",
+   "regionen": null
   },
   {
    "bierId": "ottakringer",
@@ -107,7 +113,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "puntigamer",
@@ -122,7 +129,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter, im 6er-Träger 1 Kiste = 20 Flaschen. Gültig in Niederösterreich, im Burgenland, in der St..."
+   "hinweis": "0,5 Liter, im 6er-Träger 1 Kiste = 20 Flaschen. Gültig in Niederösterreich, im Burgenland, in der St...",
+   "regionen": null
   },
   {
    "bierId": "schwechater",
@@ -137,7 +145,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "stiegl",
@@ -152,7 +161,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,33 Liter Einweg"
+   "hinweis": "0,33 Liter Einweg",
+   "regionen": null
   },
   {
    "bierId": "wieselburger",
@@ -167,7 +177,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "budweiser",
@@ -182,7 +193,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "div. Sorten 0,5 Liter"
+   "hinweis": "div. Sorten 0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -197,7 +209,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger. Warengruppenrabatt zusätzlich gültig"
+   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger. Warengruppenrabatt zusätzlich gültig",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -212,7 +225,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "od. Naturradler 0,5 Liter"
+   "hinweis": "od. Naturradler 0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "heineken",
@@ -227,22 +241,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "od. 0,0 % 0,33 Liter Einweg"
-  },
-  {
-   "bierId": "ottakringer",
-   "marke": "Ottakringer",
-   "titel": "Helles",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Billa Plus",
-   "preis": 0.64,
-   "statt": 1.28,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-18",
-   "bis": "2026-11-25",
-   "hinweis": "0,33 Liter Einweg"
+   "hinweis": "od. 0,0 % 0,33 Liter Einweg",
+   "regionen": null
   },
   {
    "bierId": "ottakringer",
@@ -257,7 +257,24 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null
+  },
+  {
+   "bierId": "ottakringer",
+   "marke": "Ottakringer",
+   "titel": "Helles",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Billa Plus",
+   "preis": 0.64,
+   "statt": 1.28,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-18",
+   "bis": "2026-11-25",
+   "hinweis": "0,33 Liter Einweg",
+   "regionen": null
   },
   {
    "bierId": "puntigamer",
@@ -272,7 +289,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Niederösterreich, im Burgenland, in ..."
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Niederösterreich, im Burgenland, in ...",
+   "regionen": null
   },
   {
    "bierId": "wieselburger",
@@ -287,22 +305,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,5 Liter"
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Eurospar",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-18",
-   "bis": "2026-12-02",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -317,7 +321,24 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "20 x 0,5 Liter"
+   "hinweis": "20 x 0,5 Liter",
+   "regionen": null
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Eurospar",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-18",
+   "bis": "2026-12-02",
+   "hinweis": "0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "puntigamer",
@@ -332,7 +353,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "0.5l 20er"
+   "hinweis": "0.5l 20er",
+   "regionen": null
   },
   {
    "bierId": "kozel",
@@ -347,7 +369,17 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "0,5-Liter-Dose In Vorarlberg nicht erhältlich!"
+   "hinweis": "0,5-Liter-Dose In Vorarlberg nicht erhältlich!",
+   "regionen": [
+    "Wien",
+    "Niederösterreich",
+    "Burgenland",
+    "Oberösterreich",
+    "Salzburg",
+    "Steiermark",
+    "Kärnten",
+    "Tirol"
+   ]
   },
   {
    "bierId": "puntigamer",
@@ -362,7 +394,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "24 x 0,5-Liter-Dose"
+   "hinweis": "24 x 0,5-Liter-Dose",
+   "regionen": null
   },
   {
    "bierId": "puntigamer",
@@ -377,7 +410,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "20 x 0,5-Liter-MEHRWEG-Flasche"
+   "hinweis": "20 x 0,5-Liter-MEHRWEG-Flasche",
+   "regionen": null
   },
   {
    "bierId": "puntigamer",
@@ -392,7 +426,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "Alkoholfrei 6 x 0,5-Liter-MEHRWEG-Flasche"
+   "hinweis": "Alkoholfrei 6 x 0,5-Liter-MEHRWEG-Flasche",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -407,7 +442,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-21",
-   "hinweis": "Je 0,33 l. Max. Abgabemenge: 90 Fl."
+   "hinweis": "Je 0,33 l. Max. Abgabemenge: 90 Fl.",
+   "regionen": null
   },
   {
    "bierId": "jelen",
@@ -422,7 +458,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "je 0,5 l."
+   "hinweis": "je 0,5 l.",
+   "regionen": null
   },
   {
    "bierId": "kaiser",
@@ -437,7 +474,8 @@
    "karte": "lidlPlus",
    "von": "2026-11-18",
    "bis": "2026-11-21",
-   "hinweis": "HINWEIS: MIT LIDL PLUS APP 12.80 € Je 20x 0,5 l."
+   "hinweis": "HINWEIS: MIT LIDL PLUS APP 12.80 € Je 20x 0,5 l.",
+   "regionen": null
   },
   {
    "bierId": "murauer",
@@ -452,7 +490,8 @@
    "karte": "lidlPlus",
    "von": "2026-11-18",
    "bis": "2026-11-21",
-   "hinweis": "HINWEIS: MIT LIDL PLUS APP 14.40 € Je 20x 0,5 l. Einzeln = 1.34."
+   "hinweis": "HINWEIS: MIT LIDL PLUS APP 14.40 € Je 20x 0,5 l. Einzeln = 1.34.",
+   "regionen": null
   },
   {
    "bierId": "stiegl",
@@ -467,7 +506,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-21",
-   "hinweis": "oder Hell je 0,5 l. Max. Abgabemenge: 120 Dosen"
+   "hinweis": "oder Hell je 0,5 l. Max. Abgabemenge: 120 Dosen",
+   "regionen": null
   },
   {
    "bierId": "ottakringer",
@@ -482,7 +522,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,33 l"
+   "hinweis": "0,33 l",
+   "regionen": null
   },
   {
    "bierId": "puntigamer",
@@ -497,7 +538,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,33 l"
+   "hinweis": "0,33 l",
+   "regionen": null
   },
   {
    "bierId": "schwechater",
@@ -512,7 +554,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-25",
-   "hinweis": "0,5 l"
+   "hinweis": "0,5 l",
+   "regionen": null
   },
   {
    "bierId": "stiegl",
@@ -527,7 +570,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-11-21",
-   "hinweis": "pro Kiste 20 x 0,5 l Preis exkl. Pfand"
+   "hinweis": "pro Kiste 20 x 0,5 l Preis exkl. Pfand",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -542,7 +586,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -557,22 +602,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "20 x 0,5 Liter"
-  },
-  {
-   "bierId": "hirter",
-   "marke": "Hirter",
-   "titel": "Privat Pils",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Spar",
-   "preis": 0.99,
-   "statt": 1.47,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-18",
-   "bis": "2026-12-02",
-   "hinweis": "0,5 Liter (im Vorarlberg nicht erhältlich)"
+   "hinweis": "20 x 0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "hirter",
@@ -587,7 +618,33 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "6er-Tray, 0,33-Liter-Einweg"
+   "hinweis": "6er-Tray, 0,33-Liter-Einweg",
+   "regionen": null
+  },
+  {
+   "bierId": "hirter",
+   "marke": "Hirter",
+   "titel": "Privat Pils",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Spar",
+   "preis": 0.99,
+   "statt": 1.47,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-18",
+   "bis": "2026-12-02",
+   "hinweis": "0,5 Liter (im Vorarlberg nicht erhältlich)",
+   "regionen": [
+    "Wien",
+    "Niederösterreich",
+    "Burgenland",
+    "Oberösterreich",
+    "Salzburg",
+    "Steiermark",
+    "Kärnten",
+    "Tirol"
+   ]
   },
   {
    "bierId": "murauer",
@@ -602,7 +659,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "20er-Kiste, 0,5-Liter-Flasche"
+   "hinweis": "20er-Kiste, 0,5-Liter-Flasche",
+   "regionen": null
   },
   {
    "bierId": "puntigamer",
@@ -617,7 +675,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "0,33 Liter"
+   "hinweis": "0,33 Liter",
+   "regionen": null
   },
   {
    "bierId": "puntigamer",
@@ -632,7 +691,28 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "0,5 Liter"
+   "hinweis": "0,5 Liter",
+   "regionen": null
+  },
+  {
+   "bierId": "puntigamer",
+   "marke": "Puntigamer",
+   "titel": "Das Bierige Bier",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Spar",
+   "preis": 29.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-18",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5 Liter. (Nur gültig in der Steiermark, im Süd-Burgenland, Kärnten und Osttirol)",
+   "regionen": [
+    "Burgenland",
+    "Steiermark",
+    "Kärnten"
+   ]
   },
   {
    "bierId": "puntigamer",
@@ -647,7 +727,8 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "6 x 0,5 Liter"
+   "hinweis": "6 x 0,5 Liter",
+   "regionen": null
   },
   {
    "bierId": "schwechater",
@@ -662,7 +743,17 @@
    "karte": null,
    "von": "2026-11-18",
    "bis": "2026-12-02",
-   "hinweis": "20 x 0,5 Liter. In Vorarlberg nicht erhältlich."
+   "hinweis": "20 x 0,5 Liter. In Vorarlberg nicht erhältlich.",
+   "regionen": [
+    "Wien",
+    "Niederösterreich",
+    "Burgenland",
+    "Oberösterreich",
+    "Salzburg",
+    "Steiermark",
+    "Kärnten",
+    "Tirol"
+   ]
   },
   {
    "bierId": "egger",
@@ -677,7 +768,8 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-26",
-   "hinweis": "5,0 % Vol. 0,5 l"
+   "hinweis": "5,0 % Vol. 0,5 l",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -692,7 +784,8 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-21",
-   "hinweis": "zzgl. Pfand € 0,20 5,2% Vol. 20 x 0,5 l"
+   "hinweis": "zzgl. Pfand € 0,20 5,2% Vol. 20 x 0,5 l",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -707,7 +800,8 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-21",
-   "hinweis": "zzgl. Pfand € 0,25 5,2% Vol. 0,5 l"
+   "hinweis": "zzgl. Pfand € 0,25 5,2% Vol. 0,5 l",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -722,7 +816,8 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-21",
-   "hinweis": "zzgl. Pfand € 0,20 0,5 l"
+   "hinweis": "zzgl. Pfand € 0,20 0,5 l",
+   "regionen": null
   },
   {
    "bierId": "goesser",
@@ -737,7 +832,8 @@
    "karte": null,
    "von": "2026-11-22",
    "bis": "2026-11-26",
-   "hinweis": "5,2 % Vol./2,0 % Vol. 0,33 l"
+   "hinweis": "5,2 % Vol./2,0 % Vol. 0,33 l",
+   "regionen": null
   }
  ]
 }
