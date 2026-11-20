@@ -22,9 +22,16 @@ MAX_SEITEN_BIER = 15
 
 # Zusätzliche Suchwörter, damit auch Spezialitäten sicher gefunden werden.
 EXTRA_SUCHWOERTER = [
-    "chang", "singha", "leo bier", "asahi", "kirin", "sapporo", "tsingtao", "tiger bier",
-    "asia bier", "thai bier", "japanisches bier", "import bier", "asia", "corona", "jelen", "heineken", "budweiser", "kozel", "villacher", "schladminger", "paulaner", "augustiner", "erdinger", "franziskaner", "weihenstephaner", "saigon bier", "zipfer", "egger", "freistädter", "hirter", "trumer", "edelweiss",
-    "schremser", "zwettler", "eggenberger", "murauer", "kaiser bier", "wieselburger",
+    # Biersorten – viele Angebote heißen „Märzen“, „Pils“ … ohne das Wort „Bier“
+    "märzen", "pils", "helles", "lager", "weißbier", "zwickl", "radler",
+    # Marken
+    "gösser", "stiegl", "zipfer", "kaiser bier", "ottakringer", "puntigamer", "schwechater", "wieselburger",
+    "villacher", "egger", "freistädter", "hirter", "trumer", "edelweiss", "schremser", "zwettler",
+    "eggenberger", "murauer", "schladminger", "paulaner", "augustiner", "erdinger", "franziskaner",
+    "weihenstephaner", "heineken", "budweiser", "kozel", "jelen",
+    # Spezialitäten / Importe
+    "chang", "singha", "leo bier", "asahi", "kirin", "sapporo", "tsingtao", "tiger bier", "corona",
+    "saigon bier", "asia bier", "thai bier", "japanisches bier", "import bier",
 ]
 
 # Händler im Bezirk Amstetten (Schreibweise wie in der App).
@@ -254,9 +261,16 @@ def abrufen() -> list[dict]:
                 for a in angebote_aus_text(text, heute):
                     merken(a)
             for wort in EXTRA_SUCHWOERTER:
-                for a in angebote_aus_text(lade(BASIS + wort), heute):
-                    if a["bierId"] is not None:  # Extra-Suche nur für bekannte Biere
-                        merken(a)
+                for seite_nr in range(0, 4):  # bis zu 4 Ergebnisseiten je Suchwort
+                    url = BASIS + wort if seite_nr == 0 else f"{BASIS}{wort}?title={wort}&page={seite_nr}"
+                    text = lade(url)
+                    if "Händler:" not in text:
+                        break
+                    for a in angebote_aus_text(text, heute):
+                        if a["bierId"] is not None:  # Extra-Suche nur für bekannte Biere
+                            merken(a)
+                    if "NÄCHSTE SEITE" not in text.upper():
+                        break
             seite.close()
         browser.close()
 
