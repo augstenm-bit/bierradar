@@ -604,7 +604,7 @@ class Kauf {
   );
 }
 
-/// Piraten-Ränge nach Gesamt-Ersparnis.
+/// Level nach Gesamt-Ersparnis.
 class Rang {
   const Rang(this.emoji, this.name, this.ab);
   final String emoji;
@@ -613,11 +613,11 @@ class Rang {
 }
 
 const raenge = [
-  Rang('🪣', 'Schiffsjunge', 0),
-  Rang('⚓', 'Matrose', 20),
-  Rang('🗡️', 'Bootsmann', 50),
-  Rang('🏴‍☠️', 'Kapitän', 100),
-  Rang('👑', 'Bierkönig der sieben Meere', 250),
+  Rang('🍺', 'Einsteiger', 0),
+  Rang('🍻', 'Stammgast', 20),
+  Rang('🎯', 'Schnäppchenjäger', 50),
+  Rang('🏆', 'Bier-Profi', 100),
+  Rang('👑', 'BierRadar-Legende', 250),
 ];
 
 Rang rangFuer(double gespart) => raenge.lastWhere((r) => gespart >= r.ab);

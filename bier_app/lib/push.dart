@@ -51,7 +51,7 @@ Future<void> pushStarten(AppZustand z) async {
   }
 }
 
-/// Erst nach „Anheuern“ nach Benachrichtigungen fragen.
+/// Erst nach „Los geht’s“ nach Benachrichtigungen fragen.
 Future<void> benachrichtigungenErfragen() async {
   if (!kIsWeb && defaultTargetPlatform == TargetPlatform.iOS) {
     // iPhone: für Meldungen aus dem Hintergrund-Abruf und Erinnerungen

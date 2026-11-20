@@ -1,4 +1,4 @@
-// Piraten-Logbuch: Rang, „Dein Bierjahr“-Statistik (zum Teilen) und der Einkaufszettel.
+// Logbuch: Level, „Dein Bierjahr“-Statistik (zum Teilen) und der Einkaufszettel.
 
 import 'dart:ui' as ui;
 
@@ -14,7 +14,7 @@ import 'willkommen.dart' show BierRegenMaler;
 
 // ---------------------------------------------------------------- Rang-Aufstieg
 
-/// Kleine Feier mit Bier-Regen, wenn man einen neuen Piraten-Rang erreicht.
+/// Kleine Feier mit Bier-Regen, wenn man ein neues Level erreicht.
 Future<void> zeigeRangAufstieg(BuildContext context, Rang rang) => showDialog<void>(
   context: context,
   barrierColor: Colors.black87,
@@ -71,7 +71,7 @@ class _RangFeierState extends State<_RangFeier> with SingleTickerProviderStateMi
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text(
-                    'BEFÖRDERT!',
+                    'NEUES LEVEL!',
                     style: TextStyle(color: radarGruen, letterSpacing: 3, fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(height: 10),
@@ -84,7 +84,7 @@ class _RangFeierState extends State<_RangFeier> with SingleTickerProviderStateMi
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    'Arrr! Du hast mit BierRadar ordentlich gespart.',
+                    'Stark! Du hast mit BierRadar ordentlich gespart.',
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Color(0xFFB8C4D9)),
                   ),
@@ -123,7 +123,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
         files: [
           XFile.fromData(daten!.buffer.asUint8List(), mimeType: 'image/png', name: 'Mein-Bierjahr.png'),
         ],
-        text: 'Mein Bierjahr mit BierRadar 🍺🏴‍☠️',
+        text: 'Mein Bierjahr mit BierRadar 🍺',
       ),
     );
   }
@@ -165,7 +165,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
     final maxMonat = proMonat.fold(1.0, (a, b) => b > a ? b : a);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Piraten-Logbuch')),
+      appBar: AppBar(title: const Text('Mein Logbuch')),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(14, 0, 14, 24),
         children: [
@@ -204,7 +204,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Dein Rang', style: TextStyle(color: textGedaempft, fontSize: 12)),
+                            const Text('Dein Level', style: TextStyle(color: textGedaempft, fontSize: 12)),
                             Text(
                               rang.name,
                               style: const TextStyle(
@@ -236,7 +236,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
                     ),
                   ] else
                     const Text(
-                      'Höchster Rang erreicht – Respekt! 👑',
+                      'Höchstes Level erreicht – Respekt! 👑',
                       style: TextStyle(color: textGedaempft),
                     ),
                   const SizedBox(height: 16),
@@ -304,7 +304,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    '🏴‍☠️ Gefunden mit BierRadar',
+                    '📡 Gefunden mit BierRadar',
                     style: TextStyle(color: textGedaempft, fontSize: 11),
                   ),
                 ],

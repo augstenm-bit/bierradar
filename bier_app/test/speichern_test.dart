@@ -69,9 +69,9 @@ void main() {
     );
     expect(z.tiefstpreisWochen(a, 1.38), 7);
     expect(z.tiefstpreisWochen(a, 1.45), isNull);
-    expect(rangFuer(0).name, 'Schiffsjunge');
-    expect(rangFuer(55).name, 'Bootsmann');
-    expect(naechsterRang(55)!.name, 'Kapitän');
+    expect(rangFuer(0).name, 'Einsteiger');
+    expect(rangFuer(55).name, 'Schnäppchenjäger');
+    expect(naechsterRang(55)!.name, 'Bier-Profi');
   });
 
   test('Standort und Umkreis', () {

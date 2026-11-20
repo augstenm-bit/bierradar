@@ -1,4 +1,4 @@
-// Willkommen für Beta-Tester („Ahoi, Bierpirat!“) und Sperrbildschirm nach Ablauf.
+// Willkommen für Beta-Tester und Sperrbildschirm nach Ablauf.
 
 import 'dart:math' as math;
 
@@ -9,6 +9,7 @@ import '../main.dart';
 import '../push.dart';
 import '../standort.dart';
 import '../radar.dart';
+import 'intro.dart';
 
 String _datum(DateTime d) {
   const monate = [
@@ -128,29 +129,30 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                                 ),
                                 AnimatedBuilder(
                                   animation: abzeichen,
-                                  builder: (_, c) => Transform.rotate(
-                                    angle: -0.7 * (1 - abzeichen.value),
-                                    child: Transform.scale(scale: abzeichen.value, child: c),
-                                  ),
-                                  child: AnimatedBuilder(
-                                    animation: _welle,
-                                    // Leichtes Schaukeln – der Pirat hat schon ein paar Bier intus
-                                    builder: (_, c) => Transform.rotate(
-                                      angle: math.sin(_welle.value * 2 * math.pi) * 0.05,
-                                      child: c,
+                                  builder: (_, c) => Transform.scale(scale: abzeichen.value, child: c),
+                                  child: Container(
+                                    width: r * 0.78,
+                                    height: r * 0.78,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(color: bierOrange.withValues(alpha: 0.5), blurRadius: 30),
+                                      ],
                                     ),
-                                    child: Container(
-                                      width: r * 0.62,
-                                      height: r * 0.62,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(color: bierGoldHell, width: 3),
-                                        boxShadow: [
-                                          BoxShadow(color: bierOrange.withValues(alpha: 0.6), blurRadius: 30),
+                                    child: ClipOval(
+                                      child: Stack(
+                                        fit: StackFit.expand,
+                                        children: [
+                                          Image.asset(
+                                            'assets/bilder/bier_foto.jpg',
+                                            fit: BoxFit.cover,
+                                            alignment: const Alignment(0, 0.2),
+                                          ),
+                                          AnimatedBuilder(
+                                            animation: _welle,
+                                            builder: (_, _) => GlasRadar(zeiger: _welle.value),
+                                          ),
                                         ],
-                                      ),
-                                      child: ClipOval(
-                                        child: Image.asset('assets/bilder/pirat.png', fit: BoxFit.cover),
                                       ),
                                     ),
                                   ),
@@ -178,16 +180,16 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                               shaderCallback: (r) =>
                                   const LinearGradient(colors: [radarMintHell, bierGoldHell]).createShader(r),
                               child: const Text(
-                                'Ahoi, Pirat!',
+                                'Willkommen bei BierRadar!',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 30,
+                                  fontSize: 27,
                                   fontWeight: FontWeight.w800,
                                   color: Colors.white,
                                 ),
                               ),
                             ),
                           ),
-                          _rein(0.48, const _Arrr()),
                           const SizedBox(height: 6),
                           if (bis != null)
                             _rein(
@@ -221,9 +223,9 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                             0.5,
                             Text(
                               bis == null
-                                  ? 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von BierRadar. '
+                                  ? 'Schön, dass du dabei bist! Du bist einer der ersten Beta-Tester von BierRadar. '
                                         'Ab jetzt entgeht dir keine Bier-Aktion mehr.'
-                                  : 'Willkommen in der Crew! Du bist einer der ersten Beta-Tester von BierRadar '
+                                  : 'Schön, dass du dabei bist! Du bist einer der ersten Beta-Tester von BierRadar '
                                         'und testest die App $betaTage Tage lang gratis. Ab jetzt entgeht dir keine Bier-Aktion mehr.',
                               textAlign: TextAlign.center,
                               style: const TextStyle(color: Color(0xFFB8C4D9), fontSize: 14, height: 1.4),
@@ -257,7 +259,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                                     ),
                                   const _Regel(
                                     Icons.lock_outline,
-                                    'Piratenehrenwort: Die App bleibt in der Crew – bitte nicht weiterschicken.',
+                                    'Nur für eingeladene Tester – bitte nicht weiterschicken.',
                                   ),
                                   const _Regel(
                                     Icons.chat_bubble_outline,
@@ -280,10 +282,10 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                                   await benachrichtigungenErfragen();
                                   await standortErmitteln(z);
                                 },
-                                icon: const Icon(Icons.anchor),
+                                icon: const Icon(Icons.radar),
                                 label: const Padding(
                                   padding: EdgeInsets.symmetric(vertical: 14),
-                                  child: Text('Anheuern und Bier finden', style: TextStyle(fontSize: 16)),
+                                  child: Text('Los geht’s – Bier finden', style: TextStyle(fontSize: 16)),
                                 ),
                               ),
                             ),
@@ -301,44 +303,6 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
       ),
     );
   }
-}
-
-/// „Arrrrr!“ – wackelt kurz wie ein echter Piratenruf.
-class _Arrr extends StatefulWidget {
-  const _Arrr();
-
-  @override
-  State<_Arrr> createState() => _ArrrState();
-}
-
-class _ArrrState extends State<_Arrr> with SingleTickerProviderStateMixin {
-  late final AnimationController _c = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 2600),
-  )..repeat();
-
-  @override
-  void dispose() {
-    _c.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => AnimatedBuilder(
-    animation: _c,
-    builder: (_, c) {
-      // kurzes Wackeln am Anfang jeder Runde, dann Ruhe
-      final w = _c.value < 0.25 ? math.sin(_c.value * 4 * math.pi * 4) * (0.25 - _c.value) * 0.5 : 0.0;
-      return Transform.rotate(
-        angle: w,
-        child: Transform.scale(scale: 1 + w.abs() * 0.6, child: c),
-      );
-    },
-    child: const Text(
-      'Arrrrr! 🏴‍☠️',
-      style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800, color: bierGoldHell, letterSpacing: 2),
-    ),
-  );
 }
 
 class _Regel extends StatelessWidget {
@@ -481,7 +445,7 @@ class BetaGesperrt extends StatelessWidget {
               ),
               const SizedBox(height: 28),
               const Text(
-                'Leinen los, Bierpirat!',
+                'Test-Version abgelaufen',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800, color: textHell),
               ),
               const SizedBox(height: 12),

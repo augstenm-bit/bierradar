@@ -81,7 +81,7 @@ class _BierAuswahlState extends State<BierAuswahl> {
                   title: const Text('Nur echtes Bier an Bord'),
                   content: const Text('Solche Getränke werden von BierRadar nicht unterstützt.'),
                   actions: [
-                    TextButton(onPressed: () => Navigator.pop(c), child: const Text('Arrr, verstanden')),
+                    TextButton(onPressed: () => Navigator.pop(c), child: const Text('Verstanden')),
                   ],
                 ),
               ),

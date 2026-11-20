@@ -12,6 +12,7 @@ import '../radar.dart';
 import '../zustand.dart';
 import '../standort.dart';
 import 'bausteine.dart';
+import 'intro.dart' show GlasRadarMaler;
 import 'logbuch.dart';
 import 'orte.dart';
 
@@ -785,7 +786,7 @@ class _DetailsState extends State<_Details> {
             XFile.fromData(daten!.buffer.asUint8List(), mimeType: 'image/png', name: 'BierRadar-Angebot.png'),
           ],
           text:
-              '🍺 ${a.bier.name} um ${euro(widget.treffer.preisFuerMich)} bei $filialeText – gefunden mit BierRadar 🏴‍☠️',
+              '🍺 ${a.bier.name} um ${euro(widget.treffer.preisFuerMich)} bei $filialeText – gefunden mit BierRadar 📡',
         ),
       );
     } catch (e) {
@@ -1032,7 +1033,17 @@ class _TeilKarte extends StatelessWidget {
                 ),
               ),
               ClipOval(
-                child: Image.asset('assets/bilder/pirat.png', width: 64, height: 64, fit: BoxFit.cover),
+                child: SizedBox.square(
+                  dimension: 64,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      Image.asset('assets/bilder/bier_foto.jpg', fit: BoxFit.cover, alignment: const Alignment(0, 0.2)),
+                      ColoredBox(color: Colors.white.withValues(alpha: 0.12)),
+                      CustomPaint(painter: GlasRadarMaler(0.94, 1)),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
@@ -1066,7 +1077,7 @@ class _TeilKarte extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            '🏴‍☠️ Gefunden mit BierRadar – nie wieder eine Bier-Aktion verpassen!',
+            '📡 Gefunden mit BierRadar – nie wieder eine Bier-Aktion verpassen!',
             style: TextStyle(color: textGedaempft, fontSize: 11.5),
           ),
         ],

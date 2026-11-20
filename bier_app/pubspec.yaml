@@ -70,7 +70,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/angebote.json
-    - assets/bilder/pirat.png
+    - assets/bilder/bier_foto.jpg
     - assets/filialen.json
 
   # To add assets to your application, add an assets section, like this:
