@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-20T15:00:19+00:00",
+ "stand": "2026-11-20T16:02:20+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
  "anzahl": 93,
@@ -438,25 +438,6 @@
    "bierId": "wieselburger",
    "marke": "Wieselburger",
    "titel": "Gold",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa",
-   "preis": 0.69,
-   "statt": 1.45,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter",
-   "regionen": null,
-   "gebiete": [
-    "amstetten"
-   ]
-  },
-  {
-   "bierId": "wieselburger",
-   "marke": "Wieselburger",
-   "titel": "Gold",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Billa",
@@ -472,6 +453,25 @@
     "Niederösterreich",
     "Burgenland"
    ],
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Billa",
+   "preis": 0.69,
+   "statt": 1.45,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter",
+   "regionen": null,
    "gebiete": [
     "amstetten"
    ]
