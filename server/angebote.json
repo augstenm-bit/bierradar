@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-20T12:05:04+00:00",
+ "stand": "2026-11-20T13:23:32+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
  "anzahl": 93,
@@ -438,25 +438,6 @@
    "bierId": "wieselburger",
    "marke": "Wieselburger",
    "titel": "Gold",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa",
-   "preis": 0.69,
-   "statt": 1.45,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter",
-   "regionen": null,
-   "gebiete": [
-    "amstetten"
-   ]
-  },
-  {
-   "bierId": "wieselburger",
-   "marke": "Wieselburger",
-   "titel": "Gold",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Billa",
@@ -472,6 +453,25 @@
     "Niederösterreich",
     "Burgenland"
    ],
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Billa",
+   "preis": 0.69,
+   "statt": 1.45,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter",
+   "regionen": null,
    "gebiete": [
     "amstetten"
    ]
@@ -1317,26 +1317,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Spar",
-   "preis": 14.9,
-   "statt": 29.8,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "20 x 0,5 Liter",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "flasche05",
    "liter": 0.5,
    "haendler": "Spar",
@@ -1347,6 +1327,26 @@
    "von": "2026-11-19",
    "bis": "2026-12-02",
    "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Spar",
+   "preis": 14.9,
+   "statt": 29.8,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5 Liter",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -1640,26 +1640,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Hofer",
-   "preis": 0.74,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-20",
-   "bis": "2026-11-21",
-   "hinweis": "zzgl. Pfand € 0,25 5,2% Vol. 0,5 l",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Hofer",
@@ -1670,6 +1650,26 @@
    "von": "2026-11-20",
    "bis": "2026-11-21",
    "hinweis": "zzgl. Pfand € 0,20 5,2% Vol. 20 x 0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Hofer",
+   "preis": 0.74,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-20",
+   "bis": "2026-11-21",
+   "hinweis": "zzgl. Pfand € 0,25 5,2% Vol. 0,5 l",
    "regionen": null,
    "gebiete": [
     "amstetten",
