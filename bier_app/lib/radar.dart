@@ -144,6 +144,49 @@ class RadarMaler extends CustomPainter {
       canvas.restore();
     }
 
+    // Moderne Gradskala am Rand: feine Striche alle 10°, längere alle 30°
+    final skala = Paint()..strokeCap = StrokeCap.round;
+    for (var g = 0; g < 360; g += 10) {
+      final rad = g * math.pi / 180;
+      final lang = g % 30 == 0;
+      final innen = r * (lang ? 0.88 : 0.93);
+      skala
+        ..color = (grau ? const Color(0xFF4A5368) : radarMintHell).withValues(alpha: lang ? 0.45 : 0.2)
+        ..strokeWidth = math.max(0.8, r * (lang ? 0.012 : 0.007));
+      canvas.drawLine(
+        mitte + Offset(math.cos(rad), math.sin(rad)) * innen,
+        mitte + Offset(math.cos(rad), math.sin(rad)) * r * 0.985,
+        skala,
+      );
+    }
+    // Feiner gestrichelter Innenring
+    final strich = Paint()
+      ..color = Colors.white.withValues(alpha: 0.06)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = math.max(0.8, r * 0.006);
+    for (var g = 0; g < 360; g += 6) {
+      canvas.drawArc(
+        Rect.fromCircle(center: mitte, radius: r * 0.52),
+        g * math.pi / 180,
+        2.5 * math.pi / 180,
+        false,
+        strich,
+      );
+    }
+    // Glas-Reflex oben links
+    canvas.drawArc(
+      Rect.fromCircle(center: mitte, radius: r * 0.96),
+      math.pi * 1.05,
+      math.pi * 0.45,
+      false,
+      Paint()
+        ..color = Colors.white.withValues(alpha: 0.12)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = r * 0.03
+        ..strokeCap = StrokeCap.round
+        ..maskFilter = MaskFilter.blur(BlurStyle.normal, r * 0.015),
+    );
+
     // Außenring mit Leuchten
     canvas.drawCircle(
       mitte,
