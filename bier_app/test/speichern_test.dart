@@ -151,4 +151,16 @@ void main() {
     neu.ortLoeschen('zuhause1');
     expect(neu.ortWahl, 'standort');
   });
+
+  test('Filial-Text mit Ort und Entfernung', () {
+    final z = AppZustand();
+    z.filialen = const [
+      Filiale('Billa', 'Billa', 'Anton-Plochberger-Straße 2, 4400 Steyr', 48.0466, 14.4249),
+      Filiale('Hofer', 'Hofer Amstetten', '', 48.1229, 14.8720),
+    ];
+    z.standortSetzen(48.05466, 14.45104); // Hinterbergerstraße
+    expect(z.filialText('Billa'), matches(RegExp(r'^Billa Steyr · \d,\d km$')));
+    expect(z.filialText('Hofer'), startsWith('Hofer Amstetten · '));
+    expect(z.filialText('Maximarkt'), 'Maximarkt');
+  });
 }

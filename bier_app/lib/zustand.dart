@@ -145,6 +145,26 @@ class AppZustand extends ChangeNotifier {
     }
   }
 
+  /// Kurzer Text zur nächsten Filiale, z. B. „Billa Steyr · 2,3 km“ (sonst nur der Händler).
+  String filialText(String haendler) {
+    final n = naechsteFiliale(haendler);
+    if (n == null) return haendler;
+    final (f, km) = n;
+    // Ort aus der Adresse („…, 4400 Steyr“ → „Steyr“), sonst aus dem Namen
+    var ort = '';
+    if (f.adresse.contains(',')) {
+      ort = f.adresse.split(',').last.trim().replaceFirst(RegExp(r'^\d{4}\s*'), '');
+    } else if (RegExp(r'^\d{4}\s').hasMatch(f.adresse)) {
+      ort = f.adresse.replaceFirst(RegExp(r'^\d{4}\s*'), '');
+    }
+    if (ort.isEmpty) {
+      final rest = f.name.replaceFirst(RegExp(haendler, caseSensitive: false), '').trim();
+      ort = rest.replaceAll(RegExp(r'^[-–,\s]+'), '');
+    }
+    final entfernung = km < 10 ? km.toStringAsFixed(1).replaceAll('.', ',') : km.round().toString();
+    return '${ort.isEmpty ? haendler : '$haendler $ort'} · $entfernung km';
+  }
+
   /// Anzahl Geschäfte (aller Ketten) im Umkreis.
   int get geschaefteImUmkreis =>
       filialen.where((f) => entfernungKm(mitteBreite, mitteLaenge, f.breite, f.laenge) <= radiusKm).length;

@@ -465,7 +465,7 @@ class _BesterDeal extends StatelessWidget {
             ),
             const SizedBox(height: 2),
             Text(
-              '${a.verpackung.bezeichnung} · ${a.haendler} · ${_wann(a)}',
+              '${a.verpackung.bezeichnung} · ${ZustandScope.of(context).filialText(a.haendler)} · ${_wann(a)}',
               style: const TextStyle(color: Color(0xFFB8C4D9), fontSize: 13),
             ),
             const SizedBox(height: 8),
@@ -682,7 +682,7 @@ class _AngebotZeile extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    '${a.verpackung.titel} · ${a.haendler} · ${_wann(a)}',
+                    '${a.verpackung.titel} · ${ZustandScope.of(context).filialText(a.haendler)} · ${_wann(a)}',
                     style: const TextStyle(fontSize: 12.5, color: textGedaempft),
                   ),
                   if (tiefst != null) ...[
@@ -769,6 +769,10 @@ class _DetailsState extends State<_Details> {
   bool _teilt = false;
 
   Future<void> _alsBildTeilen() async {
+    final filialeText = ZustandScope.of(context)
+        .filialText(widget.treffer.angebot.haendler)
+        .split(' · ')
+        .first;
     setState(() => _teilt = true);
     try {
       final grenze = _kartenSchluessel.currentContext!.findRenderObject()! as RenderRepaintBoundary;
@@ -781,7 +785,7 @@ class _DetailsState extends State<_Details> {
             XFile.fromData(daten!.buffer.asUint8List(), mimeType: 'image/png', name: 'BierRadar-Angebot.png'),
           ],
           text:
-              '🍺 ${a.bier.name} um ${euro(widget.treffer.preisFuerMich)} bei ${a.haendler} – gefunden mit BierRadar 🏴‍☠️',
+              '🍺 ${a.bier.name} um ${euro(widget.treffer.preisFuerMich)} bei $filialeText – gefunden mit BierRadar 🏴‍☠️',
         ),
       );
     } catch (e) {
@@ -821,7 +825,7 @@ class _DetailsState extends State<_Details> {
                         style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: textHell),
                       ),
                       Text(
-                        '${a.verpackung.bezeichnung} · ${a.haendler}',
+                        '${a.verpackung.bezeichnung} · ${z.filialText(a.haendler)}',
                         style: const TextStyle(color: textGedaempft, fontSize: 15),
                       ),
                     ],
@@ -1021,7 +1025,7 @@ class _TeilKarte extends StatelessWidget {
                       style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: textHell),
                     ),
                     Text(
-                      '${a.verpackung.bezeichnung}\nbei ${a.haendler}',
+                      '${a.verpackung.bezeichnung}\nbei ${ZustandScope.of(context).filialText(a.haendler).split(' · ').first}',
                       style: const TextStyle(color: Color(0xFFB8C4D9), fontSize: 13, height: 1.35),
                     ),
                   ],

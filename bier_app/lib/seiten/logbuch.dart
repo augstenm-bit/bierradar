@@ -445,9 +445,15 @@ class EinkaufszettelSeite extends StatelessWidget {
                       children: [
                         const Icon(Icons.storefront, color: bierBernstein, size: 20),
                         const SizedBox(width: 8),
-                        Text(
-                          h,
-                          style: const TextStyle(fontWeight: FontWeight.w800, color: textHell, fontSize: 17),
+                        Expanded(
+                          child: Text(
+                            z.filialText(h),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w800,
+                              color: textHell,
+                              fontSize: 17,
+                            ),
+                          ),
                         ),
                       ],
                     ),
