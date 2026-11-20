@@ -1,11 +1,11 @@
-// Standort ermitteln (nur ungefähr – reicht, um das nächste Gebiet zu finden).
+// Standort ermitteln – genau genug für einen Umkreis ab 1 km.
 
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 
 import 'zustand.dart';
 
-/// Fragt (falls nötig) nach der Standort-Erlaubnis und speichert den Standort.
+/// Fragt (falls nötig) nach der Standort-Erlaubnis und speichert den aktuellen Standort.
 /// [fragen] = false: nur still aktualisieren, wenn die Erlaubnis schon da ist.
 Future<bool> standortErmitteln(AppZustand z, {bool fragen = true}) async {
   try {
@@ -15,14 +15,15 @@ Future<bool> standortErmitteln(AppZustand z, {bool fragen = true}) async {
       erlaubnis = await Geolocator.requestPermission();
     }
     if (erlaubnis == LocationPermission.denied || erlaubnis == LocationPermission.deniedForever) return false;
-    // Auf Android ohne Google-Dienste („Standortgenauigkeit“-Abfrage) – ungefähr reicht völlig.
+
+    // Genauer Standort (Umkreis ab 1 km). Android ohne Google-Dienste, damit keine Zusatz-Abfrage kommt.
     final einstellungen = defaultTargetPlatform == TargetPlatform.android
         ? AndroidSettings(
-            accuracy: LocationAccuracy.low,
+            accuracy: LocationAccuracy.high,
             forceLocationManager: true,
-            timeLimit: const Duration(seconds: 15),
+            timeLimit: const Duration(seconds: 20),
           )
-        : const LocationSettings(accuracy: LocationAccuracy.low, timeLimit: Duration(seconds: 15));
+        : AppleSettings(accuracy: LocationAccuracy.best, timeLimit: const Duration(seconds: 20));
     Position? pos;
     try {
       pos = await Geolocator.getCurrentPosition(locationSettings: einstellungen);
@@ -30,7 +31,15 @@ Future<bool> standortErmitteln(AppZustand z, {bool fragen = true}) async {
       pos = await Geolocator.getLastKnownPosition(forceAndroidLocationManager: true);
     }
     if (pos == null) return false;
-    z.standortSetzen(pos.latitude, pos.longitude);
+
+    // iPhone: Ist „Genauer Standort“ aus, liefert iOS nur einen ungefähren Ort (mehrere km daneben).
+    var ungenau = pos.accuracy > 1000;
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      try {
+        ungenau = ungenau || await Geolocator.getLocationAccuracy() == LocationAccuracyStatus.reduced;
+      } catch (_) {}
+    }
+    z.standortSetzen(pos.latitude, pos.longitude, genauigkeitMeter: pos.accuracy, ungenau: ungenau);
     return true;
   } catch (e) {
     debugPrint('Standort nicht verfügbar: $e');

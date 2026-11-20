@@ -25,6 +25,8 @@ void main() {
   });
   // Standort still aktualisieren, wenn er schon erlaubt wurde
   Future.delayed(const Duration(seconds: 3), () => standortErmitteln(zustand, fragen: false));
+  // Bei jedem Zurückkehren in die App den Standort auffrischen (z. B. von Amstetten nach Steyr gefahren).
+  AppLifecycleListener(onResume: () => standortErmitteln(zustand, fragen: false));
   final beta = BetaPruefung()..pruefen();
   runApp(BierApp(zustand: zustand, beta: beta));
 }

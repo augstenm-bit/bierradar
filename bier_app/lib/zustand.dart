@@ -52,9 +52,17 @@ class AppZustand extends ChangeNotifier {
     aenderung();
   }
 
-  void standortSetzen(double breite, double laenge) {
+  /// Genauigkeit des Standorts in Metern und ob iOS nur den ungefähren Standort liefert.
+  double? standortGenauigkeit;
+  bool standortUngenau = false;
+  DateTime? standortZeit;
+
+  void standortSetzen(double breite, double laenge, {double? genauigkeitMeter, bool ungenau = false}) {
     standortBreite = breite;
     standortLaenge = laenge;
+    standortGenauigkeit = genauigkeitMeter;
+    standortUngenau = ungenau;
+    standortZeit = DateTime.now();
     gebiet = Gebiet.values.reduce(
       (a, b) =>
           entfernungKm(breite, laenge, a.breite, a.laenge) <= entfernungKm(breite, laenge, b.breite, b.laenge)

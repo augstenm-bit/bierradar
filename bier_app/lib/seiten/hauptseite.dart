@@ -10,6 +10,7 @@ import '../erinnerung.dart';
 import '../main.dart';
 import '../radar.dart';
 import '../zustand.dart';
+import '../standort.dart';
 import 'bausteine.dart';
 import 'logbuch.dart';
 
@@ -1401,7 +1402,11 @@ class _UmkreisLeisteState extends State<_UmkreisLeiste> {
       ),
     );
     z.radiusSetzen(_km.roundToDouble());
-    await Future.wait([z.angeboteAktualisieren(), Future<void>.delayed(const Duration(milliseconds: 1800))]);
+    await Future.wait([
+      standortErmitteln(z, fragen: false), // frischer, genauer Standort für die Suche
+      z.angeboteAktualisieren(),
+      Future<void>.delayed(const Duration(milliseconds: 1800)),
+    ]);
     if (mounted) Navigator.of(context).pop();
   }
 
@@ -1459,14 +1464,17 @@ class _UmkreisLeisteState extends State<_UmkreisLeiste> {
               onChanged: (v) => setState(() => _km = v),
             ),
           ),
-          if (z.standortBreite == null)
-            const Padding(
-              padding: EdgeInsets.only(bottom: 6),
-              child: Text(
-                'Ohne Standort gilt dein Gebiet aus den Einstellungen als Mittelpunkt.',
-                style: TextStyle(color: textGedaempft, fontSize: 11.5),
-              ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 6),
+            child: Text(
+              z.standortBreite == null
+                  ? '📍 Kein Standort – Mittelpunkt ist ${z.gebiet.titel}.'
+                  : z.standortUngenau
+                  ? '⚠️ Nur ungefährer Standort – iPhone-Einstellungen → BierRadar → Ort → „Genauer Standort“ einschalten.'
+                  : '📍 Dein Standort (± ${(z.standortGenauigkeit ?? 0).round()} m)',
+              style: TextStyle(color: z.standortUngenau ? bierGoldHell : textGedaempft, fontSize: 11.5),
             ),
+          ),
         ],
       ),
     );
