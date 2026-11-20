@@ -1499,6 +1499,15 @@ class _UmkreisLeisteState extends State<_UmkreisLeiste> {
               onChanged: (v) => setState(() => _km = v),
             ),
           ),
+          if (z.standortBreite == null)
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                onPressed: () => standortFreigeben(z),
+                icon: const Icon(Icons.my_location, size: 18),
+                label: const Text('Standort verwenden'),
+              ),
+            ),
           Padding(
             padding: const EdgeInsets.only(bottom: 6),
             child: Text(

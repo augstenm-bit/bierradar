@@ -23,11 +23,14 @@ void main() {
   zustand.addListener(() {
     if (zustand.geladen && !zustand.angeboteLaden) trefferAlsGesehenMerken(zustand);
   });
-  // Standort still aktualisieren, wenn er schon erlaubt wurde
-  Future.delayed(const Duration(seconds: 3), () => standortErmitteln(zustand, fragen: false));
+  final beta = BetaPruefung()..pruefen();
+  // Beim Öffnen: Standort holen – wer das Willkommen schon hinter sich hat, wird (einmalig) gefragt.
+  Future.delayed(
+    const Duration(seconds: 3),
+    () => standortErmitteln(zustand, fragen: beta.willkommenGesehen),
+  );
   // Bei jedem Zurückkehren in die App den Standort auffrischen (z. B. von Amstetten nach Steyr gefahren).
   AppLifecycleListener(onResume: () => standortErmitteln(zustand, fragen: false));
-  final beta = BetaPruefung()..pruefen();
   runApp(BierApp(zustand: zustand, beta: beta));
 }
 

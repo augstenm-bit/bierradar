@@ -46,3 +46,17 @@ Future<bool> standortErmitteln(AppZustand z, {bool fragen = true}) async {
     return false;
   }
 }
+
+/// Für den Knopf „Standort verwenden“: fragt, und wenn früher abgelehnt → Einstellungen öffnen.
+Future<void> standortFreigeben(AppZustand z) async {
+  if (!await Geolocator.isLocationServiceEnabled()) {
+    await Geolocator.openLocationSettings(); // Ortungsdienste am Handy aus
+    return;
+  }
+  final erlaubnis = await Geolocator.checkPermission();
+  if (erlaubnis == LocationPermission.deniedForever) {
+    await Geolocator.openAppSettings(); // früher abgelehnt → nur in den Einstellungen änderbar
+    return;
+  }
+  await standortErmitteln(z);
+}
