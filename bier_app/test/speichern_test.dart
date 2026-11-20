@@ -139,7 +139,7 @@ void main() {
     final z = AppZustand();
     await z.laden();
     z.standortSetzen(48.1229, 14.8720); // gerade in Amstetten
-    z.ortSetzen('zuhause1', const Ort('Hinterbergerstraße, 4400 Steyr', 48.05466, 14.45104));
+    z.ortSetzen('zuhause1', const Ort('Zuhause 1', 'Hinterbergerstraße, 4400 Steyr', 48.05466, 14.45104));
     z.ortWaehlen('zuhause1');
     expect(z.mitteBreite, closeTo(48.05466, 0.0001));
     expect(z.naechstesGebiet, Gebiet.steyr);
@@ -150,6 +150,16 @@ void main() {
     expect(neu.orte['zuhause1']!.adresse, startsWith('Hinterbergerstraße'));
     neu.ortLoeschen('zuhause1');
     expect(neu.ortWahl, 'standort');
+  });
+
+  test('Meine Orte: alte gespeicherte Orte bekommen ihren früheren Namen, höchstens 3', () async {
+    final z = AppZustand();
+    z.ortSetzen('ort1', const Ort('Oma', 'Stadtplatz 1, 3300 Amstetten', 48.12, 14.87));
+    expect(z.neueOrtKennung(), 'ort2');
+    expect(z.ortTippGesehen, isTrue);
+    final alt = Ort.fromJson({'a': 'Hauptplatz 1', 'b': 48.0, 'l': 14.4}, ersatzName: 'Arbeit');
+    expect(alt.name, 'Arbeit');
+    expect(maxOrte, 3);
   });
 
   test('Filial-Text mit Ort und Entfernung', () {

@@ -1478,6 +1478,7 @@ class _UmkreisLeisteState extends State<_UmkreisLeiste> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (!z.ortTippGesehen) OrtTipp(z: z),
           Padding(
             padding: const EdgeInsets.only(top: 2, bottom: 4),
             child: OrtUmschalter(z: z),
@@ -1534,7 +1535,7 @@ class _UmkreisLeisteState extends State<_UmkreisLeiste> {
             padding: const EdgeInsets.only(bottom: 6),
             child: Text(
               z.gewaehlterOrt != null
-                  ? '${ortArten.firstWhere((o) => o.$1 == z.ortWahl).$3} ${z.gewaehlterOrt!.adresse}'
+                  ? '📌 ${z.gewaehlterOrt!.name}: ${z.gewaehlterOrt!.adresse}'
                   : z.standortBreite == null
                   ? '📍 Kein Standort – Mittelpunkt ist ${z.gebiet.titel}.'
                   : z.standortUngenau

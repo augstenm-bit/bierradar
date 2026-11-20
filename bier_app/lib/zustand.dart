@@ -84,11 +84,28 @@ class AppZustand extends ChangeNotifier {
   double get mitteBreite => gewaehlterOrt?.breite ?? standortBreite ?? gebiet.breite;
   double get mitteLaenge => gewaehlterOrt?.laenge ?? standortLaenge ?? gebiet.laenge;
 
-  // ---- Meine Orte (Zuhause 1, Zuhause 2, Arbeit) ----
-  /// Gespeicherte Orte, Schlüssel siehe [ortArten]. Bleiben nur am Handy.
+  // ---- Meine Orte (bis zu [maxOrte], mit eigenem Namen) ----
+  /// Gespeicherte Orte (Schlüssel = interne Kennung). Bleiben nur am Handy.
   final Map<String, Ort> orte = {};
 
-  /// Was der Mittelpunkt der Suche ist: 'standort' oder ein Schlüssel aus [ortArten].
+  /// Tipp „Orte speichern“ auf der Radar-Seite schon weggeklickt?
+  bool ortTippGesehen = false;
+
+  void ortTippSchliessen() {
+    ortTippGesehen = true;
+    aenderung();
+  }
+
+  /// Neue Kennung für einen weiteren Ort.
+  String neueOrtKennung() {
+    var i = 1;
+    while (orte.containsKey('ort$i')) {
+      i++;
+    }
+    return 'ort$i';
+  }
+
+  /// Was der Mittelpunkt der Suche ist: 'standort' oder eine Kennung aus [orte].
   String ortWahl = 'standort';
 
   Ort? get gewaehlterOrt => ortWahl == 'standort' ? null : orte[ortWahl];
@@ -104,6 +121,7 @@ class AppZustand extends ChangeNotifier {
 
   void ortSetzen(String art, Ort ort) {
     orte[art] = ort;
+    ortTippGesehen = true;
     aenderung();
   }
 
@@ -368,9 +386,12 @@ class AppZustand extends ChangeNotifier {
       standortBreite = (j['breite'] as num?)?.toDouble();
       standortLaenge = (j['laenge'] as num?)?.toDouble();
       radiusKm = (j['radius'] as num?)?.toDouble() ?? 25;
+      // Frühere feste Namen übernehmen (damals: Zuhause 1, Zuhause 2, Arbeit)
+      const alteNamen = {'zuhause1': 'Zuhause 1', 'zuhause2': 'Zuhause 2', 'arbeit': 'Arbeit'};
       (j['orte'] as Map<String, dynamic>? ?? {}).forEach(
-        (k, v) => orte[k] = Ort.fromJson(v as Map<String, dynamic>),
+        (k, v) => orte[k] = Ort.fromJson(v as Map<String, dynamic>, ersatzName: alteNamen[k] ?? 'Mein Ort'),
       );
+      ortTippGesehen = j['ortTipp'] == true || orte.isNotEmpty;
       ortWahl = j['ortWahl'] as String? ?? 'standort';
       if (ortWahl != 'standort' && !orte.containsKey(ortWahl)) ortWahl = 'standort';
       final versteckt = j['hinweisVersteckt'] as String?;
@@ -411,6 +432,7 @@ class AppZustand extends ChangeNotifier {
         'gebiet': gebiet.name,
         'orte': orte.map((k, v) => MapEntry(k, v.toJson())),
         'ortWahl': ortWahl,
+        'ortTipp': ortTippGesehen,
         'breite': standortBreite,
         'laenge': standortLaenge,
         'radius': radiusKm,
@@ -624,21 +646,22 @@ Rang rangFuer(double gespart) => raenge.lastWhere((r) => gespart >= r.ab);
 
 Rang? naechsterRang(double gespart) => raenge.where((r) => r.ab > gespart).firstOrNull;
 
-/// Arten von gespeicherten Orten: Schlüssel, Name, Symbol.
-const ortArten = [
-  ('zuhause1', 'Zuhause 1', '🏠'),
-  ('zuhause2', 'Zuhause 2', '🏡'),
-  ('arbeit', 'Arbeit', '💼'),
-];
+/// So viele eigene Orte kann man speichern.
+const maxOrte = 3;
 
-/// Ein gespeicherter Ort (Zuhause, Arbeit …).
+/// Ein gespeicherter Ort mit eigenem Namen (z. B. „Zuhause“, „Arbeit“, „Oma“).
 class Ort {
-  const Ort(this.adresse, this.breite, this.laenge);
+  const Ort(this.name, this.adresse, this.breite, this.laenge);
+  final String name;
   final String adresse;
   final double breite;
   final double laenge;
 
-  Map<String, dynamic> toJson() => {'a': adresse, 'b': breite, 'l': laenge};
-  factory Ort.fromJson(Map<String, dynamic> j) =>
-      Ort(j['a'] as String, (j['b'] as num).toDouble(), (j['l'] as num).toDouble());
+  Map<String, dynamic> toJson() => {'n': name, 'a': adresse, 'b': breite, 'l': laenge};
+  factory Ort.fromJson(Map<String, dynamic> j, {String ersatzName = 'Mein Ort'}) => Ort(
+    (j['n'] as String?) ?? ersatzName,
+    j['a'] as String,
+    (j['b'] as num).toDouble(),
+    (j['l'] as num).toDouble(),
+  );
 }

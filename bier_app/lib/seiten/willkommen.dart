@@ -207,7 +207,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                                     const Icon(Icons.hourglass_top, size: 15, color: bierGoldHell),
                                     const SizedBox(width: 5),
                                     Text(
-                                      'Noch ${(bis.difference(DateTime.now()).inHours / 24).ceil().clamp(0, betaTage)} Tage gratis testen',
+                                      'Noch ${(bis.difference(DateTime.now()).inMinutes / 1440).ceil().clamp(0, betaTage)} Tage gratis testen',
                                       style: const TextStyle(
                                         color: bierGoldHell,
                                         fontSize: 13,

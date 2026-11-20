@@ -1,4 +1,4 @@
-// Erzeugt das App-Symbol (Glas-Radar über Bier) als PNG: flutter test test/logo_test.dart
+// Erzeugt das App-Symbol (grünes Radar, darin Bier mit Glas-Radar) als PNG: flutter test test/logo_test.dart
 import 'dart:io';
 import 'dart:ui' as ui;
 
@@ -28,7 +28,7 @@ void _glasRadar(Canvas canvas, ui.Image bier, Rect bierZiel, Offset mitte, doubl
   );
   canvas.save();
   canvas.clipPath(kreis);
-  canvas.saveLayer(null, Paint()..imageFilter = ui.ImageFilter.blur(sigmaX: r * 0.08, sigmaY: r * 0.08));
+  canvas.saveLayer(null, Paint()..imageFilter = ui.ImageFilter.blur(sigmaX: r * 0.035, sigmaY: r * 0.035));
   canvas.drawImageRect(bier, _ausschnitt(bier), bierZiel, Paint()..filterQuality = FilterQuality.high);
   canvas.restore();
   canvas.drawCircle(mitte, r, Paint()..color = Colors.white.withValues(alpha: 0.16));
@@ -39,30 +39,35 @@ void _glasRadar(Canvas canvas, ui.Image bier, Rect bierZiel, Offset mitte, doubl
   canvas.restore();
 }
 
-/// iPhone / allgemein: Bier füllt das ganze Symbol, Glas-Radar in der Mitte.
-void _symbol(Canvas canvas, double g, ui.Image bier) {
-  final ziel = Rect.fromLTWH(0, 0, g, g);
-  canvas.drawImageRect(bier, _ausschnitt(bier), ziel, Paint()..filterQuality = FilterQuality.high);
-  _glasRadar(canvas, bier, ziel, Offset(g / 2, g * 0.54), g * 0.33);
-}
-
-/// Android-Vordergrund: transparenter Rand, Bier-Kreis mit Glas-Radar (Hintergrund ist Nachtblau).
-void _vordergrund(Canvas canvas, double g, ui.Image bier) {
-  final mitte = Offset(g / 2, g / 2);
-  final rBier = g * 0.31;
+/// Wie auf der Willkommen-Seite: grünes Radar, in der Mitte Bier mit Glas-Radar.
+/// [mitHintergrund] = false für den Android-Vordergrund (Hintergrund kommt dort extra).
+void _logo(Canvas canvas, double g, ui.Image bier, {required bool mitHintergrund, double rand = 0}) {
+  if (mitHintergrund) {
+    canvas.drawRect(
+      Rect.fromLTWH(0, 0, g, g),
+      Paint()
+        ..shader = const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFF16203A), radarHintergrund],
+        ).createShader(Rect.fromLTWH(0, 0, g, g)),
+    );
+  }
+  canvas.save();
+  canvas.translate(rand, rand);
+  final s = g - 2 * rand;
+  RadarMaler(zeigerGrad: -35, blipHelligkeit: const [0.9, 0.5, 0.8, 0.4, 0.6]).paint(canvas, Size.square(s));
+  final mitte = Offset(s / 2, s / 2);
+  final r = s * 0.39;
   canvas.drawCircle(
     mitte,
-    rBier * 1.08,
+    r * 1.05,
     Paint()
-      ..color = bierOrange.withValues(alpha: 0.45)
-      ..maskFilter = MaskFilter.blur(BlurStyle.normal, rBier * 0.15),
+      ..color = bierOrange.withValues(alpha: 0.5)
+      ..maskFilter = MaskFilter.blur(BlurStyle.normal, r * 0.14),
   );
-  final ziel = Rect.fromCircle(center: mitte, radius: rBier);
-  canvas.save();
-  canvas.clipPath(Path()..addOval(ziel));
-  canvas.drawImageRect(bier, _ausschnitt(bier), ziel, Paint()..filterQuality = FilterQuality.high);
+  _glasRadar(canvas, bier, Rect.fromCircle(center: mitte, radius: r), mitte, r);
   canvas.restore();
-  _glasRadar(canvas, bier, ziel, mitte.translate(0, rBier * 0.08), rBier * 0.74);
 }
 
 Future<void> _speichern(String pfad, double g, void Function(Canvas) malen) async {
@@ -78,8 +83,8 @@ void main() {
     await tester.runAsync(() async {
       final bier = await _bildLaden('assets/bilder/bier_foto.jpg');
       const g = 1024.0;
-      await _speichern('assets/logo/bierradar_icon.png', g, (c) => _symbol(c, g, bier));
-      await _speichern('assets/logo/bierradar_vordergrund.png', g, (c) => _vordergrund(c, g, bier));
+      await _speichern('assets/logo/bierradar_icon.png', g, (c) => _logo(c, g, bier, mitHintergrund: true, rand: g * 0.03));
+      await _speichern('assets/logo/bierradar_vordergrund.png', g, (c) => _logo(c, g, bier, mitHintergrund: false, rand: g * 0.17));
     });
     expect(File('assets/logo/bierradar_icon.png').existsSync(), isTrue);
   });
