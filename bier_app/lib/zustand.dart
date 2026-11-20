@@ -636,10 +636,10 @@ class Rang {
 
 const raenge = [
   Rang('🍺', 'Einsteiger', 0),
-  Rang('🍻', 'Stammgast', 20),
-  Rang('🎯', 'Schnäppchenjäger', 50),
-  Rang('🏆', 'Bier-Profi', 100),
-  Rang('👑', 'BierRadar-Legende', 250),
+  Rang('🍻', 'Stammgast', 50),
+  Rang('🎯', 'Schnäppchenjäger', 150),
+  Rang('🏆', 'Bier-Profi', 400),
+  Rang('👑', 'BierRadar-Legende', 1000),
 ];
 
 Rang rangFuer(double gespart) => raenge.lastWhere((r) => gespart >= r.ab);

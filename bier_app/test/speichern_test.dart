@@ -70,8 +70,10 @@ void main() {
     expect(z.tiefstpreisWochen(a, 1.38), 7);
     expect(z.tiefstpreisWochen(a, 1.45), isNull);
     expect(rangFuer(0).name, 'Einsteiger');
-    expect(rangFuer(55).name, 'Schnäppchenjäger');
-    expect(naechsterRang(55)!.name, 'Bier-Profi');
+    expect(rangFuer(55).name, 'Stammgast');
+    expect(rangFuer(160).name, 'Schnäppchenjäger');
+    expect(rangFuer(1000).name, 'BierRadar-Legende');
+    expect(naechsterRang(160)!.name, 'Bier-Profi');
   });
 
   test('Standort und Umkreis', () {
