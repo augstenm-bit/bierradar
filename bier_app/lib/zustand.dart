@@ -224,6 +224,21 @@ class AppZustand extends ChangeNotifier {
     aenderung();
   }
 
+  /// Einträge vom Einkaufszettel löschen (nicht mehr gemerkt).
+  void vomZettelLoeschen(Iterable<String> schluessel) {
+    for (final k in schluessel.toList()) {
+      gemerkt.remove(k);
+      abgehakt.remove(k);
+    }
+    aenderung();
+  }
+
+  /// Gelöschte Einträge zurückholen (Rückgängig).
+  void aufZettelZurueck(Iterable<String> schluessel) {
+    gemerkt.addAll(schluessel);
+    aenderung();
+  }
+
   void abhakenUmschalten(String k) {
     if (!abgehakt.remove(k)) abgehakt.add(k);
     aenderung();
@@ -649,7 +664,7 @@ Rang? naechsterRang(double gespart) => raenge.where((r) => r.ab > gespart).first
 /// So viele eigene Orte kann man speichern.
 const maxOrte = 3;
 
-/// Ein gespeicherter Ort mit eigenem Namen (z. B. „Zuhause“, „Arbeit“, „Oma“).
+/// Ein gespeicherter Ort mit eigenem Namen (z. B. „Zuhause“, „Arbeit“, „2. Wohnadresse“).
 class Ort {
   const Ort(this.name, this.adresse, this.breite, this.laenge);
   final String name;

@@ -31,7 +31,7 @@ class MeineOrte extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.fromLTRB(16, 2, 16, 4),
           child: Text(
-            'Bis zu $maxOrte Orte mit eigenem Namen, z. B. Zuhause, Arbeit oder Oma. '
+            'Bis zu $maxOrte Orte mit eigenem Namen, z. B. Zuhause, Arbeit oder 2. Wohnadresse. '
             'Auf der Radar-Seite kannst du zwischen ihnen umschalten. Die Adressen bleiben nur auf deinem Handy.',
             style: TextStyle(color: textGedaempft, fontSize: 12),
           ),
@@ -135,7 +135,7 @@ class _OrtDialogState extends State<_OrtDialog> {
               maxLength: 20,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.label_outline),
-                hintText: 'Name, z. B. Zuhause, Arbeit, Oma',
+                hintText: 'Name, z. B. Zuhause, Arbeit, 2. Wohnadresse',
                 counterText: '',
               ),
             ),
@@ -295,7 +295,7 @@ class OrtTipp extends StatelessWidget {
             const SizedBox(width: 8),
             const Expanded(
               child: Text(
-                'Tipp: Speichere bis zu $maxOrte Orte mit eigenem Namen, z. B. Zuhause, Arbeit oder Oma. '
+                'Tipp: Speichere bis zu $maxOrte Orte mit eigenem Namen, z. B. Zuhause, Arbeit oder 2. Wohnadresse. '
                 'Mit einem Tipp siehst du dann die Bier-Aktionen rund um diesen Ort – auch wenn du gerade woanders bist.',
                 style: TextStyle(color: textHell, fontSize: 12.5, height: 1.35),
               ),

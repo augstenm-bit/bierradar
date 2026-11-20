@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../daten.dart';
+import '../erinnerung.dart';
 import '../main.dart';
 import '../radar.dart';
 import '../zustand.dart';
@@ -30,8 +31,7 @@ class _RangFeier extends StatefulWidget {
 }
 
 class _RangFeierState extends State<_RangFeier> with SingleTickerProviderStateMixin {
-  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(seconds: 5))
-    ..repeat();
+  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(seconds: 5))..repeat();
 
   @override
   void dispose() {
@@ -120,9 +120,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
     final daten = await bild.toByteData(format: ui.ImageByteFormat.png);
     await SharePlus.instance.share(
       ShareParams(
-        files: [
-          XFile.fromData(daten!.buffer.asUint8List(), mimeType: 'image/png', name: 'Mein-Bierjahr.png'),
-        ],
+        files: [XFile.fromData(daten!.buffer.asUint8List(), mimeType: 'image/png', name: 'Mein-Bierjahr.png')],
         text: 'Mein Bierjahr mit BierRadar 🍺',
       ),
     );
@@ -207,11 +205,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
                             const Text('Dein Level', style: TextStyle(color: textGedaempft, fontSize: 12)),
                             Text(
                               rang.name,
-                              style: const TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.w800,
-                                color: bierGoldHell,
-                              ),
+                              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: bierGoldHell),
                             ),
                           ],
                         ),
@@ -235,10 +229,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
                       style: const TextStyle(color: textGedaempft, fontSize: 12),
                     ),
                   ] else
-                    const Text(
-                      'Höchstes Level erreicht – Respekt! 👑',
-                      style: TextStyle(color: textGedaempft),
-                    ),
+                    const Text('Höchstes Level erreicht – Respekt! 👑', style: TextStyle(color: textGedaempft)),
                   const SizedBox(height: 16),
                   Row(
                     children: [
@@ -303,10 +294,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text(
-                    '📡 Gefunden mit BierRadar',
-                    style: TextStyle(color: textGedaempft, fontSize: 11),
-                  ),
+                  const Text('📡 Gefunden mit BierRadar', style: TextStyle(color: textGedaempft, fontSize: 11)),
                 ],
               ),
             ),
@@ -315,10 +303,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
           FilledButton.icon(
             onPressed: _teilen,
             icon: const Icon(Icons.share),
-            label: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12),
-              child: Text('Mein Bierjahr teilen'),
-            ),
+            label: const Padding(padding: EdgeInsets.symmetric(vertical: 12), child: Text('Mein Bierjahr teilen')),
           ),
           const SizedBox(height: 24),
           const Text(
@@ -337,10 +322,7 @@ class _LogbuchSeiteState extends State<LogbuchSeite> {
                   fontWeight: r == rang ? FontWeight.w800 : FontWeight.w400,
                 ),
               ),
-              trailing: Text(
-                r.ab == 0 ? 'Start' : 'ab ${euro(r.ab)}',
-                style: const TextStyle(color: textGedaempft),
-              ),
+              trailing: Text(r.ab == 0 ? 'Start' : 'ab ${euro(r.ab)}', style: const TextStyle(color: textGedaempft)),
             ),
           if (kaeufe.isEmpty)
             const Padding(
@@ -421,9 +403,48 @@ class EinkaufszettelSeite extends StatelessWidget {
       jeHaendler.putIfAbsent(a.haendler, () => []).add(a);
     }
     final haendler = jeHaendler.keys.toList()..sort();
+    final erledigte = [
+      for (final a in eintraege)
+        if (z.abgehakt.contains(AppZustand.angebotSchluessel(a))) a,
+    ];
+
+    // Löschen mit „Rückgängig“; die Erinnerung zum Angebot fällt mit weg.
+    void loeschen(List<Angebot> weg) {
+      final schluessel = [for (final a in weg) AppZustand.angebotSchluessel(a)];
+      z.vomZettelLoeschen(schluessel);
+      for (final k in schluessel) {
+        erinnerungLoeschen(k);
+      }
+      final messenger = ScaffoldMessenger.of(context);
+      messenger.hideCurrentSnackBar();
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(weg.length == 1 ? '${weg.first.bier.name} gelöscht.' : '${weg.length} Einträge gelöscht.'),
+          action: SnackBarAction(
+            label: 'Rückgängig',
+            onPressed: () {
+              z.aufZettelZurueck(schluessel);
+              for (final a in weg) {
+                erinnerungPlanen(a, AppZustand.angebotSchluessel(a));
+              }
+            },
+          ),
+        ),
+      );
+    }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Einkaufszettel')),
+      appBar: AppBar(
+        title: const Text('Einkaufszettel'),
+        actions: [
+          if (erledigte.isNotEmpty)
+            TextButton.icon(
+              onPressed: () => loeschen(erledigte),
+              icon: const Icon(Icons.delete_sweep_outlined),
+              label: const Text('Erledigte löschen'),
+            ),
+        ],
+      ),
       body: eintraege.isEmpty
           ? const Center(
               child: Padding(
@@ -448,11 +469,7 @@ class EinkaufszettelSeite extends StatelessWidget {
                         Expanded(
                           child: Text(
                             z.filialText(h),
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w800,
-                              color: textHell,
-                              fontSize: 17,
-                            ),
+                            style: const TextStyle(fontWeight: FontWeight.w800, color: textHell, fontSize: 17),
                           ),
                         ),
                       ],
@@ -463,26 +480,43 @@ class EinkaufszettelSeite extends StatelessWidget {
                       builder: (_) {
                         final k = AppZustand.angebotSchluessel(a);
                         final erledigt = z.abgehakt.contains(k);
-                        return Container(
-                          margin: const EdgeInsets.only(bottom: 8),
-                          decoration: BoxDecoration(
-                            color: karteFarbe,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: CheckboxListTile(
-                            value: erledigt,
-                            onChanged: (_) => z.abhakenUmschalten(k),
-                            controlAffinity: ListTileControlAffinity.leading,
-                            title: Text(
-                              a.bier.name,
-                              style: TextStyle(
-                                decoration: erledigt ? TextDecoration.lineThrough : null,
-                                color: erledigt ? textGedaempft : textHell,
-                              ),
+                        return Dismissible(
+                          key: ValueKey('zettel-$k'),
+                          direction: DismissDirection.endToStart,
+                          onDismissed: (_) => loeschen([a]),
+                          background: Container(
+                            margin: const EdgeInsets.only(bottom: 8),
+                            padding: const EdgeInsets.only(right: 20),
+                            alignment: Alignment.centerRight,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF5A1E28),
+                              borderRadius: BorderRadius.circular(16),
                             ),
-                            subtitle: Text(
-                              '${a.verpackung.bezeichnung} · ${euro(a.preis)} · bis ${a.bis.day}.${a.bis.month}.'
-                              '${pfandText(a.verpackung) != null ? ' · ${pfandText(a.verpackung)}' : ''}',
+                            child: const Icon(Icons.delete_outline, color: Color(0xFFFF7A8A)),
+                          ),
+                          child: Container(
+                            margin: const EdgeInsets.only(bottom: 8),
+                            decoration: BoxDecoration(color: karteFarbe, borderRadius: BorderRadius.circular(16)),
+                            child: CheckboxListTile(
+                              value: erledigt,
+                              onChanged: (_) => z.abhakenUmschalten(k),
+                              controlAffinity: ListTileControlAffinity.leading,
+                              secondary: IconButton(
+                                tooltip: 'Vom Zettel löschen',
+                                icon: const Icon(Icons.delete_outline, color: textGedaempft),
+                                onPressed: () => loeschen([a]),
+                              ),
+                              title: Text(
+                                a.bier.name,
+                                style: TextStyle(
+                                  decoration: erledigt ? TextDecoration.lineThrough : null,
+                                  color: erledigt ? textGedaempft : textHell,
+                                ),
+                              ),
+                              subtitle: Text(
+                                '${a.verpackung.bezeichnung} · ${euro(a.preis)} · bis ${a.bis.day}.${a.bis.month}.'
+                                '${pfandText(a.verpackung) != null ? ' · ${pfandText(a.verpackung)}' : ''}',
+                              ),
                             ),
                           ),
                         );

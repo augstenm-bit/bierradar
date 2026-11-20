@@ -156,7 +156,7 @@ void main() {
 
   test('Meine Orte: alte gespeicherte Orte bekommen ihren früheren Namen, höchstens 3', () async {
     final z = AppZustand();
-    z.ortSetzen('ort1', const Ort('Oma', 'Stadtplatz 1, 3300 Amstetten', 48.12, 14.87));
+    z.ortSetzen('ort1', const Ort('2. Wohnadresse', 'Stadtplatz 1, 3300 Amstetten', 48.12, 14.87));
     expect(z.neueOrtKennung(), 'ort2');
     expect(z.ortTippGesehen, isTrue);
     final alt = Ort.fromJson({'a': 'Hauptplatz 1', 'b': 48.0, 'l': 14.4}, ersatzName: 'Arbeit');
