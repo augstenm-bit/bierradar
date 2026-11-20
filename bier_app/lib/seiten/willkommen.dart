@@ -191,42 +191,12 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                             ),
                           ),
                           const SizedBox(height: 6),
-                          if (bis != null)
-                            _rein(
-                              0.5,
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                                decoration: BoxDecoration(
-                                  color: bierBernstein.withValues(alpha: 0.16),
-                                  borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(color: bierBernstein.withValues(alpha: 0.4)),
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    const Icon(Icons.hourglass_top, size: 15, color: bierGoldHell),
-                                    const SizedBox(width: 5),
-                                    Text(
-                                      'Noch ${(bis.difference(DateTime.now()).inMinutes / 1440).ceil().clamp(0, betaTage)} Tage gratis testen',
-                                      style: const TextStyle(
-                                        color: bierGoldHell,
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
                           const SizedBox(height: 6),
                           _rein(
                             0.5,
                             Text(
-                              bis == null
-                                  ? 'Schön, dass du dabei bist! Du bist einer der ersten Beta-Tester von BierRadar. '
-                                        'Ab jetzt entgeht dir keine Bier-Aktion mehr.'
-                                  : 'Schön, dass du dabei bist! Du bist einer der ersten Beta-Tester von BierRadar '
-                                        'und testest die App $betaTage Tage lang gratis. Ab jetzt entgeht dir keine Bier-Aktion mehr.',
+                              'Schön, dass du dabei bist! Du bist einer der ersten Beta-Tester von BierRadar. '
+                              'Ab jetzt entgeht dir keine Bier-Aktion mehr.',
                               textAlign: TextAlign.center,
                               style: const TextStyle(color: Color(0xFFB8C4D9), fontSize: 14, height: 1.4),
                             ),
@@ -247,7 +217,7 @@ class _WillkommenState extends State<Willkommen> with TickerProviderStateMixin {
                                     Icons.hourglass_bottom,
                                     bis == null
                                         ? 'Das ist eine Test-Version direkt von Michael.'
-                                        : 'Die Zeit läuft: Deine Beta gilt $betaTage Tage, also bis ${_datum(bis)}. '
+                                        : 'Gratis-Test: $betaTage Tage, also bis ${_datum(bis)}. '
                                               'Danach schickt dir Michael die neue Version.',
                                   ),
                                   if (Theme.of(context).platform == TargetPlatform.android)

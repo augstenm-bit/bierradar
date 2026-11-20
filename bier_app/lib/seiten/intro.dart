@@ -1,5 +1,5 @@
 // Startsequenz: Echtes Bier steigt von unten nach oben, Perlen steigen auf, die Schaumkrone erscheint.
-// Dann taucht in der Mitte das „Glas-Radar“ auf – mattes Glas, weißer Lichtkegel, ein Fund leuchtet auf.
+// Dann taucht in der Mitte das Radar auf (grüner Ring, innen Bier mit Glas-Radar) – mattes Glas, weißer Lichtkegel, ein Fund leuchtet auf.
 
 import 'dart:math' as math;
 import 'dart:ui' as ui;
@@ -66,7 +66,7 @@ class _IntroState extends State<Intro> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final groesse = MediaQuery.sizeOf(context);
-    final radarD = math.min(groesse.width * 0.64, 300.0);
+    final radarD = math.min(groesse.width * 0.8, 360.0);
     return Scaffold(
       backgroundColor: radarHintergrund,
       body: GestureDetector(
@@ -133,7 +133,7 @@ class _IntroState extends State<Intro> with TickerProviderStateMixin {
                       opacity: radar.clamp(0.0, 1.0),
                       child: Transform.scale(
                         scale: 0.7 + 0.3 * radar,
-                        child: GlasRadar(zeiger: _zeiger.value, fund: fund),
+                        child: RadarAbzeichen(zeiger: _zeiger.value, fund: fund),
                       ),
                     ),
                   ),
@@ -241,6 +241,53 @@ class _PerlenMaler extends CustomPainter {
 
   @override
   bool shouldRepaint(_PerlenMaler alt) => alt.fuellung != fuellung || alt.zeit != zeit;
+}
+
+/// Wie auf der Willkommen-Seite: grünes Radar außen, innen Bier mit Glas-Radar.
+/// Beide Zeiger drehen gemeinsam. [zeiger] 0..1 = eine Umdrehung.
+class RadarAbzeichen extends StatelessWidget {
+  const RadarAbzeichen({super.key, required this.zeiger, this.fund = 1});
+  final double zeiger;
+  final double fund;
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, box) {
+      final g = box.biggest.shortestSide;
+      final grad = zeiger * 360;
+      return Stack(
+        alignment: Alignment.center,
+        children: [
+          CustomPaint(
+            size: Size.square(g),
+            painter: RadarMaler(
+              zeigerGrad: grad,
+              blipHelligkeit: [
+                for (final b in blips) (1 - (((grad - b.winkelGrad) % 360 + 360) % 360) / 220).clamp(0.0, 1.0),
+              ],
+            ),
+          ),
+          Container(
+            width: g * 0.78,
+            height: g * 0.78,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [BoxShadow(color: bierOrange.withValues(alpha: 0.5), blurRadius: 30)],
+            ),
+            child: ClipOval(
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.asset('assets/bilder/bier_foto.jpg', fit: BoxFit.cover, alignment: const Alignment(0, 0.2)),
+                  GlasRadar(zeiger: zeiger, fund: fund),
+                ],
+              ),
+            ),
+          ),
+        ],
+      );
+    },
+  );
 }
 
 /// Modernes Glas-Radar: mattes Glas, feine weiße Ringe, drehender Lichtkegel, ein aufleuchtender Fund.
