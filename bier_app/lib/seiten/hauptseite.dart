@@ -1408,7 +1408,11 @@ class _UmkreisLeisteState extends State<_UmkreisLeiste> {
 
   Future<void> _suchen() async {
     final z = widget.z;
+    // Navigator vorher merken: Nach radiusSetzen wird diese Leiste neu aufgebaut (neuer Schlüssel),
+    // dann wäre „mounted“ falsch und die Radar-Animation würde nie geschlossen.
+    final navigator = Navigator.of(context, rootNavigator: true);
     showDialog<void>(
+      useRootNavigator: true,
       context: context,
       barrierDismissible: false,
       barrierColor: Colors.black.withValues(alpha: 0.85),
@@ -1438,7 +1442,7 @@ class _UmkreisLeisteState extends State<_UmkreisLeiste> {
       z.angeboteAktualisieren(),
       Future<void>.delayed(const Duration(milliseconds: 1800)),
     ]);
-    if (mounted) Navigator.of(context).pop();
+    navigator.pop();
   }
 
   @override
