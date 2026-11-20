@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-20T13:23:32+00:00",
+ "stand": "2026-11-20T15:00:19+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
  "anzahl": 93,
@@ -438,6 +438,25 @@
    "bierId": "wieselburger",
    "marke": "Wieselburger",
    "titel": "Gold",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Billa",
+   "preis": 0.69,
+   "statt": 1.45,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Billa",
@@ -453,25 +472,6 @@
     "Niederösterreich",
     "Burgenland"
    ],
-   "gebiete": [
-    "amstetten"
-   ]
-  },
-  {
-   "bierId": "wieselburger",
-   "marke": "Wieselburger",
-   "titel": "Gold",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa",
-   "preis": 0.69,
-   "statt": 1.45,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter",
-   "regionen": null,
    "gebiete": [
     "amstetten"
    ]
@@ -945,13 +945,13 @@
    ]
   },
   {
-   "bierId": "zipfer_maerzen",
+   "bierId": "zipfer_urtyp",
    "marke": "Zipfer",
-   "titel": "Märzen",
+   "titel": "Urtyp",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Interspar",
-   "preis": 28.0,
+   "preis": 28.6,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
@@ -964,13 +964,13 @@
    ]
   },
   {
-   "bierId": "zipfer_urtyp",
+   "bierId": "zipfer_maerzen",
    "marke": "Zipfer",
-   "titel": "Urtyp",
+   "titel": "Märzen",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Interspar",
-   "preis": 28.6,
+   "preis": 28.0,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
@@ -1141,44 +1141,6 @@
   {
    "bierId": "zipfer_maerzen",
    "marke": "Zipfer",
-   "titel": "Kellerbier",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.7,
-   "statt": 1.4,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_urtyp",
-   "marke": "Zipfer",
-   "titel": "Urtyp",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Maximarkt",
-   "preis": 14.3,
-   "statt": 28.6,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
    "titel": "Märzen",
    "verpackung": "flasche033",
    "liter": 0.33,
@@ -1190,6 +1152,25 @@
    "von": "2026-11-19",
    "bis": "2026-11-25",
    "hinweis": "0,33 Liter, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Kellerbier",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.7,
+   "statt": 1.4,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -1223,6 +1204,25 @@
    "haendler": "Maximarkt",
    "preis": 14.0,
    "statt": 28.0,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_urtyp",
+   "marke": "Zipfer",
+   "titel": "Urtyp",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Maximarkt",
+   "preis": 14.3,
+   "statt": 28.6,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
