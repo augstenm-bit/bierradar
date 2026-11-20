@@ -133,4 +133,22 @@ void main() {
     expect(z.umkreisVorschlag(), (3, 1));
     expect(z.radiusKm, 1); // Vorschlag ändert den Umkreis nicht
   });
+
+  test('Meine Orte: Zuhause wählen ändert den Mittelpunkt und bleibt gespeichert', () async {
+    SharedPreferences.setMockInitialValues({});
+    final z = AppZustand();
+    await z.laden();
+    z.standortSetzen(48.1229, 14.8720); // gerade in Amstetten
+    z.ortSetzen('zuhause1', const Ort('Hinterbergerstraße, 4400 Steyr', 48.05466, 14.45104));
+    z.ortWaehlen('zuhause1');
+    expect(z.mitteBreite, closeTo(48.05466, 0.0001));
+    expect(z.naechstesGebiet, Gebiet.steyr);
+    await Future<void>.delayed(const Duration(milliseconds: 50));
+    final neu = AppZustand();
+    await neu.auswahlLaden();
+    expect(neu.ortWahl, 'zuhause1');
+    expect(neu.orte['zuhause1']!.adresse, startsWith('Hinterbergerstraße'));
+    neu.ortLoeschen('zuhause1');
+    expect(neu.ortWahl, 'standort');
+  });
 }

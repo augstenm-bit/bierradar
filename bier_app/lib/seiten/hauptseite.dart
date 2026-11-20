@@ -13,6 +13,7 @@ import '../zustand.dart';
 import '../standort.dart';
 import 'bausteine.dart';
 import 'logbuch.dart';
+import 'orte.dart';
 
 class Hauptseite extends StatefulWidget {
   const Hauptseite({super.key});
@@ -1143,6 +1144,8 @@ class _EinstellungenSeite extends StatelessWidget {
             ),
             isThreeLine: true,
           ),
+          const MeineOrte(),
+          const Divider(),
           ListTile(
             leading: Icon(Icons.notifications_active),
             title: Text('Benachrichtigungen'),
@@ -1460,6 +1463,10 @@ class _UmkreisLeisteState extends State<_UmkreisLeiste> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 2, bottom: 4),
+            child: OrtUmschalter(z: z),
+          ),
           Row(
             children: [
               const Icon(Icons.radar, color: radarGruen, size: 20),
@@ -1499,7 +1506,7 @@ class _UmkreisLeisteState extends State<_UmkreisLeiste> {
               onChanged: (v) => setState(() => _km = v),
             ),
           ),
-          if (z.standortBreite == null)
+          if (z.standortBreite == null && z.gewaehlterOrt == null)
             Align(
               alignment: Alignment.centerLeft,
               child: TextButton.icon(
@@ -1511,7 +1518,9 @@ class _UmkreisLeisteState extends State<_UmkreisLeiste> {
           Padding(
             padding: const EdgeInsets.only(bottom: 6),
             child: Text(
-              z.standortBreite == null
+              z.gewaehlterOrt != null
+                  ? '${ortArten.firstWhere((o) => o.$1 == z.ortWahl).$3} ${z.gewaehlterOrt!.adresse}'
+                  : z.standortBreite == null
                   ? '📍 Kein Standort – Mittelpunkt ist ${z.gebiet.titel}.'
                   : z.standortUngenau
                   ? '⚠️ Nur ungefährer Standort – iPhone-Einstellungen → BierRadar → Ort → „Genauer Standort“ einschalten.'

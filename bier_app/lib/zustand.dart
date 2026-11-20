@@ -81,8 +81,42 @@ class AppZustand extends ChangeNotifier {
   List<Filiale> filialen = [];
 
   /// Mittelpunkt der Suche: eigener Standort, sonst Mitte des Bezirks.
-  double get mitteBreite => standortBreite ?? gebiet.breite;
-  double get mitteLaenge => standortLaenge ?? gebiet.laenge;
+  double get mitteBreite => gewaehlterOrt?.breite ?? standortBreite ?? gebiet.breite;
+  double get mitteLaenge => gewaehlterOrt?.laenge ?? standortLaenge ?? gebiet.laenge;
+
+  // ---- Meine Orte (Zuhause 1, Zuhause 2, Arbeit) ----
+  /// Gespeicherte Orte, Schlüssel siehe [ortArten]. Bleiben nur am Handy.
+  final Map<String, Ort> orte = {};
+
+  /// Was der Mittelpunkt der Suche ist: 'standort' oder ein Schlüssel aus [ortArten].
+  String ortWahl = 'standort';
+
+  Ort? get gewaehlterOrt => ortWahl == 'standort' ? null : orte[ortWahl];
+
+  /// Nächstes Gebiet zum aktuellen Mittelpunkt (für Bundesland-Regeln).
+  Gebiet get naechstesGebiet => Gebiet.values.reduce(
+    (a, b) =>
+        entfernungKm(mitteBreite, mitteLaenge, a.breite, a.laenge) <=
+            entfernungKm(mitteBreite, mitteLaenge, b.breite, b.laenge)
+        ? a
+        : b,
+  );
+
+  void ortSetzen(String art, Ort ort) {
+    orte[art] = ort;
+    aenderung();
+  }
+
+  void ortLoeschen(String art) {
+    orte.remove(art);
+    if (ortWahl == art) ortWahl = 'standort';
+    aenderung();
+  }
+
+  void ortWaehlen(String art) {
+    ortWahl = art;
+    aenderung();
+  }
 
   /// Nächste Filiale eines Händlers mit Entfernung in km (null = keine bekannt).
   (Filiale, double)? naechsteFiliale(String haendler) {
@@ -117,10 +151,10 @@ class AppZustand extends ChangeNotifier {
 
   /// Gebiete im Radar: immer das nächste Gebiet, dazu alle, deren Mitte im Umkreis liegt.
   Set<Gebiet> get aktiveGebiete {
-    final b = standortBreite ?? gebiet.breite;
-    final l = standortLaenge ?? gebiet.laenge;
+    final b = mitteBreite;
+    final l = mitteLaenge;
     return {
-      gebiet,
+      naechstesGebiet,
       for (final g in Gebiet.values)
         if (entfernungKm(b, l, g.breite, g.laenge) <= radiusKm) g,
     };
@@ -314,6 +348,11 @@ class AppZustand extends ChangeNotifier {
       standortBreite = (j['breite'] as num?)?.toDouble();
       standortLaenge = (j['laenge'] as num?)?.toDouble();
       radiusKm = (j['radius'] as num?)?.toDouble() ?? 25;
+      (j['orte'] as Map<String, dynamic>? ?? {}).forEach(
+        (k, v) => orte[k] = Ort.fromJson(v as Map<String, dynamic>),
+      );
+      ortWahl = j['ortWahl'] as String? ?? 'standort';
+      if (ortWahl != 'standort' && !orte.containsKey(ortWahl)) ortWahl = 'standort';
       final versteckt = j['hinweisVersteckt'] as String?;
       kartenHinweisVersteckt = versteckt == null ? null : DateTime.tryParse(versteckt);
       gemerkt.addAll(((j['gemerkt'] as List?) ?? []).cast<String>());
@@ -350,6 +389,8 @@ class AppZustand extends ChangeNotifier {
         'fertig': einrichtungFertig,
         'kartenZeigen': kartenAngeboteZeigen,
         'gebiet': gebiet.name,
+        'orte': orte.map((k, v) => MapEntry(k, v.toJson())),
+        'ortWahl': ortWahl,
         'breite': standortBreite,
         'laenge': standortLaenge,
         'radius': radiusKm,
@@ -562,3 +603,22 @@ const raenge = [
 Rang rangFuer(double gespart) => raenge.lastWhere((r) => gespart >= r.ab);
 
 Rang? naechsterRang(double gespart) => raenge.where((r) => r.ab > gespart).firstOrNull;
+
+/// Arten von gespeicherten Orten: Schlüssel, Name, Symbol.
+const ortArten = [
+  ('zuhause1', 'Zuhause 1', '🏠'),
+  ('zuhause2', 'Zuhause 2', '🏡'),
+  ('arbeit', 'Arbeit', '💼'),
+];
+
+/// Ein gespeicherter Ort (Zuhause, Arbeit …).
+class Ort {
+  const Ort(this.adresse, this.breite, this.laenge);
+  final String adresse;
+  final double breite;
+  final double laenge;
+
+  Map<String, dynamic> toJson() => {'a': adresse, 'b': breite, 'l': laenge};
+  factory Ort.fromJson(Map<String, dynamic> j) =>
+      Ort(j['a'] as String, (j['b'] as num).toDouble(), (j['l'] as num).toDouble());
+}
