@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-20T06:18:05+00:00",
+ "stand": "2026-11-20T07:28:19+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
  "anzahl": 92,
@@ -1160,25 +1160,6 @@
   {
    "bierId": "zipfer_maerzen",
    "marke": "Zipfer",
-   "titel": "Drei",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
    "titel": "Märzen",
    "verpackung": "kiste20x05",
    "liter": 10.0,
@@ -1209,6 +1190,25 @@
    "von": "2026-11-19",
    "bis": "2026-11-25",
    "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Drei",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -1801,13 +1801,13 @@
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Transgourmet",
-   "preis": 0.84,
+   "preis": 0.74,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-23",
    "bis": "2026-11-28",
-   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Krt. = 12 Fl., 0,33 l",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Kiste = 24 Fl., 0,33 l",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -1820,13 +1820,13 @@
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Transgourmet",
-   "preis": 0.74,
+   "preis": 0.84,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-23",
    "bis": "2026-11-28",
-   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Kiste = 24 Fl., 0,33 l",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Krt. = 12 Fl., 0,33 l",
    "regionen": null,
    "gebiete": [
     "steyr"
