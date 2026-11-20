@@ -237,8 +237,9 @@ class _Kopf extends StatelessWidget {
           : min < 60 * 24
           ? 'vor ${min ~/ 60} Std.'
           : 'am ${s.day}.${s.month}.';
-      text =
-          'Live · ${(z.aktiveGebiete.toList()..sort((a, b) => a.index - b.index)).map((g) => g.kurz).join(' + ')} · $wann';
+      text = z.filialen.isEmpty
+          ? 'Live · ${z.gebiet.titel} · $wann'
+          : 'Live · ${z.geschaefteImUmkreis} Geschäfte im Umkreis · $wann';
     }
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 12, 12, 14),
@@ -766,6 +767,7 @@ class _DetailsState extends State<_Details> {
     final anzahlGekauft = z.gekauft[schluessel]?.anzahl ?? 0;
     final istGekauft = anzahlGekauft > 0;
     final ersparnis = AppZustand.ersparnis(a, t.preisFuerMich);
+    final filiale = z.naechsteFiliale(a.haendler);
 
     return SafeArea(
       child: SingleChildScrollView(
@@ -824,6 +826,13 @@ class _DetailsState extends State<_Details> {
               ],
             ),
             const SizedBox(height: 8),
+            if (filiale != null)
+              _DetailZeile(
+                Icons.storefront,
+                'Nächste Filiale: ${filiale.$1.name}'
+                '${filiale.$1.adresse.isNotEmpty ? ', ${filiale.$1.adresse}' : ''} '
+                '(${filiale.$2.toStringAsFixed(1).replaceAll('.', ',')} km)',
+              ),
             _DetailZeile(Icons.event, 'Gültig ${zeitraum(a.von, a.bis)} (${_wann(a)})'),
             if (pfandText(a.verpackung) != null) _DetailZeile(Icons.recycling, pfandText(a.verpackung)!),
             if (a.statt != null)
@@ -845,10 +854,12 @@ class _DetailsState extends State<_Details> {
                 Expanded(
                   child: OutlinedButton.icon(
                     icon: const Icon(Icons.place_outlined),
-                    label: const Text('Filiale in der Nähe'),
+                    label: const Text('Route zur Filiale'),
                     onPressed: () => launchUrl(
                       Uri.parse(
-                        'https://www.google.com/maps/search/?api=1&query=${Uri.encodeComponent('${a.haendler} Amstetten')}',
+                        filiale != null
+                            ? 'https://www.google.com/maps/dir/?api=1&destination=${filiale.$1.breite},${filiale.$1.laenge}'
+                            : 'https://www.google.com/maps/search/?api=1&query=${Uri.encodeComponent('${a.haendler} ${z.gebiet.kurz}')}',
                       ),
                       mode: LaunchMode.externalApplication,
                     ),
@@ -1092,37 +1103,13 @@ class _EinstellungenSeite extends StatelessWidget {
         children: [
           ListTile(
             leading: const Icon(Icons.location_on, color: radarGruen),
-            title: const Text('Gebiet'),
-            subtitle: Text('${z.gebiet.titel} (${z.gebiet.bundesland})'),
-            trailing: const Icon(Icons.chevron_right),
-            onTap: () => showDialog<void>(
-              context: context,
-              builder: (c) => SimpleDialog(
-                title: const Text('Wo kaufst du ein?'),
-                children: [
-                  for (final g in Gebiet.values)
-                    ListTile(
-                      leading: Icon(
-                        g == z.gebiet ? Icons.radio_button_checked : Icons.radio_button_off,
-                        color: radarGruen,
-                      ),
-                      title: Text(g.titel),
-                      subtitle: Text(g.bundesland),
-                      onTap: () {
-                        z.gebietSetzen(g);
-                        Navigator.pop(c);
-                      },
-                    ),
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(24, 8, 24, 0),
-                    child: Text(
-                      'Später kommt ganz Österreich dazu.',
-                      style: TextStyle(color: textGedaempft, fontSize: 12),
-                    ),
-                  ),
-                ],
-              ),
+            title: const Text('Unterstützte Gebiete'),
+            subtitle: Text(
+              'Bezirk Amstetten (NÖ), Steyr und Bezirk Steyr-Land (OÖ)\n'
+              '${z.standortBreite != null ? 'Dein Standort wird genutzt' : 'Kein Standort – Mitte: ${z.gebiet.titel}'}'
+              ' · Umkreis ${z.radiusKm.round()} km auf der Radar-Seite',
             ),
+            isThreeLine: true,
           ),
           ListTile(
             leading: Icon(Icons.notifications_active),

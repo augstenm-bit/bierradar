@@ -86,4 +86,27 @@ void main() {
     z.radiusKm = 5;
     expect(z.aktiveGebiete, {Gebiet.steyr});
   });
+
+  test('Nur Ketten mit Filiale im Umkreis (kein Maximarkt Haid in Steyr)', () {
+    final z = AppZustand();
+    z.filialen = const [
+      Filiale('Lidl', 'Lidl Steyr', 'Steyr', 48.045, 14.42),
+      Filiale('Maximarkt', 'Maximarkt Haid', 'Haid', 48.205, 14.245),
+    ];
+    z.auswahl['kaiser'] = {Verpackung.kiste20x05: Wunsch(maxPreis: 20)};
+    z.standortSetzen(48.0427, 14.4213); // Steyr
+    z.radiusKm = 15;
+    Angebot an(String h) => Angebot(
+      bierId: 'kaiser',
+      verpackung: Verpackung.kiste20x05,
+      haendler: h,
+      preis: 14.8,
+      von: DateTime(2026, 11, 19),
+      bis: DateTime(2099, 1, 1),
+    );
+    final t = z.treffer([an('Lidl'), an('Maximarkt'), an('Hofer')]);
+    expect(t.map((x) => x.angebot.haendler), ['Lidl']);
+    z.radiusKm = 40; // Haid liegt ca. 23 km Luftlinie entfernt
+    expect(z.treffer([an('Maximarkt')]).length, 1);
+  });
 }

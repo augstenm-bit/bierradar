@@ -69,6 +69,28 @@ class AppZustand extends ChangeNotifier {
     aenderung();
   }
 
+  /// Echte Filialen (OpenStreetMap) – damit nur Ketten mit Geschäft im Umkreis angezeigt werden.
+  List<Filiale> filialen = [];
+
+  /// Mittelpunkt der Suche: eigener Standort, sonst Mitte des Bezirks.
+  double get mitteBreite => standortBreite ?? gebiet.breite;
+  double get mitteLaenge => standortLaenge ?? gebiet.laenge;
+
+  /// Nächste Filiale eines Händlers mit Entfernung in km (null = keine bekannt).
+  (Filiale, double)? naechsteFiliale(String haendler) {
+    (Filiale, double)? beste;
+    for (final f in filialen) {
+      if (f.haendler != haendler) continue;
+      final d = entfernungKm(mitteBreite, mitteLaenge, f.breite, f.laenge);
+      if (beste == null || d < beste.$2) beste = (f, d);
+    }
+    return beste;
+  }
+
+  /// Anzahl Geschäfte (aller Ketten) im Umkreis.
+  int get geschaefteImUmkreis =>
+      filialen.where((f) => entfernungKm(mitteBreite, mitteLaenge, f.breite, f.laenge) <= radiusKm).length;
+
   /// Gebiete im Radar: immer das nächste Gebiet, dazu alle, deren Mitte im Umkreis liegt.
   Set<Gebiet> get aktiveGebiete {
     final b = standortBreite ?? gebiet.breite;
@@ -210,6 +232,7 @@ class AppZustand extends ChangeNotifier {
         }
       } catch (_) {}
     }
+    await _filialenLaden(prefs);
     text ??= prefs.getString(_angeboteSchluessel);
     text ??= await rootBundle.loadString('assets/angebote.json');
     try {
@@ -227,6 +250,30 @@ class AppZustand extends ChangeNotifier {
     }
     angeboteLaden = false;
     notifyListeners();
+  }
+
+  static const _filialenSchluessel = 'bier_app_filialen_v1';
+
+  Future<void> _filialenLaden(SharedPreferences prefs) async {
+    String? text;
+    if (angeboteUrl.isNotEmpty) {
+      try {
+        final r = await http
+            .get(Uri.parse(angeboteUrl.replaceFirst('angebote.json', 'filialen.json')))
+            .timeout(const Duration(seconds: 15));
+        if (r.statusCode == 200) {
+          text = utf8.decode(r.bodyBytes);
+          await prefs.setString(_filialenSchluessel, text);
+        }
+      } catch (_) {}
+    }
+    text ??= prefs.getString(_filialenSchluessel);
+    try {
+      text ??= await rootBundle.loadString('assets/filialen.json');
+      filialen = [for (final f in jsonDecode(text) as List) Filiale.ausJson(f as Map<String, dynamic>)];
+    } catch (e) {
+      debugPrint('Filialen nicht geladen: $e');
+    }
   }
 
   /// Nur die gespeicherte Auswahl laden (für Push-Meldungen im Hintergrund).
@@ -394,8 +441,14 @@ class AppZustand extends ChangeNotifier {
       final wunsch = auswahl[a.bierId]?[a.verpackung];
       if (wunsch == null) continue;
       final aktiv = aktiveGebiete;
-      if (a.gebiete != null && !aktiv.any((g) => a.gebiete!.contains(g.name))) continue;
       if (a.regionen != null && !aktiv.any((g) => a.regionen!.contains(g.bundesland))) continue;
+      if (filialen.isNotEmpty) {
+        // Nur Ketten mit einer echten Filiale im Umkreis (sonst z. B. Maximarkt Haid in Steyr)
+        final n = naechsteFiliale(a.haendler);
+        if (n == null || n.$2 > radiusKm) continue;
+      } else if (a.gebiete != null && !aktiv.any((g) => a.gebiete!.contains(g.name))) {
+        continue;
+      }
       final gewerbe = gewerbeHaendler[a.haendler];
       if (gewerbe != null && !karten.contains(gewerbe)) continue; // nur mit Gewerbekarte
 

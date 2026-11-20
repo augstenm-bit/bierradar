@@ -1,0 +1,982 @@
+[
+{
+"h": "ADEG",
+"n": "ADEG",
+"a": "4451 Garsten",
+"b": 48.02205,
+"l": 14.40486
+},
+{
+"h": "ADEG",
+"n": "ADEG",
+"a": "",
+"b": 48.13037,
+"l": 14.48426
+},
+{
+"h": "ADEG",
+"n": "ADEG",
+"a": "Bahnhofstraße 11, 3363 Hausmening",
+"b": 48.07465,
+"l": 14.8173
+},
+{
+"h": "ADEG",
+"n": "ADEG",
+"a": "4443 Maria Neustift",
+"b": 47.93772,
+"l": 14.6068
+},
+{
+"h": "ADEG",
+"n": "ADEG",
+"a": "Marktplatz 12, 3313 Wallsee-Sindelburg",
+"b": 48.16667,
+"l": 14.71615
+},
+{
+"h": "ADEG",
+"n": "ADEG",
+"a": "Prinzstraße 11, 4452 Ternberg",
+"b": 47.94457,
+"l": 14.35896
+},
+{
+"h": "ADEG",
+"n": "ADEG",
+"a": "Eisenstraße 21, 4463 Großraming",
+"b": 47.88435,
+"l": 14.54688
+},
+{
+"h": "ADEG",
+"n": "ADEG Dorfladen Viehdorf",
+"a": "",
+"b": 48.15112,
+"l": 14.8943
+},
+{
+"h": "ADEG",
+"n": "ADEG Kaubeck",
+"a": "",
+"b": 48.04525,
+"l": 14.62134
+},
+{
+"h": "ADEG",
+"n": "ADEG Seba",
+"a": "",
+"b": 48.16679,
+"l": 14.84083
+},
+{
+"h": "ADEG",
+"n": "Adeg",
+"a": "Kremsmünsterer Straße 8, 4532 Rohr im Kremstal",
+"b": 48.06638,
+"l": 14.18923
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "",
+"b": 48.04714,
+"l": 14.33368
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "4400 Steyr",
+"b": 48.02936,
+"l": 14.42584
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Gewerbepark 1, 3361 Aschbach-Markt",
+"b": 48.07378,
+"l": 14.74153
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Kaufpark 2, 4300 St. Valentin",
+"b": 48.19175,
+"l": 14.52022
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "4300 St. Valentin",
+"b": 48.16107,
+"l": 14.51444
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Gleinker Hauptstraße 1d, 4407 Steyr",
+"b": 48.06692,
+"l": 14.41956
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "3364 Neuhofen an der Ybbs",
+"b": 48.06062,
+"l": 14.85156
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Waidhofner Straße 40, 3335 Weyer",
+"b": 47.86258,
+"l": 14.67056
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Anton-Plochberger-Straße 2, 4400 Steyr",
+"b": 48.0477,
+"l": 14.42196
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Lagerhausstraße 25, 4522 Sierning",
+"b": 48.04015,
+"l": 14.31538
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Gewerbestraße 5, 4541 Adlwang",
+"b": 48.02938,
+"l": 14.22665
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Waidhofnerstraße 25, 3331 Hilm",
+"b": 48.02186,
+"l": 14.75758
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Leopold-Werndl-Straße 29, 4400 Steyr",
+"b": 48.02895,
+"l": 14.40976
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Anton-Schwarz-Straße 3, 3300 Amstetten",
+"b": 48.12513,
+"l": 14.88422
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Rauscherstraße 12, 3363 Amstetten",
+"b": 48.08201,
+"l": 14.80687
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Straße zur Autobahn 10, 3350 Haag",
+"b": 48.11431,
+"l": 14.57203
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Schulstraße 13, 4493 Wolfern",
+"b": 48.07921,
+"l": 14.37475
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Gewerbepark Pölla 1, 3353 Seitenstetten",
+"b": 48.04131,
+"l": 14.63371
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Eisenstraße 103, 4460 Losenstein",
+"b": 47.92037,
+"l": 14.44057
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Waidhofner Straße 63, 3300 Amstetten",
+"b": 48.12063,
+"l": 14.8628
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Wirtschaftspark Straße 3 13, 4482 Ennsdorf",
+"b": 48.22243,
+"l": 14.51018
+},
+{
+"h": "Billa",
+"n": "Billa",
+"a": "Waidhofnerstraße 64, 3333 Böhlerwerk",
+"b": 47.98322,
+"l": 14.7508
+},
+{
+"h": "Billa",
+"n": "Billa stop & shop",
+"a": "",
+"b": 48.22046,
+"l": 14.50753
+},
+{
+"h": "Billa Plus",
+"n": "Billa Plus",
+"a": "Josef-Seidl-Straße 11, 3300 Amstetten",
+"b": 48.11703,
+"l": 14.87462
+},
+{
+"h": "Billa Plus",
+"n": "Billa Plus",
+"a": "",
+"b": 48.04867,
+"l": 14.41525
+},
+{
+"h": "Billa Plus",
+"n": "Billa Plus",
+"a": "Otto-Schott-Straße 2, 3300 Amstetten",
+"b": 48.11688,
+"l": 14.91161
+},
+{
+"h": "Billa Plus",
+"n": "Billa Plus",
+"a": "Pachergasse 6, 4400 Steyr",
+"b": 48.04105,
+"l": 14.42593
+},
+{
+"h": "Eurospar",
+"n": "Eurospar",
+"a": "4300 Sankt Valentin",
+"b": 48.16703,
+"l": 14.51459
+},
+{
+"h": "Eurospar",
+"n": "Eurospar",
+"a": "",
+"b": 48.08054,
+"l": 14.81177
+},
+{
+"h": "Eurospar",
+"n": "Eurospar",
+"a": "Unterer Markt 21, 3335 Weyer",
+"b": 47.85434,
+"l": 14.65878
+},
+{
+"h": "Eurospar",
+"n": "Eurospar",
+"a": "Bahnhofplatz 1, 4540 Bad Hall",
+"b": 48.03882,
+"l": 14.20861
+},
+{
+"h": "Eurospar",
+"n": "Eurospar",
+"a": "Lagerhausstraße 16, 4522 Sierning",
+"b": 48.04039,
+"l": 14.31249
+},
+{
+"h": "Eurospar",
+"n": "Eurospar",
+"a": "Alois-Derfler-Straße 7, 4452 Ternberg",
+"b": 47.94663,
+"l": 14.3594
+},
+{
+"h": "Eurospar",
+"n": "Eurospar",
+"a": "Bahnhofstraße 9, 3350 Haag",
+"b": 48.10866,
+"l": 14.5702
+},
+{
+"h": "Eurospar",
+"n": "Eurospar",
+"a": "Westbahnstraße 88, 4300 Sankt Valentin",
+"b": 48.1831,
+"l": 14.52169
+},
+{
+"h": "Getränkehandel",
+"n": "Getränke Zach",
+"a": "3352 St. Peter in der Au",
+"b": 48.04487,
+"l": 14.62185
+},
+{
+"h": "Getränkehandel",
+"n": "Getränkehandel Wolfgang Höfinger",
+"a": "",
+"b": 48.12345,
+"l": 14.87683
+},
+{
+"h": "Getränkehandel",
+"n": "Liedlgut / Purkhart",
+"a": "Steiner Straße 3, 4400 Steyr",
+"b": 48.05431,
+"l": 14.41513
+},
+{
+"h": "Getränkehandel",
+"n": "Mostbrunnen Ramlerhöhe",
+"a": "",
+"b": 47.93242,
+"l": 14.44472
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Gewerbestraße 11, 4522 Sierning",
+"b": 48.03603,
+"l": 14.31418
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Kaufpark 1, 4300 St. Valentin",
+"b": 48.19084,
+"l": 14.52051
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "35. Straße 2, 3331 Kematen an der Ybbs",
+"b": 48.0381,
+"l": 14.77829
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Franz-Kollmann-Straße 6, 3300 Amstetten",
+"b": 48.11723,
+"l": 14.9103
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Resthofstraße 23, 4400 Steyr",
+"b": 48.05405,
+"l": 14.42279
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Sierninger Straße 131, 4400 Steyr",
+"b": 48.0438,
+"l": 14.38906
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Pachergasse 19, 4400 Steyr",
+"b": 48.04187,
+"l": 14.42766
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Leinerstraße 4a, 3300 Amstetten",
+"b": 48.10587,
+"l": 14.83352
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Haager Straße 58, 4400 Steyr",
+"b": 48.06009,
+"l": 14.45366
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Steyrer Straße 91, 3353 Seitenstetten",
+"b": 48.04189,
+"l": 14.62861
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Ybbsstraße 70, 3300 Amstetten",
+"b": 48.11425,
+"l": 14.86932
+},
+{
+"h": "Hofer",
+"n": "Hofer",
+"a": "Harrstraße 2a, 4407 Dietach",
+"b": 48.10038,
+"l": 14.44026
+},
+{
+"h": "Hofer",
+"n": "Walchshofer-Zehetner Landesprodukte Gesmbh",
+"a": "Karndorfstraße 1, 4521 Schiedlberg",
+"b": 48.08897,
+"l": 14.26173
+},
+{
+"h": "Interspar",
+"n": "Interspar",
+"a": "Ennser Straße 23, 4400 Steyr",
+"b": 48.05341,
+"l": 14.41931
+},
+{
+"h": "Interspar",
+"n": "Interspar",
+"a": "Agathastraße 1, 3300 Amstetten",
+"b": 48.12359,
+"l": 14.886
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "",
+"b": 48.02215,
+"l": 14.40446
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "An der Bahn 25, 3352 St. Peter in der Au",
+"b": 48.05462,
+"l": 14.64203
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "3350 Haag",
+"b": 48.09706,
+"l": 14.58554
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "Maisbergstraße 1, 3341 Ybbsitz",
+"b": 47.94704,
+"l": 14.89032
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "",
+"b": 48.0718,
+"l": 14.76094
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "",
+"b": 47.92563,
+"l": 14.42938
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "",
+"b": 48.19182,
+"l": 14.52134
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "Lagerhauspark 1, 4595 Waldneukirchen",
+"b": 48.03221,
+"l": 14.27494
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "22, 3343 Hollenstein an der Ybbs",
+"b": 47.80757,
+"l": 14.77044
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "Rütgersstraße 1, 3300 Amstetten",
+"b": 48.11942,
+"l": 14.89317
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "Eisenstraße 26, 4463 Großraming",
+"b": 47.88416,
+"l": 14.54889
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "Gewerbepark 2, 3312 Oed-Oehling",
+"b": 48.11904,
+"l": 14.73473
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus",
+"a": "Ennser Straße 79, 4407 Dietach",
+"b": 48.0765,
+"l": 14.42466
+},
+{
+"h": "Lagerhaus",
+"n": "Lagerhaus Weyer",
+"a": "Bahnpromenade 423, 3335 Weyer",
+"b": 47.86201,
+"l": 14.6684
+},
+{
+"h": "Lagerhaus",
+"n": "Raiffeisen Lagerhaus",
+"a": "77, 3365 Allhartsberg",
+"b": 48.04211,
+"l": 14.7898
+},
+{
+"h": "Lagerhaus",
+"n": "Raiffeisen-Lagerhaus",
+"a": "Römerstraße 8, 3324 Euratsfeld",
+"b": 48.08142,
+"l": 14.92976
+},
+{
+"h": "Lidl",
+"n": "Lidl",
+"a": "Bahnhofplatz 3, 4540 Bad Hall",
+"b": 48.03755,
+"l": 14.21036
+},
+{
+"h": "Lidl",
+"n": "Lidl",
+"a": "",
+"b": 48.05557,
+"l": 14.42139
+},
+{
+"h": "Lidl",
+"n": "Lidl",
+"a": "Wiener Straße 44, 3300 Amstetten",
+"b": 48.12279,
+"l": 14.88146
+},
+{
+"h": "Lidl",
+"n": "Lidl",
+"a": "4300 St. Valentin",
+"b": 48.18206,
+"l": 14.5214
+},
+{
+"h": "Lidl",
+"n": "Lidl",
+"a": "Eisenstraße 44, 4400 Steyr",
+"b": 48.02577,
+"l": 14.41758
+},
+{
+"h": "Lidl",
+"n": "Lidl",
+"a": "Lagerhausstraße 19, 4522 Sierning",
+"b": 48.04092,
+"l": 14.31448
+},
+{
+"h": "MPreis",
+"n": "MPREIS",
+"a": "",
+"b": 48.03747,
+"l": 14.4148
+},
+{
+"h": "Nah & Frisch",
+"n": "Lenz",
+"a": "230, 3334 Gaflenz",
+"b": 47.89612,
+"l": 14.728
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch",
+"a": "",
+"b": 48.00981,
+"l": 14.4907
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch",
+"a": "Eggmairstraße 6, 4595 Waldneukirchen",
+"b": 47.99795,
+"l": 14.26088
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch",
+"a": "3313 Wallsee-Sindelburg",
+"b": 48.16675,
+"l": 14.71554
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch",
+"a": "Waidhofnerstraße 14, 3332 Rosenau am Sonntagberg",
+"b": 48.0099,
+"l": 14.74189
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch",
+"a": "6, 4431 Haidershofen",
+"b": 48.07723,
+"l": 14.51699
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch",
+"a": "Hauptstraße 47, 3325 Ferschnitz",
+"b": 48.09099,
+"l": 14.98534
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch",
+"a": "Kirchenplatz 10, 4461 Laussa",
+"b": 47.95168,
+"l": 14.45471
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch",
+"a": "Fuchsbergstraße 2a, 4463 Großraming",
+"b": 47.88626,
+"l": 14.55317
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch - Ellinger",
+"a": "Marktstraße 34, 3311 Zeillern",
+"b": 48.12939,
+"l": 14.80768
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch Kaufhaus Pfaffeneder",
+"a": "",
+"b": 48.07966,
+"l": 14.66857
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah & Frisch Reschauer",
+"a": "Marktstraße 2, 3304 St. Georgen am Ybbsfelde",
+"b": 48.12883,
+"l": 14.95027
+},
+{
+"h": "Nah & Frisch",
+"n": "Nah&Frisch Müller",
+"a": "Marktstraße 16, 3312 Oed-Oehling",
+"b": 48.12159,
+"l": 14.74286
+},
+{
+"h": "Norma",
+"n": "NORMA",
+"a": "Waidhofner Straße 42a, 3300 Greinsfurth",
+"b": 48.10935,
+"l": 14.83869
+},
+{
+"h": "Norma",
+"n": "Norma",
+"a": "Thalerstraße 2, 4452 Ternberg",
+"b": 47.94388,
+"l": 14.36002
+},
+{
+"h": "Penny",
+"n": "PENNY",
+"a": "Seitenstettner Straße 1a, 4400 Steyr",
+"b": 48.04733,
+"l": 14.44597
+},
+{
+"h": "Penny",
+"n": "PENNY",
+"a": "",
+"b": 48.12302,
+"l": 14.87305
+},
+{
+"h": "Penny",
+"n": "PENNY",
+"a": "35.a Straße 1, 3331 Kematen an der Ybbs",
+"b": 48.03779,
+"l": 14.77668
+},
+{
+"h": "Penny",
+"n": "PENNY",
+"a": "4300 Sankt Valentin",
+"b": 48.16914,
+"l": 14.51442
+},
+{
+"h": "Penny",
+"n": "PENNY",
+"a": "Linzer Straße 29, 3350 Haag",
+"b": 48.11278,
+"l": 14.56167
+},
+{
+"h": "Penny",
+"n": "Penny",
+"a": "Waidhofner Straße 28, 3335 Weyer",
+"b": 47.86065,
+"l": 14.66843
+},
+{
+"h": "Penny",
+"n": "Penny",
+"a": "Gewerbestraße 1, 4541 Adlwang",
+"b": 48.0294,
+"l": 14.22591
+},
+{
+"h": "Penny",
+"n": "Penny Markt",
+"a": "Fachmarktring 83, 4407 Dietach",
+"b": 48.0801,
+"l": 14.42572
+},
+{
+"h": "Spar",
+"n": "SPAR",
+"a": "",
+"b": 48.06064,
+"l": 14.45387
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Hans-Wagner-Straße 2, 4400 Steyr",
+"b": 48.05278,
+"l": 14.44153
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Wehrgrabengasse 18, 4400 Steyr",
+"b": 48.0426,
+"l": 14.40664
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "",
+"b": 48.03428,
+"l": 14.42466
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Hauptplatz 11, 4540 Bad Hall",
+"b": 48.03486,
+"l": 14.2092
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "3331 Kematen an der Ybbs",
+"b": 48.03681,
+"l": 14.77694
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "",
+"b": 48.03039,
+"l": 14.41096
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Im Ort 4, 3353 Biberbach",
+"b": 48.02884,
+"l": 14.70995
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Ybbsstraße 13, 3300 Amstetten",
+"b": 48.1194,
+"l": 14.87116
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Steyrer Straße 8, 3353 Seitenstetten",
+"b": 48.03661,
+"l": 14.65154
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Marktplatz 5, 3364 Neuhofen an der Ybbs",
+"b": 48.05771,
+"l": 14.85542
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "",
+"b": 48.07688,
+"l": 14.45814
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Landstraße 1, 3362 Oed-Oehling",
+"b": 48.09873,
+"l": 14.79976
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "",
+"b": 48.08298,
+"l": 14.93146
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Linzer Straße 2, 4493 Wolfern",
+"b": 48.08632,
+"l": 14.36954
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Florianusstraße 2, 3361 Aschbach-Markt",
+"b": 48.07074,
+"l": 14.74204
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Alte Poststraße 11-12, 3341 Ybbsitz",
+"b": 47.94885,
+"l": 14.89323
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Werner-von-Siemens-Straße 1, 4400 Steyr",
+"b": 48.06034,
+"l": 14.42094
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Am Ortsplatz 7, 4462 Reichraming",
+"b": 47.89004,
+"l": 14.46016
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Hauptplatz 4, 3355 Ertl",
+"b": 47.9776,
+"l": 14.63117
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Hauptstraße 34, 3314 Strengberg",
+"b": 48.14492,
+"l": 14.64366
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Parksiedlung 7, 3300 Amstetten",
+"b": 48.13013,
+"l": 14.86132
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Burgholzstraße 24, 3352 St. Peter in der Au",
+"b": 48.04109,
+"l": 14.61881
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "30, 3351 Weistrach",
+"b": 48.05241,
+"l": 14.58284
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Balldorf 8, 3304 St. Georgen am Ybbsfelde",
+"b": 48.12439,
+"l": 14.97404
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "218, 3343 Hollenstein an der Ybbs",
+"b": 47.80454,
+"l": 14.77274
+},
+{
+"h": "Spar",
+"n": "Spar",
+"a": "Alleestraße 1, 4431 Haidershofen",
+"b": 48.08966,
+"l": 14.47643
+},
+{
+"h": "Spar",
+"n": "Spar Express",
+"a": "",
+"b": 48.0413,
+"l": 14.42855
+},
+{
+"h": "Spar",
+"n": "Spar Express",
+"a": "",
+"b": 48.12187,
+"l": 14.87291
+}
+]

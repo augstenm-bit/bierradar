@@ -399,3 +399,21 @@ double entfernungKm(double b1, double l1, double b2, double l2) {
 
 /// Händler, die nur mit Gewerbekarte einkaufen lassen.
 const gewerbeHaendler = {'Metro': Kundenkarte.metro, 'Transgourmet': Kundenkarte.transgourmet};
+
+/// Eine echte Filiale (aus OpenStreetMap).
+class Filiale {
+  const Filiale(this.haendler, this.name, this.adresse, this.breite, this.laenge);
+  final String haendler;
+  final String name;
+  final String adresse;
+  final double breite;
+  final double laenge;
+
+  factory Filiale.ausJson(Map<String, dynamic> j) => Filiale(
+    j['h'] as String,
+    j['n'] as String,
+    j['a'] as String? ?? '',
+    (j['b'] as num).toDouble(),
+    (j['l'] as num).toDouble(),
+  );
+}
