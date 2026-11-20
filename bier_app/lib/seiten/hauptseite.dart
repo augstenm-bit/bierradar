@@ -135,7 +135,7 @@ class _AngeboteSeiteState extends State<_AngeboteSeite> {
             padding: const EdgeInsets.only(bottom: 24),
             children: [
               _Kopf(z: z, treffer: fuerDichAlle.length),
-              _UmkreisLeiste(z: z),
+              _UmkreisLeiste(key: ValueKey(z.radiusKm), z: z),
               _ErsparnisLeiste(woche: _wochenErsparnis(fuerDichAlle), gesamt: z.gespartGesamt),
               if (z.angeboteFehler != null)
                 Padding(
@@ -183,10 +183,41 @@ class _AngeboteSeiteState extends State<_AngeboteSeite> {
                       Text(
                         z.auswahl.isEmpty
                             ? 'Du hast noch keine Biere ausgewählt.\nTippe unten auf „Meine Biere“.'
-                            : 'Gerade nichts für dich auf dem Radar.\nSobald etwas auftaucht, melden wir uns.',
+                            : 'Im Umkreis von ${z.radiusKm.round()} km gibt es gerade keine Aktion für deine Biere.',
                         textAlign: TextAlign.center,
                         style: const TextStyle(color: textGedaempft, height: 1.5),
                       ),
+                      if (z.auswahl.isNotEmpty && _filter == _Filter.alle) ...[
+                        const SizedBox(height: 16),
+                        Builder(
+                          builder: (_) {
+                            final vorschlag = z.umkreisVorschlag();
+                            if (vorschlag == null) {
+                              return const Text(
+                                'Auch bis 100 km nichts – sobald etwas auftaucht, melden wir uns.',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: textGedaempft, fontSize: 13),
+                              );
+                            }
+                            final (km, anzahl) = vorschlag;
+                            return Column(
+                              children: [
+                                Text(
+                                  'Ab $km km gibt es $anzahl ${anzahl == 1 ? 'Aktion' : 'Aktionen'} für deine Biere.',
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(color: radarMintHell, fontWeight: FontWeight.w600),
+                                ),
+                                const SizedBox(height: 10),
+                                FilledButton.icon(
+                                  onPressed: () => z.radiusSetzen(km.toDouble()),
+                                  icon: const Icon(Icons.radar),
+                                  label: Text('Umkreis auf $km km erweitern'),
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -1365,7 +1396,7 @@ Future<int?> _frageAnzahl(BuildContext context, Angebot a, int start, bool schon
 
 /// Schieber für die Radar-Reichweite (1–100 km). Nach „Suchen“ läuft kurz die Radar-Animation.
 class _UmkreisLeiste extends StatefulWidget {
-  const _UmkreisLeiste({required this.z});
+  const _UmkreisLeiste({super.key, required this.z});
   final AppZustand z;
 
   @override

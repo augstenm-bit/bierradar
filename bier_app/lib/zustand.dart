@@ -95,6 +95,22 @@ class AppZustand extends ChangeNotifier {
     return beste;
   }
 
+  /// Kleinster Umkreis (in sinnvollen Schritten) mit Treffern: (km, Anzahl) – oder null bis 100 km.
+  (int, int)? umkreisVorschlag() {
+    final vorher = radiusKm;
+    try {
+      for (final km in [2, 3, 5, 7, 10, 15, 20, 25, 30, 40, 50, 75, 100]) {
+        if (km <= vorher) continue;
+        radiusKm = km.toDouble(); // nur zum Durchrechnen, ohne Speichern
+        final n = treffer(angebote).where((t) => t.bewertung != Bewertung.zuTeuer).length;
+        if (n > 0) return (km, n);
+      }
+      return null;
+    } finally {
+      radiusKm = vorher;
+    }
+  }
+
   /// Anzahl Geschäfte (aller Ketten) im Umkreis.
   int get geschaefteImUmkreis =>
       filialen.where((f) => entfernungKm(mitteBreite, mitteLaenge, f.breite, f.laenge) <= radiusKm).length;

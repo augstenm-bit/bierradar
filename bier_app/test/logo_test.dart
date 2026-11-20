@@ -55,9 +55,8 @@ void _logo(Canvas canvas, double g, ui.Image pirat, {required bool mitHintergrun
     mitte,
     r,
     Paint()
-      ..shader = const SweepGradient(
-        colors: [bierGoldHell, bierOrange, bierGoldHell],
-      ).createShader(Rect.fromCircle(center: mitte, radius: r))
+      ..shader = const SweepGradient(colors: [bierGoldHell, bierOrange, bierGoldHell])
+          .createShader(Rect.fromCircle(center: mitte, radius: r))
       ..style = PaintingStyle.stroke
       ..strokeWidth = s * 0.022,
   );

@@ -109,4 +109,28 @@ void main() {
     z.radiusKm = 40; // Haid liegt ca. 23 km Luftlinie entfernt
     expect(z.treffer([an('Maximarkt')]).length, 1);
   });
+
+  test('Umkreis-Vorschlag: Hinterbergerstraße Steyr, 1 km ohne Lidl → ab 3 km', () {
+    final z = AppZustand();
+    z.filialen = const [
+      Filiale('Hofer', 'Hofer', 'Haager Straße 58', 48.0589, 14.4560),
+      Filiale('Lidl', 'Lidl', 'Steyr', 48.0466, 14.4249),
+    ];
+    z.auswahl['kaiser'] = {Verpackung.kiste20x05: Wunsch(maxPreis: 20)};
+    z.angebote = [
+      Angebot(
+        bierId: 'kaiser',
+        verpackung: Verpackung.kiste20x05,
+        haendler: 'Lidl',
+        preis: 14.8,
+        von: DateTime(2026, 11, 19),
+        bis: DateTime(2099, 1, 1),
+      ),
+    ];
+    z.standortSetzen(48.05466, 14.45104); // Hinterbergerstraße 2
+    z.radiusKm = 1;
+    expect(z.treffer(z.angebote), isEmpty);
+    expect(z.umkreisVorschlag(), (3, 1));
+    expect(z.radiusKm, 1); // Vorschlag ändert den Umkreis nicht
+  });
 }
