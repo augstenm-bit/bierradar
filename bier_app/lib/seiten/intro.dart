@@ -170,9 +170,14 @@ double _wellenY(Size size, double fuellung, double zeit, double x) {
       math.sin(x / size.width * 2 * math.pi * 2.7 - phase * 1.4) * hub * 0.35;
 }
 
+/// Wellen-Oberfläche in genau 41 Punkten. Wichtig: feste Anzahl statt „x += Breite / 40“ –
+/// Android meldet beim ersten Bild manchmal Breite 0, dann käme die Schleife nie zum Ende.
 Path oberflaechePfad(Size size, double fuellung, double zeit) {
-  final p = Path()..moveTo(0, size.height);
-  for (var x = 0.0; x <= size.width + 0.1; x += size.width / 40) {
+  final p = Path();
+  if (size.isEmpty) return p;
+  p.moveTo(0, size.height);
+  for (var i = 0; i <= 40; i++) {
+    final x = size.width * i / 40;
     p.lineTo(x, _wellenY(size, fuellung, zeit, x));
   }
   return p
@@ -193,7 +198,7 @@ class _PerlenMaler extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    if (fuellung <= 0) return;
+    if (fuellung <= 0 || size.isEmpty) return;
     final w = size.width;
     final h = size.height;
     final oben = _oben(size, fuellung);
@@ -217,9 +222,10 @@ class _PerlenMaler extends CustomPainter {
     // Schaumrand an der Oberfläche, solange das Bier noch steigt
     if (oben > -20) {
       final rand = Path();
-      for (var x = 0.0; x <= w + 0.1; x += w / 40) {
+      for (var i = 0; i <= 40; i++) {
+        final x = w * i / 40;
         final y = _wellenY(size, fuellung, zeit, x);
-        x == 0 ? rand.moveTo(x, y) : rand.lineTo(x, y);
+        i == 0 ? rand.moveTo(x, y) : rand.lineTo(x, y);
       }
       canvas.drawPath(
         rand,
@@ -332,6 +338,7 @@ class GlasRadarMaler extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    if (size.isEmpty) return;
     final r = size.shortestSide / 2;
     final m = size.center(Offset.zero);
     final weiss = Colors.white;

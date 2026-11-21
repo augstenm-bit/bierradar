@@ -117,5 +117,6 @@ flutter_native_splash:
   color: "#0A0E17"
   android_12:
     color: "#0A0E17"
-    image: assets/logo/bierradar_vordergrund.png
+    # Leeres Bild: Android zeigt sonst das Symbol, das iPhone nur Dunkelblau - so sehen beide gleich aus
+    image: assets/logo/startbild_leer.png
     icon_background_color: "#0A0E17"
