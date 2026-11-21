@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-21T16:51:19+00:00",
+ "stand": "2026-11-21T17:48:17+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
  "anzahl": 93,
@@ -124,25 +124,6 @@
    "bierId": "wieselburger",
    "marke": "Wieselburger",
    "titel": "Gold",
-   "verpackung": "karton24x033",
-   "liter": 7.92,
-   "haendler": "Lagerhaus",
-   "preis": 16.8,
-   "statt": 28.56,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-16",
-   "bis": "2026-11-29",
-   "hinweis": "Flasche Mehrweg Kiste = 24x0,33 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich em...",
-   "regionen": null,
-   "gebiete": [
-    "amstetten"
-   ]
-  },
-  {
-   "bierId": "wieselburger",
-   "marke": "Wieselburger",
-   "titel": "Gold",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Lagerhaus",
@@ -153,6 +134,25 @@
    "von": "2026-11-16",
    "bis": "2026-11-29",
    "hinweis": "Flasche Mehrweg Kiste = 20x0,5 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich emp...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "karton24x033",
+   "liter": 7.92,
+   "haendler": "Lagerhaus",
+   "preis": 16.8,
+   "statt": 28.56,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-29",
+   "hinweis": "Flasche Mehrweg Kiste = 24x0,33 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich em...",
    "regionen": null,
    "gebiete": [
     "amstetten"
@@ -328,7 +328,7 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in Oberösterreich, Salzburg, Tirol...",
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in Oberösterreich, Salzburg, Tirol und ...",
    "regionen": null,
    "gebiete": [
     "amstetten",
