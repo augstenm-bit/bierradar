@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-22T11:49:20+00:00",
+ "stand": "2026-11-22T12:58:02+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
  "anzahl": 86,
@@ -608,13 +608,13 @@
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Billa Plus",
-   "preis": 0.69,
-   "statt": 1.34,
+   "preis": 0.86,
+   "statt": 1.29,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,33 Liter",
+   "hinweis": "0,33 Liter Einweg",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -627,13 +627,13 @@
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Billa Plus",
-   "preis": 0.86,
-   "statt": 1.29,
+   "preis": 0.69,
+   "statt": 1.34,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,33 Liter Einweg",
+   "hinweis": "0,33 Liter",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -948,25 +948,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter, max. 4 Trays",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Maximarkt",
@@ -977,6 +958,25 @@
    "von": "2026-11-19",
    "bis": "2026-11-25",
    "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter, max. 4 Trays",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -996,6 +996,25 @@
    "von": "2026-11-19",
    "bis": "2026-11-25",
    "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Drei",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -1029,25 +1048,6 @@
    "haendler": "Maximarkt",
    "preis": 0.7,
    "statt": 1.4,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Drei",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.74,
-   "statt": 1.49,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
