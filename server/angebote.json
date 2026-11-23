@@ -1,8 +1,8 @@
 {
- "stand": "2026-11-22T22:49:34+00:00",
+ "stand": "2026-11-23T05:23:36+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
- "anzahl": 86,
+ "anzahl": 90,
  "angebote": [
   {
    "bierId": "stiegl",
@@ -191,7 +191,7 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter. Angebot in deinem Adeg Aktiv-Markt erhältlich.",
+   "hinweis": "20 x 0,5 Liter. Angebot in deinem Adeg Nahversorger-Markt erhältlich.",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -1727,6 +1727,86 @@
    "von": "2026-11-26",
    "bis": "2026-11-28",
    "hinweis": "HINWEIS: MIT LIDL PLUS APP 7.99 € Je 12x 0,5 l.",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Penny",
+   "preis": 0.77,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "od. Naturradler 0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Penny",
+   "preis": 0.79,
+   "statt": 1.45,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zwettler",
+   "marke": "Zwettler",
+   "titel": "Stiftsbräu",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Penny",
+   "preis": 9.8,
+   "statt": 17.8,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-11-28",
+   "hinweis": "20 x 0,5 l Preis exkl. Pfand",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": null,
+   "marke": "Peroni",
+   "titel": "Nastro Azzurro",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Norma",
+   "preis": 0.95,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-30",
+   "bis": "2026-12-05",
+   "hinweis": "je 330 ml",
    "regionen": null,
    "gebiete": [
     "amstetten",

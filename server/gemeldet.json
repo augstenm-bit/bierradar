@@ -11,6 +11,7 @@
  "goesser|flasche05|Billa|0.74|2026-11-19": "2026-11-19T14:44",
  "goesser|flasche05|Eurospar|0.74|2026-11-19": "2026-11-19T14:44",
  "goesser|flasche05|Maximarkt|0.74|2026-11-19": "2026-11-19T14:44",
+ "goesser|flasche05|Penny|0.77|2026-11-26": "2026-11-23T05:23",
  "goesser|flasche05|Spar|0.74|2026-11-19": "2026-11-19T14:44",
  "goesser|kiste20x05|Billa Plus|13.8|2026-11-19": "2026-11-19T14:44",
  "goesser|kiste20x05|Billa|13.8|2026-11-19": "2026-11-19T14:44",
@@ -51,6 +52,7 @@
  "wieselburger|flasche033|Spar|1.29|2026-11-19": "2026-11-19T14:44",
  "wieselburger|flasche05|Billa Plus|0.69|2026-11-19": "2026-11-19T14:44",
  "wieselburger|flasche05|Billa|0.69|2026-11-19": "2026-11-19T14:44",
+ "wieselburger|flasche05|Penny|0.79|2026-11-26": "2026-11-23T05:23",
  "wieselburger|flasche05|Spar|1.45|2026-11-19": "2026-11-19T14:44",
  "wieselburger|karton24x033|Lagerhaus|16.8|2026-11-16": "2026-11-19T14:44",
  "wieselburger|kiste20x05|ADEG|14.8|2026-11-19": "2026-11-19T14:44",
@@ -79,5 +81,6 @@
  "zipfer_urtyp|kiste20x05|Billa|14.4|2026-11-19": "2026-11-19T14:44",
  "zipfer_urtyp|kiste20x05|Interspar|28.6|2026-11-19": "2026-11-19T14:44",
  "zipfer_urtyp|kiste20x05|Maximarkt|14.3|2026-11-19": "2026-11-19T14:44",
- "zipfer_urtyp|kiste20x05|Spar|28.6|2026-11-19": "2026-11-19T14:44"
+ "zipfer_urtyp|kiste20x05|Spar|28.6|2026-11-19": "2026-11-19T14:44",
+ "zwettler|kiste20x05|Penny|9.8|2026-11-26": "2026-11-23T05:23"
 }
