@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-23T09:32:19+00:00",
+ "stand": "2026-11-23T11:13:31+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
  "anzahl": 94,
@@ -124,25 +124,6 @@
    "bierId": "wieselburger",
    "marke": "Wieselburger",
    "titel": "Gold",
-   "verpackung": "karton24x033",
-   "liter": 7.92,
-   "haendler": "Lagerhaus",
-   "preis": 16.8,
-   "statt": 28.56,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-16",
-   "bis": "2026-11-29",
-   "hinweis": "Flasche Mehrweg Kiste = 24x0,33 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich em...",
-   "regionen": null,
-   "gebiete": [
-    "amstetten"
-   ]
-  },
-  {
-   "bierId": "wieselburger",
-   "marke": "Wieselburger",
-   "titel": "Gold",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Lagerhaus",
@@ -153,6 +134,25 @@
    "von": "2026-11-16",
    "bis": "2026-11-29",
    "hinweis": "Flasche Mehrweg Kiste = 20x0,5 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich emp...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "karton24x033",
+   "liter": 7.92,
+   "haendler": "Lagerhaus",
+   "preis": 16.8,
+   "statt": 28.56,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-16",
+   "bis": "2026-11-29",
+   "hinweis": "Flasche Mehrweg Kiste = 24x0,33 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich em...",
    "regionen": null,
    "gebiete": [
     "amstetten"
@@ -251,7 +251,7 @@
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in Oberösterreich, Salzburg, Tirol...",
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in Oberösterreich, Salzburg, Tirol und ...",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -324,13 +324,13 @@
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Billa",
-   "preis": 0.86,
-   "statt": 1.29,
+   "preis": 0.69,
+   "statt": 1.34,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,33 Liter Einweg",
+   "hinweis": "0,33 Liter",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -344,13 +344,13 @@
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Billa",
-   "preis": 0.69,
-   "statt": 1.34,
+   "preis": 0.86,
+   "statt": 1.29,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,33 Liter",
+   "hinweis": "0,33 Liter Einweg",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -706,26 +706,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Eurospar",
-   "preis": 14.9,
-   "statt": 29.8,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "20 x 0,5 Liter",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "flasche05",
    "liter": 0.5,
    "haendler": "Eurospar",
@@ -736,6 +716,26 @@
    "von": "2026-11-19",
    "bis": "2026-12-02",
    "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Eurospar",
+   "preis": 14.9,
+   "statt": 29.8,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5 Liter",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -1042,6 +1042,25 @@
   {
    "bierId": "zipfer_maerzen",
    "marke": "Zipfer",
+   "titel": "Drei",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
    "titel": "Märzen",
    "verpackung": "kiste20x05",
    "liter": 10.0,
@@ -1072,25 +1091,6 @@
    "von": "2026-11-19",
    "bis": "2026-11-25",
    "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Drei",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -1160,26 +1160,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Spar",
-   "preis": 14.9,
-   "statt": 29.8,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "20 x 0,5 Liter",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "flasche05",
    "liter": 0.5,
    "haendler": "Spar",
@@ -1190,6 +1170,26 @@
    "von": "2026-11-19",
    "bis": "2026-12-02",
    "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Spar",
+   "preis": 14.9,
+   "statt": 29.8,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5 Liter",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -1339,26 +1339,6 @@
    ]
   },
   {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Drei",
-   "verpackung": "tragerl6x05",
-   "liter": 3.0,
-   "haendler": "Spar",
-   "preis": 8.58,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "6 x 0,5 Liter",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
    "bierId": "zipfer_urtyp",
    "marke": "Zipfer",
    "titel": "Urtyp",
@@ -1372,6 +1352,26 @@
    "von": "2026-11-19",
    "bis": "2026-12-02",
    "hinweis": "20 x 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Drei",
+   "verpackung": "tragerl6x05",
+   "liter": 3.0,
+   "haendler": "Spar",
+   "preis": 8.58,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "6 x 0,5 Liter",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -1470,7 +1470,7 @@
    "statt": 1.19,
    "kartenPreis": null,
    "karte": null,
-   "von": "2026-11-20",
+   "von": "2026-11-23",
    "bis": "2026-11-26",
    "hinweis": "5,0 % Vol. 0,5 l",
    "regionen": null,
