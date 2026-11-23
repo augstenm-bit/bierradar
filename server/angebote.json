@@ -1,8 +1,8 @@
 {
- "stand": "2026-11-23T05:23:36+00:00",
+ "stand": "2026-11-23T07:39:44+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
- "anzahl": 90,
+ "anzahl": 94,
  "angebote": [
   {
    "bierId": "stiegl",
@@ -608,13 +608,13 @@
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Billa Plus",
-   "preis": 0.86,
-   "statt": 1.29,
+   "preis": 0.69,
+   "statt": 1.34,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,33 Liter Einweg",
+   "hinweis": "0,33 Liter",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -627,13 +627,13 @@
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Billa Plus",
-   "preis": 0.69,
-   "statt": 1.34,
+   "preis": 0.86,
+   "statt": 1.29,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
    "bis": "2026-11-25",
-   "hinweis": "0,33 Liter",
+   "hinweis": "0,33 Liter Einweg",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -948,25 +948,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Maximarkt",
-   "preis": 14.9,
-   "statt": 29.8,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "flasche05",
    "liter": 0.5,
    "haendler": "Maximarkt",
@@ -977,6 +958,25 @@
    "von": "2026-11-19",
    "bis": "2026-11-25",
    "hinweis": "0,5 Liter, max. 4 Trays",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Maximarkt",
+   "preis": 14.9,
+   "statt": 29.8,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -996,25 +996,6 @@
    "von": "2026-11-19",
    "bis": "2026-11-25",
    "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Drei",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -1048,6 +1029,25 @@
    "haendler": "Maximarkt",
    "preis": 0.7,
    "statt": 1.4,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Drei",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.74,
+   "statt": 1.49,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
@@ -1603,13 +1603,13 @@
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Transgourmet",
-   "preis": 0.74,
+   "preis": 0.84,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-23",
    "bis": "2026-11-28",
-   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Kiste = 24 Fl., 0,33 l",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Krt. = 12 Fl., 0,33 l",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -1622,13 +1622,13 @@
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Transgourmet",
-   "preis": 0.84,
+   "preis": 0.74,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-23",
    "bis": "2026-11-28",
-   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Krt. = 12 Fl., 0,33 l",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Kiste = 24 Fl., 0,33 l",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -1794,6 +1794,26 @@
    ]
   },
   {
+   "bierId": "egger",
+   "marke": "Egger",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Norma",
+   "preis": 0.59,
+   "statt": 1.09,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-30",
+   "bis": "2026-12-06",
+   "hinweis": "Premium Bier je 0,5 l, exkl. Pfand",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
    "bierId": null,
    "marke": "Peroni",
    "titel": "Nastro Azzurro",
@@ -1810,6 +1830,63 @@
    "regionen": null,
    "gebiete": [
     "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": null,
+   "marke": "Brauhaus Gusswerk",
+   "titel": "Craftbeer",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Transgourmet",
+   "preis": 1.99,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-30",
+   "bis": "2026-12-05",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER versch. Sorten 1 Krt. = 6 Pkg., 0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": null,
+   "marke": "Kalea",
+   "titel": "Männerhandtasche",
+   "verpackung": "sonstige",
+   "liter": 3.96,
+   "haendler": "Transgourmet",
+   "preis": 19.99,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-30",
+   "bis": "2026-12-05",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER XXL 1 Pkg., 12 x 0,33 l",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "stiegl",
+   "marke": "Stiegl",
+   "titel": "Wildshut Bio Perlage",
+   "verpackung": "sonstige",
+   "liter": 0.75,
+   "haendler": "Transgourmet",
+   "preis": 17.99,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-30",
+   "bis": "2026-12-05",
+   "hinweis": "HINWEIS: NUR FÜR GROSSHÄNDLER 1 Krt. = 6 Fl., 0,75 l",
+   "regionen": null,
+   "gebiete": [
     "steyr"
    ]
   }
