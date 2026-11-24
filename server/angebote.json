@@ -1,8 +1,8 @@
 {
- "stand": "2026-11-24T07:29:08+00:00",
+ "stand": "2026-11-24T09:11:02+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
- "anzahl": 119,
+ "anzahl": 124,
  "angebote": [
   {
    "bierId": "stiegl",
@@ -467,26 +467,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa Plus",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "od. Naturradler 0,5 Liter",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Billa Plus",
@@ -497,6 +477,26 @@
    "von": "2026-11-19",
    "bis": "2026-11-25",
    "hinweis": "20 x 0,5 Liter, auch im 6er-Träger. Warengruppenrabatt zusätzlich gültig",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Billa Plus",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "od. Naturradler 0,5 Liter",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -948,25 +948,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter, max. 4 Trays",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Maximarkt",
@@ -977,6 +958,25 @@
    "von": "2026-11-19",
    "bis": "2026-11-25",
    "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter, max. 4 Trays",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -996,6 +996,25 @@
    "von": "2026-11-19",
    "bis": "2026-11-25",
    "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Drei",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Maximarkt",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-11-25",
+   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
    "regionen": null,
    "gebiete": [
     "steyr"
@@ -1029,25 +1048,6 @@
    "haendler": "Maximarkt",
    "preis": 0.7,
    "statt": 1.4,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Drei",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.74,
-   "statt": 1.49,
    "kartenPreis": null,
    "karte": null,
    "von": "2026-11-19",
@@ -1361,6 +1361,26 @@
   {
    "bierId": "zipfer_maerzen",
    "marke": "Zipfer",
+   "titel": "Drei",
+   "verpackung": "tragerl6x05",
+   "liter": 3.0,
+   "haendler": "Spar",
+   "preis": 8.58,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "6 x 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
    "titel": "Märzen",
    "verpackung": "kiste20x05",
    "liter": 10.0,
@@ -1376,26 +1396,6 @@
     "Oberösterreich",
     "Salzburg"
    ],
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Drei",
-   "verpackung": "tragerl6x05",
-   "liter": 3.0,
-   "haendler": "Spar",
-   "preis": 8.58,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "6 x 0,5 Liter",
-   "regionen": null,
    "gebiete": [
     "amstetten",
     "steyr"
@@ -2298,6 +2298,106 @@
    "von": "2026-11-26",
    "bis": "2026-11-28",
    "hinweis": "20 x 0,5 l Preis exkl. Pfand",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Hofer",
+   "preis": 13.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-27",
+   "bis": "2026-11-28",
+   "hinweis": "zzgl. Pfand € 0,20 5,2% Vol. 20 x 0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "ottakringer",
+   "marke": "Ottakringer",
+   "titel": "Kühles Blondes Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Hofer",
+   "preis": 0.59,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-27",
+   "bis": "2026-11-28",
+   "hinweis": "zzgl. Pfand € 0,25 5,0% Vol. 0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "stiegl",
+   "marke": "Stiegl",
+   "titel": "Goldbräu",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Hofer",
+   "preis": 0.64,
+   "statt": 1.29,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-27",
+   "bis": "2026-11-28",
+   "hinweis": "5,0% Vol. 0,33 l Pfandfrei",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "stiegl",
+   "marke": "Stiegl",
+   "titel": "Goldbräu",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Hofer",
+   "preis": 13.8,
+   "statt": 14.8,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-27",
+   "bis": "2026-11-28",
+   "hinweis": "zzgl. Pfand € 0,20 5,0% Vol. 20 x 0,5 l",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Hofer",
+   "preis": 13.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-27",
+   "bis": "2026-11-28",
+   "hinweis": "zzgl. Pfand € 0,20 5,0% Vol. 20 x 0,5 l",
    "regionen": null,
    "gebiete": [
     "amstetten",
