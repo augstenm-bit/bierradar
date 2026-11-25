@@ -1,8 +1,8 @@
 {
- "stand": "2026-11-25T22:02:40+00:00",
+ "stand": "2026-11-25T23:02:11+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
- "anzahl": 158,
+ "anzahl": 149,
  "angebote": [
   {
    "bierId": "stiegl",
@@ -39,8 +39,7 @@
    "hinweis": "od. 0,0% 24-Fl-Kiste od. 6-Fl-Träger 0,355-l-MW-Fl. Bei den abgebildeten Preisen handelt es sich um ...",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -59,8 +58,7 @@
    "hinweis": "od. König Ludwig div. Sorten 0,5-l-MW-Fl 20-Fl-Kiste. Bei den abgebildeten Preisen handelt es sich u...",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -174,8 +172,7 @@
    "hinweis": "20 x 0,5 Liter. Angebot in deinem Adeg Nahversorger-Markt erhältlich.",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -194,8 +191,7 @@
    "hinweis": "20 x 0,5 Liter. Angebot in deinem Adeg Nahversorger-Markt erhältlich.",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -214,8 +210,7 @@
    "hinweis": "20 x 0,5 Liter, auch im 6er-Träger",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -234,8 +229,7 @@
    "hinweis": "od. Naturgold 0,5 Liter",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -254,8 +248,7 @@
    "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in Oberösterreich, Salzburg, Tirol und ...",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -274,8 +267,7 @@
    "hinweis": "0,5 Liter",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -313,8 +305,7 @@
    "hinweis": "0,5 Liter",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -333,8 +324,7 @@
    "hinweis": "0,33 Liter",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -353,8 +343,7 @@
    "hinweis": "0,33 Liter Einweg",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -419,8 +408,7 @@
     "Tirol"
    ],
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -439,8 +427,7 @@
    "hinweis": "20 x 0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -459,8 +446,7 @@
    "hinweis": "div. Sorten 0,5 Liter",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -479,8 +465,7 @@
    "hinweis": "20 x 0,5 Liter, auch im 6er-Träger. Warengruppenrabatt zusätzlich gültig",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -499,8 +484,7 @@
    "hinweis": "od. Naturradler 0,5 Liter",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -519,27 +503,7 @@
    "hinweis": "od. 0,0 % 0,33 Liter Einweg",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "kaiser",
-   "marke": "Kaiser",
-   "titel": "Fasstyp",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa Plus",
-   "preis": 13.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Wien, Niederösterreich und im nördli...",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -558,27 +522,7 @@
    "hinweis": "0,5 Liter",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": null,
-   "marke": "Pilsner Urquell",
-   "titel": "Bier",
-   "verpackung": "tragerl6x05",
-   "liter": 3.0,
-   "haendler": "Billa Plus",
-   "preis": 5.94,
-   "statt": 8.94,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "6 x 0,5 Liter Flasche",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -597,46 +541,7 @@
    "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Niederösterreich, im Burgenland, in ...",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "stiegl",
-   "marke": "Stiegl",
-   "titel": "Goldbräu",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Billa Plus",
-   "preis": 0.69,
-   "statt": 1.34,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,33 Liter",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "stiegl",
-   "marke": "Stiegl",
-   "titel": "Goldbräu",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Billa Plus",
-   "preis": 0.86,
-   "statt": 1.29,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,33 Liter Einweg",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -655,8 +560,7 @@
    "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Wien, Niederösterreich und im nördli...",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -675,31 +579,7 @@
    "hinweis": "0,5 Liter",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa Plus",
-   "preis": 14.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen. Gültig in Salzburg, Oberösterreich und Tirol",
-   "regionen": [
-    "Oberösterreich",
-    "Salzburg",
-    "Tirol"
-   ],
-   "gebiete": [
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -940,160 +820,7 @@
    "hinweis": "je 0,5 l.",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter, max. 4 Trays",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Maximarkt",
-   "preis": 14.9,
-   "statt": 29.8,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": null,
-   "marke": "Raschhofer",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Maximarkt",
-   "preis": 13.8,
-   "statt": 18.8,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Märzen",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Maximarkt",
-   "preis": 0.62,
-   "statt": 1.25,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,33 Liter, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Kellerbier",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.7,
-   "statt": 1.4,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Drei",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Maximarkt",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Maximarkt",
-   "preis": 14.0,
-   "statt": 28.0,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_urtyp",
-   "marke": "Zipfer",
-   "titel": "Urtyp",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Maximarkt",
-   "preis": 14.3,
-   "statt": 28.6,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-11-25",
-   "hinweis": "20 x 0,5 Liter MEHRWEG-Flasche, max. 4 Kisten",
-   "regionen": null,
-   "gebiete": [
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -1112,8 +839,7 @@
    "hinweis": "0,33 l",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -1132,8 +858,7 @@
    "hinweis": "0,33 l",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -1152,8 +877,7 @@
    "hinweis": "0,5 l",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -1670,6 +1394,25 @@
    "regionen": null,
    "gebiete": [
     "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "edelweiss",
+   "marke": "Edelweiss",
+   "titel": "Weizenbier",
+   "verpackung": "tragerl6x05",
+   "liter": 3.0,
+   "haendler": "ADEG",
+   "preis": 6.6,
+   "statt": 8.94,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "div. Sorten 6 x 0,5 Liter Angebot in deinem Adeg Aktiv-Markt erhältlich.",
+   "regionen": null,
+   "gebiete": [
     "steyr"
    ]
   },
@@ -2706,6 +2449,63 @@
    "von": "2026-11-26",
    "bis": "2026-12-02",
    "hinweis": "0,5 Liter im 24er-Tray je Dose",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "budweiser",
+   "marke": "Budweiser Budvar (CZ)",
+   "titel": "Budvar",
+   "verpackung": "sonstige",
+   "liter": 5.0,
+   "haendler": "Metro",
+   "preis": 13.0,
+   "statt": 20.19,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-09",
+   "hinweis": "5-l-EW-Fass. Bei den abgebildeten Preisen handelt es sich um Nettopreise.",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "heineken",
+   "marke": "Heineken",
+   "titel": "Bier",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Metro",
+   "preis": 0.79,
+   "statt": 1.44,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-09",
+   "hinweis": "24-Fl-Tray od. 6-Fl-Träger 0,33-l-EW-Fl. Bei den abgebildeten Preisen handelt es sich um Nettopreise...",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Metro",
+   "preis": 0.72,
+   "statt": 1.09,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-09",
+   "hinweis": "12-Fl-Tray 0,33-l-EW-Fl. Bei den abgebildeten Preisen handelt es sich um Nettopreise.",
    "regionen": null,
    "gebiete": [
     "steyr"
