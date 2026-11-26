@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-26T13:26:33+00:00",
+ "stand": "2026-11-26T15:07:47+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
  "anzahl": 132,
@@ -284,13 +284,13 @@
    ]
   },
   {
-   "bierId": "zipfer_urtyp",
+   "bierId": "zipfer_maerzen",
    "marke": "Zipfer",
-   "titel": "Urtyp",
+   "titel": "Märzen",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Interspar",
-   "preis": 28.6,
+   "preis": 28.0,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
@@ -303,13 +303,13 @@
    ]
   },
   {
-   "bierId": "zipfer_maerzen",
+   "bierId": "zipfer_urtyp",
    "marke": "Zipfer",
-   "titel": "Märzen",
+   "titel": "Urtyp",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Interspar",
-   "preis": 28.0,
+   "preis": 28.6,
    "statt": null,
    "kartenPreis": null,
    "karte": null,
@@ -950,27 +950,7 @@
    "karte": null,
    "von": "2026-11-26",
    "bis": "2026-12-02",
-   "hinweis": "0,5 Liter Dose Angebot in deinem Adeg Nahversorger-Markt erhältlich",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa",
-   "preis": 14.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-26",
-   "bis": "2026-12-02",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen",
+   "hinweis": "0,5 Liter Dose Angebot in deinem Adeg Aktiv-Markt erhältlich.",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -991,6 +971,26 @@
    "von": "2026-11-26",
    "bis": "2026-12-02",
    "hinweis": "od. Naturgold 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Billa",
+   "preis": 14.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -1030,8 +1030,12 @@
    "karte": null,
    "von": "2026-11-26",
    "bis": "2026-12-02",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in Oberösterreich, Salzburg, Tirol und ...",
-   "regionen": null,
+   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger. Gültig in Oberösterreich, Salzburg, Tirol und im westl. NÖ.",
+   "regionen": [
+    "Oberösterreich",
+    "Salzburg",
+    "Tirol"
+   ],
    "gebiete": [
     "amstetten",
     "steyr"
@@ -1624,26 +1628,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "dose05",
-   "liter": 0.5,
-   "haendler": "Interspar",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-26",
-   "bis": "2026-12-02",
-   "hinweis": "0,5-Liter-Dose Keine weiteren Rabatte oder Joker einlösbar!",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "flasche033",
    "liter": 0.33,
    "haendler": "Interspar",
@@ -1654,6 +1638,26 @@
    "von": "2026-11-26",
    "bis": "2026-12-02",
    "hinweis": "Naturradler oder Biostoff Lager 0,33-Liter-Mehrweg-Flasche",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "dose05",
+   "liter": 0.5,
+   "haendler": "Interspar",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "0,5-Liter-Dose Keine weiteren Rabatte oder Joker einlösbar!",
    "regionen": null,
    "gebiete": [
     "amstetten",
