@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-26T09:11:38+00:00",
+ "stand": "2026-11-26T10:21:22+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
  "anzahl": 132,
@@ -84,25 +84,6 @@
    "bierId": "wieselburger",
    "marke": "Wieselburger",
    "titel": "Gold",
-   "verpackung": "karton24x033",
-   "liter": 7.92,
-   "haendler": "Lagerhaus",
-   "preis": 16.8,
-   "statt": 28.56,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-16",
-   "bis": "2026-11-29",
-   "hinweis": "Flasche Mehrweg Kiste = 24x0,33 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich em...",
-   "regionen": null,
-   "gebiete": [
-    "amstetten"
-   ]
-  },
-  {
-   "bierId": "wieselburger",
-   "marke": "Wieselburger",
-   "titel": "Gold",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Lagerhaus",
@@ -119,23 +100,22 @@
    ]
   },
   {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Eurospar",
-   "preis": 0.74,
-   "statt": 1.49,
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
+   "verpackung": "karton24x033",
+   "liter": 7.92,
+   "haendler": "Lagerhaus",
+   "preis": 16.8,
+   "statt": 28.56,
    "kartenPreis": null,
    "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "0,5 Liter",
+   "von": "2026-11-16",
+   "bis": "2026-11-29",
+   "hinweis": "Flasche Mehrweg Kiste = 24x0,33 l, Bei dem angezeigten Preis handelt es sich um den unverbindlich em...",
    "regionen": null,
    "gebiete": [
-    "amstetten",
-    "steyr"
+    "amstetten"
    ]
   },
   {
@@ -152,6 +132,26 @@
    "von": "2026-11-19",
    "bis": "2026-12-02",
    "hinweis": "20 x 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Eurospar",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "0,5 Liter",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -523,26 +523,6 @@
    ]
   },
   {
-   "bierId": "zipfer_urtyp",
-   "marke": "Zipfer",
-   "titel": "Urtyp",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Spar",
-   "preis": 28.6,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "20 x 0,5 Liter",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
    "bierId": "zipfer_maerzen",
    "marke": "Zipfer",
    "titel": "Drei",
@@ -556,6 +536,26 @@
    "von": "2026-11-19",
    "bis": "2026-12-02",
    "hinweis": "6 x 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "zipfer_urtyp",
+   "marke": "Zipfer",
+   "titel": "Urtyp",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Spar",
+   "preis": 28.6,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "20 x 0,5 Liter",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -961,26 +961,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa",
-   "preis": 14.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-26",
-   "bis": "2026-12-02",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "flasche05",
    "liter": 0.5,
    "haendler": "Billa",
@@ -991,6 +971,26 @@
    "von": "2026-11-26",
    "bis": "2026-12-02",
    "hinweis": "od. Naturgold 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Billa",
+   "preis": 14.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -1030,8 +1030,12 @@
    "karte": null,
    "von": "2026-11-26",
    "bis": "2026-12-02",
-   "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen, Gültig in Oberösterreich, Salzburg, Tirol und ...",
-   "regionen": null,
+   "hinweis": "20 x 0,5 Liter, auch im 6er-Träger. Gültig in Oberösterreich, Salzburg, Tirol und im westl. NÖ.",
+   "regionen": [
+    "Oberösterreich",
+    "Salzburg",
+    "Tirol"
+   ],
    "gebiete": [
     "amstetten",
     "steyr"
@@ -1079,26 +1083,6 @@
    "bierId": "stiegl",
    "marke": "Stiegl",
    "titel": "Goldbräu",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Billa",
-   "preis": 14.8,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-26",
-   "bis": "2026-12-02",
-   "hinweis": "od. Hell 0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "stiegl",
-   "marke": "Stiegl",
-   "titel": "Goldbräu",
    "verpackung": "flasche05",
    "liter": 0.5,
    "haendler": "Billa",
@@ -1109,6 +1093,26 @@
    "von": "2026-11-26",
    "bis": "2026-12-02",
    "hinweis": "ausgewählte Sorten 0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "stiegl",
+   "marke": "Stiegl",
+   "titel": "Goldbräu",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Billa",
+   "preis": 14.8,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "od. Hell 0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -1182,6 +1186,26 @@
    ]
   },
   {
+   "bierId": "zipfer_urtyp",
+   "marke": "Zipfer",
+   "titel": "Urtyp",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Billa",
+   "preis": 0.79,
+   "statt": 1.59,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "0,5 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
    "bierId": "zipfer_maerzen",
    "marke": "Zipfer",
    "titel": "Märzen",
@@ -1200,26 +1224,6 @@
     "Salzburg",
     "Tirol"
    ],
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_urtyp",
-   "marke": "Zipfer",
-   "titel": "Urtyp",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa",
-   "preis": 0.79,
-   "statt": 1.59,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-26",
-   "bis": "2026-12-02",
-   "hinweis": "0,5 Liter",
-   "regionen": null,
    "gebiete": [
     "amstetten",
     "steyr"
@@ -1248,26 +1252,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Billa Plus",
-   "preis": 0.74,
-   "statt": 1.49,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-26",
-   "bis": "2026-12-02",
-   "hinweis": "od. Naturgold 0,5 Liter. Warengruppenrabatt zusätzlich gültig.",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "kiste20x05",
    "liter": 10.0,
    "haendler": "Billa Plus",
@@ -1278,6 +1262,26 @@
    "von": "2026-11-26",
    "bis": "2026-12-02",
    "hinweis": "0,5 Liter, auch im 6er-Träger, 1 Kiste = 20 Flaschen",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche05",
+   "liter": 0.5,
+   "haendler": "Billa Plus",
+   "preis": 0.74,
+   "statt": 1.49,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "od. Naturgold 0,5 Liter. Warengruppenrabatt zusätzlich gültig.",
    "regionen": null,
    "gebiete": [
     "amstetten",
@@ -1384,6 +1388,25 @@
    ]
   },
   {
+   "bierId": "zipfer_maerzen",
+   "marke": "Zipfer",
+   "titel": "Märzen",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Billa Plus",
+   "preis": 0.62,
+   "statt": 1.25,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "0,33 Liter Einweg",
+   "regionen": null,
+   "gebiete": [
+    "steyr"
+   ]
+  },
+  {
    "bierId": "zipfer_urtyp",
    "marke": "Zipfer",
    "titel": "Urtyp",
@@ -1421,25 +1444,6 @@
     "Salzburg",
     "Tirol"
    ],
-   "gebiete": [
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "zipfer_maerzen",
-   "marke": "Zipfer",
-   "titel": "Märzen",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Billa Plus",
-   "preis": 0.62,
-   "statt": 1.25,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-26",
-   "bis": "2026-12-02",
-   "hinweis": "0,33 Liter Einweg",
-   "regionen": null,
    "gebiete": [
     "steyr"
    ]
@@ -1721,6 +1725,26 @@
   {
    "bierId": null,
    "marke": "Tegernseer Brauhaus",
+   "titel": "Spezial",
+   "verpackung": "kiste20x05",
+   "liter": 10.0,
+   "haendler": "Interspar",
+   "preis": 27.0,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "Ein Spezial-Bier gebraut nach dem bayerischen Reinheitsgebot. Kristallklares Gebirgsquellwasser, Roh...",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": null,
+   "marke": "Tegernseer Brauhaus",
    "titel": "Hell",
    "verpackung": "flasche05",
    "liter": 0.5,
@@ -1752,26 +1776,6 @@
    "von": "2026-11-26",
    "bis": "2026-12-02",
    "hinweis": "Das typisch bayerische, helle Vollbier wird nach dem bayerischen Reinheitsgebot gebraut. Es entsteh...",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": null,
-   "marke": "Tegernseer Brauhaus",
-   "titel": "Spezial",
-   "verpackung": "kiste20x05",
-   "liter": 10.0,
-   "haendler": "Interspar",
-   "preis": 27.0,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-26",
-   "bis": "2026-12-02",
-   "hinweis": "Ein Spezial-Bier gebraut nach dem bayerischen Reinheitsgebot. Kristallklares Gebirgsquellwasser, Roh...",
    "regionen": null,
    "gebiete": [
     "amstetten",
