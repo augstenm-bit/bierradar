@@ -1,8 +1,8 @@
 {
- "stand": "2026-11-26T22:01:11+00:00",
+ "stand": "2026-11-26T23:03:18+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
- "anzahl": 132,
+ "anzahl": 130,
  "angebote": [
   {
    "bierId": "stiegl",
@@ -641,46 +641,6 @@
    "regionen": null,
    "gebiete": [
     "amstetten"
-   ]
-  },
-  {
-   "bierId": "egger",
-   "marke": "Egger",
-   "titel": "Märzen",
-   "verpackung": "flasche05",
-   "liter": 0.5,
-   "haendler": "Hofer",
-   "preis": 0.79,
-   "statt": 1.19,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-23",
-   "bis": "2026-11-26",
-   "hinweis": "5,0 % Vol. 0,5 l",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Hofer",
-   "preis": 0.64,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-23",
-   "bis": "2026-11-26",
-   "hinweis": "5,2 % Vol./2,0 % Vol. 0,33 l",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
    ]
   },
   {
