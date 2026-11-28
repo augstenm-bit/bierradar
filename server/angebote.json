@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-28T09:59:38+00:00",
+ "stand": "2026-11-28T10:58:06+00:00",
  "gebiet": "Bezirk Amstetten",
  "quelle": "marktguru.at (öffentliche Suchseiten)",
  "anzahl": 130,
@@ -462,6 +462,26 @@
    "bierId": "wieselburger",
    "marke": "Wieselburger",
    "titel": "Gold",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Spar",
+   "preis": 1.29,
+   "statt": null,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-19",
+   "bis": "2026-12-02",
+   "hinweis": "0,33 Liter",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "wieselburger",
+   "marke": "Wieselburger",
+   "titel": "Gold",
    "verpackung": "flasche05",
    "liter": 0.5,
    "haendler": "Spar",
@@ -497,26 +517,6 @@
     "Niederösterreich",
     "Burgenland"
    ],
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "wieselburger",
-   "marke": "Wieselburger",
-   "titel": "Gold",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Spar",
-   "preis": 1.29,
-   "statt": null,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-19",
-   "bis": "2026-12-02",
-   "hinweis": "0,33 Liter",
-   "regionen": null,
    "gebiete": [
     "amstetten",
     "steyr"
@@ -1588,26 +1588,6 @@
    "bierId": "goesser",
    "marke": "Gösser",
    "titel": "Märzen",
-   "verpackung": "flasche033",
-   "liter": 0.33,
-   "haendler": "Interspar",
-   "preis": 0.61,
-   "statt": 1.22,
-   "kartenPreis": null,
-   "karte": null,
-   "von": "2026-11-26",
-   "bis": "2026-12-02",
-   "hinweis": "Naturradler oder Biostoff Lager 0,33-Liter-Mehrweg-Flasche",
-   "regionen": null,
-   "gebiete": [
-    "amstetten",
-    "steyr"
-   ]
-  },
-  {
-   "bierId": "goesser",
-   "marke": "Gösser",
-   "titel": "Märzen",
    "verpackung": "dose05",
    "liter": 0.5,
    "haendler": "Interspar",
@@ -1618,6 +1598,26 @@
    "von": "2026-11-26",
    "bis": "2026-12-02",
    "hinweis": "0,5-Liter-Dose Keine weiteren Rabatte oder Joker einlösbar!",
+   "regionen": null,
+   "gebiete": [
+    "amstetten",
+    "steyr"
+   ]
+  },
+  {
+   "bierId": "goesser",
+   "marke": "Gösser",
+   "titel": "Märzen",
+   "verpackung": "flasche033",
+   "liter": 0.33,
+   "haendler": "Interspar",
+   "preis": 0.61,
+   "statt": 1.22,
+   "kartenPreis": null,
+   "karte": null,
+   "von": "2026-11-26",
+   "bis": "2026-12-02",
+   "hinweis": "Naturradler oder Biostoff Lager 0,33-Liter-Mehrweg-Flasche",
    "regionen": null,
    "gebiete": [
     "amstetten",
